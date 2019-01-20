@@ -3,7 +3,7 @@ package com.company;
 
 import java.util.Arrays;
 
-public class Main {
+public class Strochni_massiv {
 
     public static void main(String[] args) {
 	//String mas[][] = {{"i","was","here","yesterday"},
