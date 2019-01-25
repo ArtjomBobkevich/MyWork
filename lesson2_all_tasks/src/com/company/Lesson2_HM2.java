@@ -20,17 +20,25 @@ public class Lesson2_HM2 {
         int LA= sc3.nextInt();
         System.out.println("Введите ширину участка: ");
         int WA=sc4.nextInt();
-        if(((LH1*WH1)+(LH2*WH2))<(LA*WA)){
-            if(((WH1&WH2)<WA)&&((LH1+LH2)<LA)){
-                System.out.println("Поместится");
-            }else if(((LH1&LH2)<LA)&&((WH1+WH2)<WA)){
-                System.out.println("123");
+        Function(LH1,WH1,LH2,WH2,LA,WA);
+    }
+
+
+    public static void Function (int LH1,int WH1,int LH2,int WH2,int LA,int WA){
+        if((LH1+LH2)<=LA & WH1<=WA & WH2<=WA) {
+            if ((LH1 * WH1) + (LH2 * WH2) <= (LA * WA)) {
+                System.out.println("Всё окей!");
+            } else {
+                System.out.println("Не поместятся");
             }
-            else
-                System.out.println("Нет");
+        }
+        else if (LH1<=LA & LH2<=LA & (WH1+WH2)<=WA) {
+            if ((LH1 * WH1) + (LH2 * WH2) <= (LA * WA)) {
+                System.out.println("Всё окей!");
+            } else {
+                System.out.println("Не поместятся");
+            }
         }else
-            System.out.println("здание не поместится");
+            System.out.println("Здание не поместится");
     }
 }
-
-
