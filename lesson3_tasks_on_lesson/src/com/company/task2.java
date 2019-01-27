@@ -21,6 +21,11 @@ public class task2 {
     }
 
 
-    public static int isCycle(int a)
+    public static int isCycle(int a){
+        int result=a;
+        for(int i=1;i<a;i++){
+            result*=i;
+        }
+        return result;
     }
 }
