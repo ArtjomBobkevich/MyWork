@@ -5,11 +5,20 @@ import java.util.Scanner;
 public class HW2 {
     public static void main(String[] args) {
         Scanner sc1 = new Scanner(System.in);
-        int value = sc1.nextInt();
         System.out.println("Введите число: ");
+        int value = sc1.nextInt();
         isFibonachi(value);
         System.out.println();
-        Recur(value);
+        int Recur2 =Recur(value);
+        int Recur1=Recur2(value);
+      for (int i=(value-1);i>=0;i--){
+          int sum=Recur2-Recur1;
+          Recur2=Recur1;
+          Recur1=sum;
+          if(Recur2<=value){
+              System.out.print(Recur2+" ");
+          }
+      }
     }
 
 
@@ -37,19 +46,17 @@ public class HW2 {
     }
 
 
-    public static void Recur (int a){
+    public static int Recur (int a){
         int b=isFibonachiRecur1(a);
-        System.out.println(b);
-       int c=isFibonachiRecur1(a-1);
-        System.out.println(c);
-        for (int i=20;i>=0;i--){
-            int g=b-c;
-            c=g;
-            b=c;
-            System.out.println(c);
-            }
-
+       return b;
         }
+
+
+        public static int Recur2 (int a){
+            int c=isFibonachiRecur1(a-1);
+            return c;
+        }
+
     }
 
 
