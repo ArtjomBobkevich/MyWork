@@ -7,59 +7,59 @@ public class HW2 {
         Scanner sc1 = new Scanner(System.in);
         System.out.println("Введите число: ");
         int value = sc1.nextInt();
-        isFibonachi(value);
+        fibonachi(value);
         System.out.println();
-        int Recur2 =Recur(value);
-        int Recur1=Recur2(value);
-      for (int i=(value-1);i>=0;i--){
-          int sum=Recur2-Recur1;
-          Recur2=Recur1;
-          Recur1=sum;
-          if(Recur2<=value){
-              System.out.print(Recur2+" ");
-          }
-      }
+        int recur2Result = recur(value);
+        int recur1result = recur2(value);
+        System.out.println("Числа Фибоначи через рекурсию: ");
+        for (int i = (value - 1); i >= 0; i--) {
+            int sum = recur2Result - recur1result;
+            recur2Result = recur1result;
+            recur1result = sum;
+            if (recur2Result <= value) {
+                System.out.print(" " + recur2Result);
+            }
+        }
     }
 
 
-    public static void isFibonachi(int a) {
+    public static void fibonachi(int a) {
         int fib = 0;
         int fib2 = 1;
+        System.out.println("Числа Фибоначи через цикл:");
         for (int i = 1; i <= a; i++) {
             int sum = fib + fib2;
             fib2 = fib;
             fib = sum;
-            System.out.print(" " + fib2);
+            System.out.print("" + fib2 + " ");
             i = sum;
         }
     }
 
-    public static int isFibonachiRecur1(int a) {
-        int b;
+    public static int fibonachiByRecur(int a) {
+        int valueFib;
         if (a == 1) {
             return 1;
-        } else if (a==0) {
+        } else if (a == 0) {
             return 0;
-        }else
-                b=isFibonachiRecur1(a-1)+isFibonachiRecur1(a-2);
-        return b;
+        } else
+            valueFib = fibonachiByRecur(a - 1) + fibonachiByRecur(a - 2);
+        return valueFib;
     }
 
 
-    public static int Recur (int a){
-        int b=isFibonachiRecur1(a);
-       return b;
-        }
-
-
-        public static int Recur2 (int a){
-            int c=isFibonachiRecur1(a-1);
-            return c;
-        }
-
+    public static int recur(int a) {
+        int valueFib1 = fibonachiByRecur(a);
+        return valueFib1;
     }
 
 
+    public static int recur2(int a) {
+        int valueFib2 = fibonachiByRecur(a - 1);
+        return valueFib2;
+    }
+
+}
 
 
 //if (i>2){
