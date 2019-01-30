@@ -4,23 +4,33 @@ import java.util.Arrays;
 
 public class Task4 {
     public static void main(String[] args) {
-        int[][] twoMas={ {1,2,3,4,5},
-                         {6,7,8},
-                         {9,10}};
-        int [] massiv=new int[twoMas[0].length+twoMas[1].length+twoMas[2].length];
-        System.out.println(twoMas.length);
+        int[][] twoMas = {{1, 2, 3, 4, 5},
+                {6, 7, 8, 9,10 ,11 ,12},
+                {13, 14}};
+        massiv(twoMas);
 
     }
 
+    public static void massiv(int[][] mas) {
+
+        int lenghtMas = 0;
+        int lengthMassiv = 0;
+        int value = 0;
+        for (int i = 0; i < mas.length; i++) {
+            lenghtMas = mas[i].length;
+            lengthMassiv += lenghtMas;
+        }
+        int[] massiv = new int[lengthMassiv];
+        for (int i = 0; i < massiv.length; ) {
+            for (int j = 0; j < mas.length; j++) {
+                for (int k = 0; k < mas[j].length; k++) {
+                    massiv[i] = mas[j][k];
+                    i++;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(massiv));
+    }
 
 }
 
-//public static void linearize(int[][] mas) {
-//        int [] massiv ;
-//        for (int i = 0; i < mas.length; i++) {
-//            for (int j = 0; j < mas[i].length; j++) {
-//                massiv = new int{mas[i][]};
-//
-//            }
-//        }
-//    }
