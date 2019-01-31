@@ -6,12 +6,13 @@ public class Task4 {
     public static void main(String[] args) {
         int[][] twoMas = {{1, 2, 3, 4, 5},
                 {6, 7, 8, 9,10 ,11 ,12},
-                {13, 14}};
-        massiv(twoMas);
+                {13, 14},
+                {15}};
+        System.out.println(Arrays.toString(massiv(twoMas)));
 
     }
 
-    public static void massiv(int[][] mas) {
+    public static int[] massiv(int[][] mas) {
 
         int lenghtMas = 0;
         int lengthMassiv = 0;
@@ -29,8 +30,7 @@ public class Task4 {
                 }
             }
         }
-        System.out.println(Arrays.toString(massiv));
+        return massiv;
     }
-
 }
 
