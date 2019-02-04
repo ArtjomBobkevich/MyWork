@@ -5,32 +5,32 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Task1 {
+
     public static void main(String[] args) {
-        int[] mas = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        System.out.println(Arrays.toString(mas));
-        //      shiftMasOnLeft(mas);
-        shiftMasOnRight(mas);
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        System.out.println(Arrays.toString(array));
+ //     System.out.println(Arrays.toString(shiftArrayOnLeft(array)))
+        System.out.println(Arrays.toString(shiftArrayOnRight(array)));
     }
 
-
-    public static void shiftMasOnLeft(int[] mas) {
-        int indexMas = mas[0];
-        for (int i = 0; i < mas.length - 1; i++) {
-            mas[i] = mas[i + 1];
+    public static int [] shiftArrayOnLeft(int[] array) {
+        int indexOfMassiv = array[0];
+        for (int i = 0; i < array.length - 1; i++) {
+            array[i] = array[i + 1];
         }
-        mas[mas.length - 1] = indexMas;
-        System.out.println(Arrays.toString(mas));
+        array[array.length - 1] = indexOfMassiv;
+        return array;
     }
 
-    public static void shiftMasOnRight(int[] mas) {
-        int indexMas = mas[mas.length - 1];
-        for (int i = mas.length - 1; i >= 0; i--) {
-            if (mas[i] == mas[0]) {
+    public static int [] shiftArrayOnRight(int[] array) {
+        int indexOfMassiv = array[array.length - 1];
+        for (int i = array.length - 1; i >= 0; i--) {
+            if (array[i] == array[0]) {
                 break;
             }
-            mas[i] = mas[i - 1];
+            array[i] = array[i - 1];
         }
-        mas[0] = indexMas;
-        System.out.println(Arrays.toString(mas));
+        array[0] = indexOfMassiv;
+        return array;
     }
 }

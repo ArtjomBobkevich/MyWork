@@ -6,27 +6,25 @@ public class Task1 {
     public static void main(String[] args) {
         Scanner sc1 = new Scanner(System.in);
         String str = sc1.next();
-        System.out.println(function(str));
-
+        System.out.println("Это полиндром? "+comparison(str));
     }
 
-
-    public static boolean function(String str) {
-        int matches = 0;
-        char firstChar, lastChar;
+    public static boolean comparison(String str) {
+        int coincidence = 0;
+        char firstChar;
+        char lastChar;
         for (int i = 0; i < str.length(); i++) {
             firstChar = str.charAt(i);
             lastChar = str.charAt((str.length() - 1) - i);
             if (firstChar == lastChar) {
-                matches++;
-            }
-            if (firstChar != lastChar) {
-                System.out.println("Не полиндром");
+                coincidence++;
+            } else {
                 return false;
             }
         }
-        if (matches == str.length())
-            System.out.println("Полиндром");
-        return true;
+        if (coincidence == str.length()) {
+            return true;
+        }
+        return false;
     }
 }

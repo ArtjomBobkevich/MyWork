@@ -5,34 +5,30 @@ import java.util.Random;
 
 public class Task3 {
     public static void main(String[] args) {
-        int[] mas1 = {random(), random(), random(), random(), random(), random(), random(), random()};
-        int[] mas2 = {random(), random(), random(), random(), random(), random()};
-        System.out.println(Arrays.toString(mas1));
-        System.out.println(Arrays.toString(mas2));
-        functionOfMassiv(mas1, mas2);
-
-
+        int[] array1 = {random(), random(), random(), random(), random(), random(), random(), random()};
+        int[] array2 = {random(), random(), random(), random(), random(), random()};
+        System.out.println(Arrays.toString(array1));
+        System.out.println(Arrays.toString(array2));
+        System.out.println(Arrays.toString(mergeArrays(array1,array2)));
     }
 
-
-    public static void functionOfMassiv(int[] mas1, int[] mas2) {
-        int[] mas3 = new int[mas1.length + mas2.length];
-        int indexA = 0;
-        int indexB = 0;
-
-        for (int i = 0; i < mas3.length; ) {
-            if (indexA != mas1.length) {
-                mas3[i] = mas1[indexA];
-                indexA++;
+    public static int [] mergeArrays(int[] array1, int[] array2) {
+        int[] newArray = new int[array1.length + array2.length];
+        int indexArray1 = 0;
+        int indexArray2 = 0;
+        for (int i = 0; i < newArray.length; ) {
+            if (indexArray1 < array1.length) {
+                newArray[i] = array1[indexArray1];
+                indexArray1++;
                 i++;
             }
-            if (indexB != mas2.length) {
-                mas3[i] = mas2[indexB];
-                indexB++;
+            if (indexArray2 < array2.length) {
+                newArray[i] = array2[indexArray2];
+                indexArray2++;
                 i++;
             }
         }
-        System.out.println(Arrays.toString(mas3));
+        return newArray;
     }
 
     public static int random() {

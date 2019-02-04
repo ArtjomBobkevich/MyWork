@@ -4,33 +4,35 @@ import java.util.Arrays;
 
 public class Task4 {
     public static void main(String[] args) {
-        int[][] twoMas = {{1, 2, 3, 4, 5},
+        int[][] doubleArray = {{1, 2, 3, 4, 5},
                 {6, 7, 8, 9,10 ,11 ,12},
                 {13, 14},
-                {15}};
-        System.out.println(Arrays.toString(massiv(twoMas)));
-
+                {15},
+                {16,17,18}};
+        System.out.println(Arrays.toString(mergeDoubleArray(doubleArray)));
     }
 
-    public static int[] massiv(int[][] mas) {
-
-        int lenghtMas = 0;
-        int lengthMassiv = 0;
-        int value = 0;
-        for (int i = 0; i < mas.length; i++) {
-            lenghtMas = mas[i].length;
-            lengthMassiv += lenghtMas;
-        }
-        int[] massiv = new int[lengthMassiv];
-        for (int i = 0; i < massiv.length; ) {
-            for (int j = 0; j < mas.length; j++) {
-                for (int k = 0; k < mas[j].length; k++) {
-                    massiv[i] = mas[j][k];
+    public static int[] mergeDoubleArray(int[][] doubleArray) {
+        int [] newArray=new int[lengthNewArray(doubleArray)];
+        for (int i = 0; i < newArray.length; ) {
+            for (int j = 0; j < doubleArray.length; j++) {
+                for (int k = 0; k < doubleArray[j].length; k++) {
+                    newArray[i] = doubleArray[j][k];
                     i++;
                 }
             }
         }
-        return massiv;
+        return newArray;
+    }
+
+    public static int lengthNewArray (int [][] array){
+        int lenghtArrayTemp;
+        int lengthArray = 0;
+        for (int i = 0; i < array.length; i++) {
+            lenghtArrayTemp = array[i].length;
+            lengthArray += lenghtArrayTemp;
+        }
+        return lengthArray;
     }
 }
 
