@@ -6,21 +6,27 @@ public class Task1 {
     public static void main(String[] args) {
         Scanner sc1 = new Scanner(System.in);
         String str = sc1.next();
-        int a=0;
-        char c, b;
-        for (int i = 0; i < str.length();i++ ) {
-            c = str.charAt(i);
-            b = str.charAt((str.length() - 1) - i);
-            if (c == b) {
-                a++;
+        System.out.println(function(str));
+
+    }
+
+
+    public static boolean function(String str) {
+        int matches = 0;
+        char firstChar, lastChar;
+        for (int i = 0; i < str.length(); i++) {
+            firstChar = str.charAt(i);
+            lastChar = str.charAt((str.length() - 1) - i);
+            if (firstChar == lastChar) {
+                matches++;
             }
-            if (c != b) {
+            if (firstChar != lastChar) {
                 System.out.println("Не полиндром");
-                break;
+                return false;
             }
         }
-        if (a==str.length()){
+        if (matches == str.length())
             System.out.println("Полиндром");
-        }
+        return true;
     }
 }
