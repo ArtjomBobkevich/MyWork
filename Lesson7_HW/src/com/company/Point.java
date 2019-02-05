@@ -5,8 +5,8 @@ public class Point {
     private int y;
 
     public Point (int x,int y){
-        this.y=y;
         this.x=x;
+        this.y=y;
     }
 
     public int getX() {
@@ -17,11 +17,11 @@ public class Point {
         return y;
     }
 
-    public int distanceX (Point x){
-        return this.x-getX();
+    public double distanceX (Point x){
+        return (this.x>getX())?this.x - x.getX():x.getX()-this.x;
     }
 
-    public int distanceY (Point x){
-        return this.y-getY();
+    public double distanceY (Point x){
+        return (this.y>getY())?this.y-x.getY():x.getY()-this.y;
     }
 }

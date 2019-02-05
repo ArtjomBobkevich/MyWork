@@ -13,7 +13,7 @@ public class Square {
         return Math.sqrt(point1.distanceY(point2)*2);
     }
 
-    public int yardageSquare (Point point1,Point point2){
+    public double yardageSquare (Point point1,Point point2){
         return point1.distanceX(point2)*2;
     }
 }

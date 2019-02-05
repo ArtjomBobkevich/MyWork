@@ -10,7 +10,7 @@ public class Rectangle extends Square {
     }
 
     @Override
-    public int yardageSquare (Point point1,Point point2){
+    public double yardageSquare (Point point1,Point point2){
         return point1.distanceX(point2)*point1.distanceY(point2);
     }
     @Override
