@@ -1,6 +1,6 @@
 package com.company;
 
-public class Triangle extends Rectangle{
+public class Triangle extends Rectangle implements Print{
     private Point point3;
     private double sectionA;
     private double sectionB;
@@ -37,5 +37,11 @@ public class Triangle extends Rectangle{
 
     public double yardageTriangle(double sectionA,double sectionB,double sectionC) {
     return 0.5*sectionA*heightTriangle(sectionA,sectionB,sectionC);
+    }
+
+    @Override
+    public void print() {
+        System.out.println("Высота треугольника равна: "+this.heightTriangle(this.sectionA,this.sectionB,this.sectionC));
+        System.out.println("Площадь треугольника равна: "+this.yardageTriangle(this.sectionA,this.sectionB,this.sectionC));
     }
 }

@@ -1,6 +1,6 @@
 package com.company;
 
-public class Point {
+public class Point implements Print {
     private int x;
     private int y;
 
@@ -18,10 +18,15 @@ public class Point {
     }
 
     public double distanceX (Point x){
-        return (this.x>getX())?this.x - x.getX():x.getX()-this.x;
+        return (this.x>x.getX())?this.x - x.getX():x.getX()-this.x;
     }
 
     public double distanceY (Point x){
-        return (this.y>getY())?this.y-x.getY():x.getY()-this.y;
+        return (this.y>x.getY())?this.y-x.getY():x.getY()-this.y;
+    }
+
+    @Override
+    public void print() {
+        System.out.println("Координаты точки X:"+x+" Y:"+y);
     }
 }
