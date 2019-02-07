@@ -1,26 +1,34 @@
 package com.company;
 
-public class Ring extends Rectangle {
-    private final double VALUE_P=3.14;
-    private double radius;
+public class Ring extends Shape {
 
-    public Ring(Point point1, Point point2) {
-        super(point1, point2);
-//        this.radius=ra
+    private final double VALUE_P=3.14;
+    private double radius=this.lengthDiagonals(point1,point2);
+
+    public Ring(Point point1, Point point2,Point point3, Point point4) {
+        super(point1, point2,point3,point4);
     }
 
     @Override
     public double lengthDiagonals (Point point1,Point point2){
-        this.radius = Math.sqrt(Math.pow(point1.distanceY(point2),2)+Math.pow(point1.distanceX(point2),2));
-        return radius;
+        return Math.sqrt(Math.pow(point1.distanceY(point2),2)+Math.pow(point1.distanceX(point2),2));
     }
 
-    public double yardageRing(double radius) {
+    @Override
+    public double yardage() {
         return Math.pow(radius,2)+VALUE_P;
     }
 
     @Override
-    public void print() {
-        System.out.println("Площадь круга равна: "+this.yardageRing(radius));
+    public String shapeCompare(Shape x) {
+        if (this.yardage()==x.yardage())
+            return "Эти фигуры равны!";
+        else
+            return "Эти фигуры не равны!";
+    }
+
+    @Override
+    public String toString() {
+        return "Если брать две координаты как центр и точка линии окружности, то радиус окружности равен: "+this.radius+"\n Площадь круга равна: "+yardage();
     }
 }

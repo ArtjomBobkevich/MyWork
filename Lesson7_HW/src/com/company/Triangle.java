@@ -1,47 +1,59 @@
 package com.company;
 
-public class Triangle extends Rectangle implements Print{
-    private Point point3;
-    private double sectionA;
-    private double sectionB;
-    private double sectionC;
+public class Triangle extends Shape implements FoundSection{
 
-    public Triangle (Point point1,Point point2, Point point3){
-        super(point1,point2);
-        this.point3=point3;
-    }
+    private double sectionA=this.foundSectionA();
+    private double sectionB=this.foundSectionB();
+    private double sectionC=this.foundSectionC();
 
-    public double foundSectionA (Point point1,Point point2){
-        sectionA=Math.sqrt(Math.pow(point1.distanceY(point2),2)+Math.pow(point1.distanceX(point2),2));
-        return this.sectionA;
-    }
-
-    public double foundSectionB (Point point2,Point point3){
-        sectionB=Math.sqrt(Math.pow(point2.distanceY(point3),2)+Math.pow(point2.distanceX(point3),2));
-        return this.sectionB;
-    }
-
-    public double foundSectionC (Point point1,Point point3){
-        sectionC=Math.sqrt(Math.pow(point3.distanceY(point1),2)+Math.pow(point3.distanceX(point1),2));
-        return this.sectionC;
-    }
-
-    public double foundValueP (double sectionA,double sectionB,double sectionC){
-        return (sectionA+ sectionB+ sectionC)/2;
-    }
-
-    public double heightTriangle(double sectionA,double sectionB,double sectionC){
-        double valueP=this.foundValueP( sectionA, sectionB, sectionC);
-      return 2/sectionA*(Math.sqrt((valueP-sectionA)+ (valueP-sectionB)+(valueP-sectionC)));
-    }
-
-    public double yardageTriangle(double sectionA,double sectionB,double sectionC) {
-    return 0.5*sectionA*heightTriangle(sectionA,sectionB,sectionC);
+    public Triangle (Point point1,Point point2, Point point3,Point point4){
+        super(point1,point2,point3,point4);
     }
 
     @Override
-    public void print() {
-        System.out.println("Высота треугольника равна: "+this.heightTriangle(this.sectionA,this.sectionB,this.sectionC));
-        System.out.println("Площадь треугольника равна: "+this.yardageTriangle(this.sectionA,this.sectionB,this.sectionC));
+    public double foundSectionA() {
+        return Math.sqrt(Math.pow(point1.distanceY(point2),2)+Math.pow(point1.distanceX(point2),2));
+    }
+
+    @Override
+    public double foundSectionB() {
+        return Math.sqrt(Math.pow(point2.distanceY(point3),2)+Math.pow(point2.distanceX(point3),2));
+    }
+
+    @Override
+    public double foundSectionC() {
+        return Math.sqrt(Math.pow(point3.distanceY(point1),2)+Math.pow(point3.distanceX(point1),2));
+    }
+
+    @Override
+    public double foundSectionD() {
+        return 0;
+    }
+
+    public double foundValueP (){
+        return (sectionA+sectionB+ sectionC)/2;
+    }
+
+    public double heightTriangle(){
+        double valueP=this.foundValueP();
+      return 2/sectionA*(Math.sqrt((valueP-sectionA)+ (valueP-sectionB)+(valueP-sectionC)));
+    }
+
+   @Override
+   public double yardage (){
+       return 0.5*sectionA*heightTriangle();
+   }
+
+   @Override
+   public String shapeCompare(Shape x) {
+       if (this.yardage()==x.yardage())
+           return "Эти фигуры равны!";
+       else
+           return "Эти фигуры не равны!";
+   }
+
+    @Override
+    public String toString() {
+        return "Высота треугольника равна: "+heightTriangle()+"\n Площаль треугольника равна: "+yardage();
     }
 }
