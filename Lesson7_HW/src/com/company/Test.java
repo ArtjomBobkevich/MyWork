@@ -12,7 +12,6 @@ public class Test {
         Triangle triangle = new Triangle(point1, point2, point3, point4);
         Rhomb rhomb = new Rhomb(point1, point2, point3, point4);
         Ring ring = new Ring(point1, point2, point3, point4);
-//        ShapeUtils shapeUtils=new ShapeUtils();
 
         System.out.println(point1.toString());
         System.out.println();
@@ -29,7 +28,9 @@ public class Test {
         System.out.println(ring.shapeCompare(rhomb));
         System.out.println();
         System.out.println(square.shapeCompare(rectangle));
-//        System.out.println(shapeUtils.);
-
+        System.out.println();
+        System.out.println(ShapeUtils.shape(rhomb,triangle,rectangle,square));
+        System.out.println();
+        System.out.println(ShapeUtils.shape(square,triangle,rectangle,square));
     }
 }

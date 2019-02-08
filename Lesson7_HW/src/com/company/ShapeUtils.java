@@ -2,11 +2,6 @@ package com.company;
 
 public class ShapeUtils {
 
-    private Shape shape;
-    private Triangle triangle;
-    private Rectangle rectangle;
-    private Square square;
-
     public static String shape(Shape shape, Triangle triangle, Rectangle rectangle, Square square) {
         if (shape == triangle) {
             return "Это треугольник!";

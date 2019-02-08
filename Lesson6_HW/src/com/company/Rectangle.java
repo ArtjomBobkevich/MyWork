@@ -11,14 +11,15 @@ public class Rectangle {
     }
 
     public double yardageRectangle(Point point1, Point point2) {
-        return point1.distanceX(point2) * point1.distanceY(point2);
+        return (point2.getX()-point1.getX())*(point2.getY()-point1.getY());
     }
 
     public double lengthDiagonals(Point point1, Point point2) {
-        return Math.sqrt((Math.pow(point1.distanceX(point2), 2) + Math.pow(point1.distanceY(point2), 2)));
+        return point1.distance(point2);
     }
 }
 
+//Math.sqrt(Math.pow(point2.getX()-point1.getX(),2)+Math.pow(point2.getY()-point1.getY(),2))
 
 
 

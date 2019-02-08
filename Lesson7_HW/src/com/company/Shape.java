@@ -28,4 +28,6 @@ public abstract class Shape {
         else
             return "Эти фигуры не равны!";
     }
+
+
 }
