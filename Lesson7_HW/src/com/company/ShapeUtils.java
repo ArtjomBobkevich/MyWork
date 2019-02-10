@@ -2,12 +2,17 @@ package com.company;
 
 public class ShapeUtils {
 
-    public static String shape(Shape shape, Triangle triangle, Rectangle rectangle, Square square) {
-        if (shape == triangle) {
-            return "Это треугольник!";
-        } else if (shape == rectangle || shape == square) {
-            return "Это прямоугольник";
+    public static boolean isRectangleToComparison (Shape shape, Rectangle rectangle, Square square) {
+        if (shape == rectangle || shape==square) {
+            return true;
         } else
-            return "Это не прямоугольник или треугольник";
+            return false;
+    }
+
+    public static boolean isTriangleToComparison (Shape shape, Triangle triangle){
+        if (shape== triangle){
+            return true;
+        } else
+            return false;
     }
 }

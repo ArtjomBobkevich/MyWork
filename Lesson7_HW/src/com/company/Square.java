@@ -6,7 +6,8 @@ public class Square extends Shape {
         super(point1, point2, point3, point4);
     }
 
-    public double lengthDiagonals(Point point1, Point point2) {
+    @Override
+    public double lengthDiagonals() {
         return Math.sqrt(Math.pow(point1.distanceY(point2), 2) + Math.pow(point1.distanceY(point2), 2));
     }
 
@@ -25,6 +26,11 @@ public class Square extends Shape {
 
     @Override
     public String toString() {
-        return "Длина диагонали квадрата равна: " + this.lengthDiagonals(point1, point2) + "\n Площадь квадрата равна: " + this.yardage();
+        if (point1.distanceY(point2) == 0 || point1.distanceX(point2) == 0) {
+            return "Координаты точек на одной оси, не соответствие исходным данным!!!";
+        } else if (  point1.distanceX(point2)!=point1.distanceY(point2)){
+            return "Это не квадрат, стороны не равны!!!";
+        } else
+            return "Длина диагонали квадрата равна: " + this.lengthDiagonals() + "\n Площадь квадрата равна: " + this.yardage();
     }
 }

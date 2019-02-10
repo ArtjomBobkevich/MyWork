@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Task3 {
+
     public static void main(String[] args) {
         int[] array1 = {random(), random(), random(), random(), random(), random(), random(), random()};
         int[] array2 = {random(), random(), random(), random(), random(), random()};

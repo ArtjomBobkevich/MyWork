@@ -3,14 +3,14 @@ package com.company;
 public class Ring extends Shape {
 
     private final double VALUE_P=3.14;
-    private double radius=this.lengthDiagonals(point1,point2);
+    private double radius=this.lengthDiagonals();
 
     public Ring(Point point1, Point point2,Point point3, Point point4) {
         super(point1, point2,point3,point4);
     }
 
     @Override
-    public double lengthDiagonals (Point point1,Point point2){
+    public double lengthDiagonals (){
         return Math.sqrt(Math.pow(point1.distanceY(point2),2)+Math.pow(point1.distanceX(point2),2));
     }
 

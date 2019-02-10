@@ -14,7 +14,7 @@ public abstract class Shape {
         this.point4 = point4;
     }
 
-    public double lengthDiagonals(Point point1, Point point2) {
+    public double lengthDiagonals() {
         return 0;
     }
 
@@ -28,6 +28,4 @@ public abstract class Shape {
         else
             return "Эти фигуры не равны!";
     }
-
-
 }

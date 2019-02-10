@@ -18,12 +18,3 @@ public class Rectangle {
         return point1.distance(point2);
     }
 }
-
-//Math.sqrt(Math.pow(point2.getX()-point1.getX(),2)+Math.pow(point2.getY()-point1.getY(),2))
-
-
-
-
-
-
-

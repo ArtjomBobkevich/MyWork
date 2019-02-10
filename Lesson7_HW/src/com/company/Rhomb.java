@@ -31,17 +31,21 @@ public class Rhomb extends Shape implements FoundSection {
         return Math.sqrt(Math.pow(point4.distanceY(point1), 2) + Math.pow(point4.distanceX(point1), 2));
     }
 
+    public int angleBetweenParties(){
+    return point1.angleToAxis(point4)-point1.angleToAxis(point2);
+    }
+
     public double lengthDiagonals1() {
-        return Math.sqrt(Math.pow(sectionA, 2) + Math.pow(sectionB, 2));
+        return 2*sectionA*Math.cos(angleBetweenParties()/2);
     }
 
     public double lengthDiagonals2() {
-        return Math.sqrt(Math.pow(sectionC, 2) + Math.pow(sectionD, 2));
+        return 2*sectionA*Math.sin(angleBetweenParties()/2);
     }
 
     @Override
     public double yardage() {
-        return (this.lengthDiagonals1() + this.lengthDiagonals2()) / 2;
+        return 0.5 * this.lengthDiagonals1()*this.lengthDiagonals2();
     }
 
     @Override
@@ -54,6 +58,9 @@ public class Rhomb extends Shape implements FoundSection {
 
     @Override
     public String toString() {
-        return "Первая диагональ ромба равна: " + this.lengthDiagonals1() + " Вторая диагональ ромба равна: " + this.lengthDiagonals2() + "\n Площадь ромба равна: " + yardage();
+        if (sectionA == sectionB & sectionB == sectionC & sectionC == sectionD & sectionD == sectionA) {
+            return "Угол между стороной А и стороной Б равен: "+angleBetweenParties() + " \n Первая диагональ ромба равна: " + this.lengthDiagonals1() + " Вторая диагональ ромба равна: " + this.lengthDiagonals2() + "\n Площадь ромба равна: " + yardage();
+        } else
+            return "Это не ромб!";
     }
 }

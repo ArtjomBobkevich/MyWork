@@ -26,6 +26,14 @@ public class Point {
         return (this.y > x.getY()) ? this.y - x.getY() : x.getY() - this.y;
     }
 
+    public int angleToAxis (Point x){
+        int angle =(int) Math.toDegrees(Math.atan2(x.getY()-this.y,x.x-this.x));
+        if (angle<0){
+            angle+=360;
+        }
+        return angle;
+    }
+
     public String toString() {
         return "Координата X равна: " + x + " Y равна: " + y;
     }

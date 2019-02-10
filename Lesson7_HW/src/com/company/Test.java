@@ -2,10 +2,10 @@ package com.company;
 
 public class Test {
     public static void main(String[] args) {
-        Point point1 = new Point(4, 5);
-        Point point2 = new Point(9, 10);
-        Point point3 = new Point(17, 22);
-        Point point4 = new Point(7, 15);
+        Point point1 = new Point(0, 2);
+        Point point2 = new Point(4, 0);
+        Point point3 = new Point(2, 4);
+        Point point4 = new Point(-2, 6);
 
         Square square = new Square(point1, point2, point3, point4);
         Rectangle rectangle = new Rectangle(point1, point2, point3, point4);
@@ -29,8 +29,12 @@ public class Test {
         System.out.println();
         System.out.println(square.shapeCompare(rectangle));
         System.out.println();
-        System.out.println(ShapeUtils.shape(rhomb,triangle,rectangle,square));
+        System.out.println(ShapeUtils.isRectangleToComparison(rhomb,rectangle,square));
         System.out.println();
-        System.out.println(ShapeUtils.shape(square,triangle,rectangle,square));
+        System.out.println(ShapeUtils.isRectangleToComparison(square,rectangle,square));
+        System.out.println();
+        System.out.println(ShapeUtils.isTriangleToComparison(triangle,triangle));
+        System.out.println();
+        System.out.println(ShapeUtils.isTriangleToComparison(ring,triangle));
     }
 }

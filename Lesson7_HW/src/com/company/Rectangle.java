@@ -12,7 +12,7 @@ public class Rectangle extends Square {
     }
 
     @Override
-    public double lengthDiagonals(Point point1, Point point2) {
+    public double lengthDiagonals() {
         return Math.sqrt(Math.pow(point1.distanceY(point2), 2) + Math.pow(point1.distanceX(point2), 2));
     }
 
@@ -26,7 +26,10 @@ public class Rectangle extends Square {
 
     @Override
     public String toString() {
-        return "Диагональ прямоугольника равна: " + this.lengthDiagonals(point1, point2) + "\n Площадь прямоугольника равна: " + this.yardage();
+        if (point1.distanceY(point2) == 0 || point1.distanceX(point2) == 0) {
+            return "Координаты точек на одной оси, не соответствие исходным данным!!!";
+        } else
+            return "Диагональ прямоугольника равна: " + this.lengthDiagonals() + "\n Площадь прямоугольника равна: " + this.yardage();
     }
 }
 
