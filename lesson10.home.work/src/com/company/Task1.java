@@ -7,15 +7,14 @@ public class Task1 {
     public static void main(String[] args) {
 
         Scanner sc=new Scanner(System.in);
-        String str=sc.next();
-        Value(str);
+        String str=sc.nextLine();
+        value(str);
     }
 
-
-    public static void Value (String string){
+    public static void value (String string){
         Map<String,Integer >map=new HashMap<>();
         String [] subStr;
-        String delit= "_";
+        String delit= " ";
         subStr=string.split(delit);
         int contains=1;
         for (int i=0; i<subStr.length;i++) {
