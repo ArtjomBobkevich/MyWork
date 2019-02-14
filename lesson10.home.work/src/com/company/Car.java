@@ -23,17 +23,14 @@ public abstract class Car {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return age == car.age &&
-                mass == car.mass &&
-                Objects.equals(mark, car.mark) &&
-                Objects.equals(model, car.model) &&
-                Objects.equals(typeFuel, car.typeFuel);
+        return mark == car.mark;
+
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(mark, model, age, typeFuel, mass);
+        return Objects.hash(mark);
     }
 
     public String getMark() {

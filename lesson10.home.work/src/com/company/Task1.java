@@ -5,7 +5,6 @@ import java.util.*;
 public class Task1 {
 
     public static void main(String[] args) {
-
         Scanner sc=new Scanner(System.in);
         String str=sc.nextLine();
         value(str);
@@ -16,14 +15,18 @@ public class Task1 {
         String [] subStr;
         String delit= " ";
         subStr=string.split(delit);
-        int contains=1;
+        int [] contain=new int[subStr.length];
+        for (int j =0; j<contain.length;j++){
+            contain[j]=1;
+        }
+        int value;
         for (int i=0; i<subStr.length;i++) {
             if (map.containsKey(subStr[i])) {
-                map.remove(subStr[i],contains++); /* тут не всё доделано */
+                value=map.get(subStr[i]);
+                map.put(subStr[i], contain[i]+value);
+            } else {
+                map.put(subStr[i], contain[i]);
             }
-            else
-                contains=1;
-            map.put(subStr[i], contains);
         }
         System.out.println("Все слова: "+map);
     }
