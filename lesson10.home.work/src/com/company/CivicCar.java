@@ -13,7 +13,7 @@ public class CivicCar extends Car {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Легковушка обыкновенная ";
     }
 
     @Override
