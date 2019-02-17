@@ -23,13 +23,11 @@ public abstract class Car {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return mark == car.mark;
-
+        return this.mark == car.mark;
     }
 
     @Override
     public int hashCode() {
-
         return Objects.hash(mark);
     }
 

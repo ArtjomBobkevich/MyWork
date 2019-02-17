@@ -18,6 +18,6 @@ public class MilitaryCar extends Car{
 
     @Override
     public String toString() {
-        return "Военный авто ";
+        return "Военный авто "+getMark();
     }
 }

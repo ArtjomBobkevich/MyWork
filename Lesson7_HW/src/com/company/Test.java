@@ -29,12 +29,12 @@ public class Test {
         System.out.println();
         System.out.println(square.shapeCompare(rectangle));
         System.out.println();
-        System.out.println(ShapeUtils.isRectangleToComparison(rhomb,rectangle,square));
+        System.out.println(ShapeUtils.isRectangleToComparison(rhomb, rectangle, square));
         System.out.println();
-        System.out.println(ShapeUtils.isRectangleToComparison(square,rectangle,square));
+        System.out.println(ShapeUtils.isRectangleToComparison(square, rectangle, square));
         System.out.println();
-        System.out.println(ShapeUtils.isTriangleToComparison(triangle,triangle));
+        System.out.println(ShapeUtils.isTriangleToComparison(triangle, triangle));
         System.out.println();
-        System.out.println(ShapeUtils.isTriangleToComparison(ring,triangle));
+        System.out.println(ShapeUtils.isTriangleToComparison(ring, triangle));
     }
 }

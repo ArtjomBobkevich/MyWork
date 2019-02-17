@@ -27,14 +27,19 @@ public class StudentDemo {
         System.out.println(students);
         foundMaxAvaragePoint(students);
 
-        students.sort(new StudentFirstNameComporator().thenComparing(new StudentLastNameComporator()).thenComparing(new StudentPointComparator()).thenComparing(new StudentAgeComporator()));
+        students.sort(new StudentFirstNameComporator()
+                .thenComparing(new StudentLastNameComporator())
+                .thenComparing(new StudentPointComparator())
+                .thenComparing(new StudentAgeComporator()));
 
-        students.sort(Comparator.comparing(Student::getFirstName).thenComparing(Student::getLastName).thenComparing(Student::getAvaragePoint).thenComparing(Student::getAge));
+        students.sort(Comparator.comparing(Student::getFirstName)
+                .thenComparing(Student::getLastName)
+                .thenComparing(Student::getAvaragePoint)
+                .thenComparing(Student::getAge));
 
         System.out.println();
         System.out.println("Отсортировано: ");
         System.out.println(students);
-
     }
 
     public static void foundMaxAvaragePoint(List<Student> students) {
@@ -50,6 +55,4 @@ public class StudentDemo {
             System.out.println(result);
         }
     }
-
-
 }

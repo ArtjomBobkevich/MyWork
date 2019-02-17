@@ -1,16 +1,19 @@
 package com.company;
 
-public class ShapeUtils {
+public final class ShapeUtils {
 
-    public static boolean isRectangleToComparison (Shape shape, Rectangle rectangle, Square square) {
-        if (shape == rectangle || shape==square) {
+    private ShapeUtils() {
+    }
+
+    public static boolean isRectangleToComparison(Shape shape, Rectangle rectangle, Square square) {
+        if (shape == rectangle || shape == square) {
             return true;
         } else
             return false;
     }
 
-    public static boolean isTriangleToComparison (Shape shape, Triangle triangle){
-        if (shape== triangle){
+    public static boolean isTriangleToComparison(Shape shape, Triangle triangle) {
+        if (shape == triangle) {
             return true;
         } else
             return false;

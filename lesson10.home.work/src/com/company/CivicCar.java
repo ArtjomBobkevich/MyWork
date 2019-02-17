@@ -13,7 +13,7 @@ public class CivicCar extends Car {
 
     @Override
     public String toString() {
-        return "Легковушка обыкновенная ";
+        return "Легковушка обыкновенная "+getMark();
     }
 
     @Override

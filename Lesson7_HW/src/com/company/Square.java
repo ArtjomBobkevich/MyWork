@@ -28,7 +28,7 @@ public class Square extends Shape {
     public String toString() {
         if (point1.distanceY(point2) == 0 || point1.distanceX(point2) == 0) {
             return "Координаты точек на одной оси, не соответствие исходным данным!!!";
-        } else if (  point1.distanceX(point2)!=point1.distanceY(point2)){
+        } else if (point1.distanceX(point2) != point1.distanceY(point2)) {
             return "Это не квадрат, стороны не равны!!!";
         } else
             return "Длина диагонали квадрата равна: " + this.lengthDiagonals() + "\n Площадь квадрата равна: " + this.yardage();

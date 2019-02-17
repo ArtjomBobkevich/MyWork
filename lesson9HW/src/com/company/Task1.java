@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.ArrayList;
-
 import java.util.List;
 import java.util.ListIterator;
 
@@ -18,10 +17,11 @@ public class Task1 {
         list.add("every");
         list.add("Java");
         list.add("programmer");
-        markLength4(list);
+
+        System.out.println(markLength4(list));
     }
 
-    public static void markLength4(List<String> list) {
+    public static List<String> markLength4(List<String> list) {
         ListIterator<String> iterator = list.listIterator();
         while (iterator.hasNext()) {
             String s = iterator.next();
@@ -30,6 +30,6 @@ public class Task1 {
                 iterator.add(s);
             }
         }
-        System.out.println(list);
+        return list;
     }
 }

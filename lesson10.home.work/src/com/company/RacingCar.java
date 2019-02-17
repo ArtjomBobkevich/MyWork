@@ -13,7 +13,7 @@ public class RacingCar extends Car {
 
     @Override
     public String toString() {
-        return "Гоночный авто ";
+        return "Гоночный авто "+getMark();
     }
 
     @Override

@@ -13,7 +13,7 @@ public class CargoCar extends Car {
 
     @Override
     public String toString() {
-        return "Грузовая машина ";
+        return "Грузовая машина "+getMark();
     }
 
     @Override
