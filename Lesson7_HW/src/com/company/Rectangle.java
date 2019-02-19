@@ -8,28 +8,30 @@ public class Rectangle extends Square {
 
     @Override
     public double yardage() {
-        return point1.distanceX(point2) * point1.distanceY(point2);
+        return getPoint1().distanceX(getPoint2()) * getPoint1().distanceY(getPoint2());
     }
 
     @Override
     public double lengthDiagonals() {
-        return Math.sqrt(Math.pow(point1.distanceY(point2), 2) + Math.pow(point1.distanceX(point2), 2));
+        return Math.sqrt(Math.pow(getPoint1().distanceY(getPoint2()), 2) + Math.pow(getPoint1().distanceX(getPoint2()), 2));
     }
 
     @Override
-    public String shapeCompare(Shape x) {
-        if (this.yardage() == x.yardage())
-            return "Эти фигуры равны!";
-        else
-            return "Эти фигуры не равны!";
+    public boolean shapeCompare(Shape x) {
+        if (this.yardage() == x.yardage()) {
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override
     public String toString() {
-        if (point1.distanceY(point2) == 0 || point1.distanceX(point2) == 0) {
+        if (getPoint1().distanceY(getPoint2()) == 0 || getPoint1().distanceX(getPoint2()) == 0) {
             return "Координаты точек на одной оси, не соответствие исходным данным!!!";
-        } else
+        } else {
             return "Диагональ прямоугольника равна: " + this.lengthDiagonals() + "\n Площадь прямоугольника равна: " + this.yardage();
+        }
     }
 }
 

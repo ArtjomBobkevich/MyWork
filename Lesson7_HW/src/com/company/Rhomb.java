@@ -2,37 +2,41 @@ package com.company;
 
 public class Rhomb extends Shape implements FoundSection {
 
-    private double sectionA = this.foundSectionA();
-    private double sectionB = this.foundSectionB();
-    private double sectionC = this.foundSectionC();
-    private double sectionD = this.foundSectionD();
+    private double sectionA;
+    private double sectionB;
+    private double sectionC;
+    private double sectionD;
 
     public Rhomb(Point point1, Point point2, Point point3, Point point4) {
         super(point1, point2, point3, point4);
+        this.sectionA= this.foundSectionA();
+        this.sectionB= this.foundSectionB();
+        this.sectionC= this.foundSectionC();
+        this.sectionD= this.foundSectionD();
+
     }
 
     @Override
     public double foundSectionA() {
-        return Math.sqrt(Math.pow(point1.distanceY(point2), 2) + Math.pow(point1.distanceX(point2), 2));
+        return Math.sqrt(Math.pow(getPoint1().distanceY(getPoint2()), 2) + Math.pow(getPoint1().distanceX(getPoint2()), 2));
     }
 
     @Override
     public double foundSectionB() {
-        return Math.sqrt(Math.pow(point2.distanceY(point3), 2) + Math.pow(point2.distanceX(point3), 2));
+        return Math.sqrt(Math.pow(getPoint2().distanceY(getPoint3()), 2) + Math.pow(getPoint2().distanceX(getPoint3()), 2));
     }
 
     @Override
     public double foundSectionC() {
-        return Math.sqrt(Math.pow(point3.distanceY(point4), 2) + Math.pow(point3.distanceX(point4), 2));
+        return Math.sqrt(Math.pow(getPoint3().distanceY(getPoint4()), 2) + Math.pow(getPoint3().distanceX(getPoint4()), 2));
     }
 
-    @Override
     public double foundSectionD() {
-        return Math.sqrt(Math.pow(point4.distanceY(point1), 2) + Math.pow(point4.distanceX(point1), 2));
+        return Math.sqrt(Math.pow(getPoint4().distanceY(getPoint1()), 2) + Math.pow(getPoint4().distanceX(getPoint1()), 2));
     }
 
     public int angleBetweenParties() {
-        return point1.angleToAxis(point4) - point1.angleToAxis(point2);
+        return getPoint1().angleToAxis(getPoint4()) - getPoint1().angleToAxis(getPoint2());
     }
 
     public double lengthDiagonals1() {
@@ -49,11 +53,12 @@ public class Rhomb extends Shape implements FoundSection {
     }
 
     @Override
-    public String shapeCompare(Shape x) {
-        if (this.yardage() == x.yardage())
-            return "Эти фигуры равны!";
-        else
-            return "Эти фигуры не равны!";
+    public boolean shapeCompare(Shape x) {
+        if (this.yardage() == x.yardage()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

@@ -5,17 +5,21 @@ public final class ShapeUtils {
     private ShapeUtils() {
     }
 
-    public static boolean isRectangleToComparison(Shape shape, Rectangle rectangle, Square square) {
-        if (shape == rectangle || shape == square) {
+    public static boolean isRectangleToComparison(Shape shape) {
+        if (shape instanceof Rectangle) {
             return true;
-        } else
+        } else if (shape instanceof Square) {
+            return true;
+        } else {
             return false;
+        }
     }
 
-    public static boolean isTriangleToComparison(Shape shape, Triangle triangle) {
-        if (shape == triangle) {
+    public static boolean isTriangleToComparison(Shape shape) {
+        if (shape instanceof Triangle) {
             return true;
-        } else
+        } else {
             return false;
+        }
     }
 }

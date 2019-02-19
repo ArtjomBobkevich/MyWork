@@ -12,12 +12,12 @@ public class RacingCar extends Car {
     }
 
     @Override
-    public String toString() {
-        return "Гоночный авто "+getMark();
+    public int hashCode() {
+        return super.hashCode();
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public String toString() {
+        return getMark() + " " + getModel() + " " + getType() + " " + getAge() + " года с массой: " + getMass();
     }
 }

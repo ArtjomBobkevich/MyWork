@@ -12,12 +12,12 @@ public class CargoCar extends Car {
     }
 
     @Override
-    public String toString() {
-        return "Грузовая машина "+getMark();
+    public int hashCode() {
+        return super.hashCode();
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public String toString() {
+        return getMark() + " " + getModel() + " " + getType() + " " + getAge() + " года с массой: " + getMass();
     }
 }

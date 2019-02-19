@@ -1,6 +1,6 @@
 package com.company;
 
-public class MilitaryCar extends Car{
+public class MilitaryCar extends Car {
 
     public MilitaryCar(String mark, String model, int age, String typeFuel, int mass) {
         super(mark, model, age, typeFuel, mass);
@@ -18,6 +18,6 @@ public class MilitaryCar extends Car{
 
     @Override
     public String toString() {
-        return "Военный авто "+getMark();
+        return getMark() + " " + getModel() + " " + getType() + " " + getAge() + " года с массой: " + getMass();
     }
 }

@@ -42,7 +42,7 @@ public class StudentDemo {
         System.out.println(students);
     }
 
-    public static void foundMaxAvaragePoint(List<Student> students) {
+    public static Student foundMaxAvaragePoint(List<Student> students) {
         if (!students.isEmpty()) {
             Student result = students.get(0);
             for (Student currentActor : students) {
@@ -50,9 +50,7 @@ public class StudentDemo {
                     result = currentActor;
                 }
             }
-            System.out.println();
-            System.out.println("Максимальный средний балл у студента:");
-            System.out.println(result);
+            return result;
         }
     }
 }
