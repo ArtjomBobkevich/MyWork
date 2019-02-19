@@ -5,13 +5,13 @@ import java.util.*;
 public class Garage {
 
     public static void main(String[] args) {
-        Car car1 = new RacingCar("nissan", "GT-R", 2002, "petrol", 1300);
-        Car car2 = new RacingCar("toyota", "supra", 2010, "petrol", 1110);
-        Car car3 = new RacingCar("toyota", "Rav", 2010, "petrol", 1110);
-        Car car4 = new RacingCar("audi", "R-8", 1993, "petrol", 1500);
-        Car car12 = new CargoCar("toyota", "supra", 2010, "petrol", 1110);
-        Car car15 = new MilitaryCar("tank", "T-85", 1972, "diesel", 40000);
-        Car car16 = new MilitaryCar("tank", "T-85", 1972, "diesel", 40000);
+        Car car1 = new RacingCar("nissan", "GT-R", 2002, Car.TypeFuel.petrol, 1300);
+        Car car2 = new RacingCar("toyota", "supra", 2010, Car.TypeFuel.petrol, 1110);
+        Car car3 = new RacingCar("toyota", "Rav", 2010, Car.TypeFuel.petrol, 1110);
+        Car car4 = new RacingCar("audi", "R-8", 1993, Car.TypeFuel.petrol, 1500);
+        Car car12 = new CargoCar("toyota", "supra", 2010, Car.TypeFuel.petrol, 1110);
+        Car car15 = new MilitaryCar("tank", "T-85", 1972, Car.TypeFuel.diesel, 40000);
+        Car car16 = new MilitaryCar("tank", "T-85", 1972, Car.TypeFuel.diesel, 40000);
 
 
         Map<Car, Integer> allCarInGarage = new HashMap<>();

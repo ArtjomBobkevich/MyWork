@@ -2,7 +2,7 @@ package com.company;
 
 public class RacingCar extends Car {
 
-    public RacingCar(String mark, String model, int age, String typeFuel, int mass) {
+    public RacingCar(String mark, String model, int age, TypeFuel typeFuel, int mass) {
         super(mark, model, age, typeFuel, mass);
     }
 

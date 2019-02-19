@@ -7,15 +7,20 @@ public abstract class Car {
     private String mark;
     private String model;
     private int age;
-    private String typeFuel;
+    private TypeFuel typeFuel;
     private int mass;
 
-    public Car(String mark, String model, int age, String typeFuel, int mass) {
+    public Car(String mark, String model, int age, TypeFuel typeFuel, int mass) {
         this.mark = mark;
         this.model = model;
         this.typeFuel = typeFuel;
         this.age = age;
         this.mass = mass;
+    }
+
+    enum TypeFuel {
+        petrol,
+        diesel
     }
 
     @Override
@@ -48,7 +53,7 @@ public abstract class Car {
         return age;
     }
 
-    public String getType() {
+    public TypeFuel getType() {
         return typeFuel;
     }
 
