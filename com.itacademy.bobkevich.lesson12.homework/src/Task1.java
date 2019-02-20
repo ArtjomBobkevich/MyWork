@@ -11,19 +11,23 @@ public class Task1 {
 
     public static void main(String[] args) throws IOException {
 
+    task1();
+    }
+
+    public static void task1 () throws IOException{
         File file = Paths.get("poem", "monument.txt").toFile();
         Map<Character, Integer> map = new HashMap<>();
         try (FileReader scanner = new FileReader(file)) {
-            int c;
-            int value = 1;
+            int symbol;
+            int counter = 1;
             int oldValue;
-            while ((c = scanner.read()) != -1) {     /* не корректно подсчитывает кол-во букв*/
-                if (isCharactedCounted((char) c)) {
-                    if (map.containsKey((char) c)) {
-                        oldValue = map.get(Character.toLowerCase((char) c));
-                        map.put(Character.toLowerCase((char) c), value + oldValue);
+            while ((symbol = scanner.read()) != -1) {
+                if (isCharactedLetter((char) symbol)) {
+                    if (map.containsKey((char) symbol)) {
+                        oldValue = map.get((char) symbol);
+                        map.put((char) symbol, counter + oldValue);
                     } else {
-                        map.put(Character.toLowerCase((char) c), value);
+                        map.put((char) symbol, counter);
                     }
                 }
             }
@@ -34,10 +38,11 @@ public class Task1 {
         Files.write(writePath, result.getBytes(StandardCharsets.UTF_8), CREATE);
     }
 
-    public static boolean isCharactedCounted (Character c){
-        if (c!=' '&c!=','&c!='.'&c!='-'&c!='—'&c!='\uFEFF'&c!=';'){
+    private static boolean isCharactedLetter (Character c){
+        if (c!=' '&c!=','&c!='.'&c!='-'&c!='—'&c!='\uFEFF'&c!=';'){  /* не все уберает + регистр*/
             return true;
         }
         return false;
     }
+
 }
