@@ -1,16 +1,17 @@
 package com.company;
 
+import java.util.Map;
 import java.util.Objects;
 
 public abstract class Car {
 
-    private String mark;
-    private String model;
+    private Mark mark;
+    private Model model;
     private int age;
     private TypeFuel typeFuel;
     private int mass;
 
-    public Car(String mark, String model, int age, TypeFuel typeFuel, int mass) {
+    public Car(Mark mark, Model model, int age, TypeFuel typeFuel, int mass) {
         this.mark = mark;
         this.model = model;
         this.typeFuel = typeFuel;
@@ -21,6 +22,21 @@ public abstract class Car {
     enum TypeFuel {
         petrol,
         diesel
+    }
+
+    enum Mark {
+        toyota,
+        audi,
+        nissan,
+        tank
+    }
+
+    enum Model {
+        GTR,
+        supra,
+        Rav,
+        R8,
+        T85
     }
 
     @Override
@@ -41,11 +57,11 @@ public abstract class Car {
         return Objects.hash(mark, model, age, typeFuel, mass);
     }
 
-    public String getMark() {
+    public Mark getMark() {
         return mark;
     }
 
-    public String getModel() {
+    public Model getModel() {
         return model;
     }
 

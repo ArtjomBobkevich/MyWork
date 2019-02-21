@@ -9,40 +9,37 @@ import static java.nio.file.StandardOpenOption.CREATE;
 
 public class Task1 {
 
+    private static final String LETTERS = "абвгдеёжзийклмнопрстуфхчцшщъыьэюя";
+
     public static void main(String[] args) throws IOException {
 
-    task1();
+        inputAndOutputPoem();
     }
 
-    public static void task1 () throws IOException{
+    public static void inputAndOutputPoem() throws IOException {
         File file = Paths.get("poem", "monument.txt").toFile();
-        Map<Character, Integer> map = new HashMap<>();
-        try (FileReader scanner = new FileReader(file)) {
-            int symbol;
-            int counter = 1;
+        Map<String, Integer> map = new HashMap<>();
+        try (Scanner scanner = new Scanner(new BufferedInputStream(new FileInputStream(file)))) {
             int oldValue;
-            while ((symbol = scanner.read()) != -1) {
-                if (isCharactedLetter((char) symbol)) {
-                    if (map.containsKey((char) symbol)) {
-                        oldValue = map.get((char) symbol);
-                        map.put((char) symbol, counter + oldValue);
+            scanner.useDelimiter("");
+            while (scanner.hasNext()) {
+                String word = scanner.next().toLowerCase();
+                if (isValue(word)) {
+                    if (map.containsKey(word)) {
+                        oldValue = map.get(word);
+                        map.put(word, oldValue + 1);
                     } else {
-                        map.put((char) symbol, counter);
+                        map.put(word, 1);
                     }
                 }
             }
         }
-        System.out.println(map.entrySet());
         String result = map.entrySet() + "";
-        Path writePath = Paths.get("poem", "ValueChar.txt");
+        Path writePath = Paths.get("poem", "AllLettersInPoem.txt");
         Files.write(writePath, result.getBytes(StandardCharsets.UTF_8), CREATE);
     }
 
-    private static boolean isCharactedLetter (Character c){
-        if (c!=' '&c!=','&c!='.'&c!='-'&c!='—'&c!='\uFEFF'&c!=';'){  /* не все уберает + регистр*/
-            return true;
-        }
-        return false;
+    public static boolean isValue (String word){
+        return LETTERS.contains(word);
     }
-
 }
