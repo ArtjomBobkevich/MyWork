@@ -16,7 +16,7 @@
         <entry file="file://$PROJECT_DIR$/src/Task1.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -27,11 +27,8 @@
       <file leaf-file-name="Task2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Task2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7">
+            <state relative-caret-position="306">
               <caret line="18" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -73,7 +70,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -95,8 +91,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -204,44 +201,45 @@
       <workItem from="1550740122737" duration="13000" />
       <workItem from="1550740667690" duration="10240000" />
       <workItem from="1550811285618" duration="9792000" />
+      <workItem from="1550852163671" duration="5000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42316000" />
+    <option name="totallyTimeSpent" value="42321000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32987747" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32987747" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32327992" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947916" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2489019" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.399623" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32857144" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32987747" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +256,23 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Task1.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Task2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Task1.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
           <folding>
@@ -266,33 +281,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/file (1)/file/src/com/itacademy/matveyenka/file/lesson14/ex5/StudentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file (1)/file/src/com/itacademy/matveyenka/file/lesson14/ex5/Task5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="70" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file (1)/file/src/com/itacademy/matveyenka/file/lesson14/ex5/Student.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/file (1)/file/src/com/itacademy/matveyenka/file/lesson14/ex5/StudentService.java" />
+    <entry file="file://$USER_HOME$/Downloads/file (1)/file/src/com/itacademy/matveyenka/file/lesson14/ex5/Task5.java" />
+    <entry file="file://$USER_HOME$/Downloads/file (1)/file/src/com/itacademy/matveyenka/file/lesson14/ex5/Student.java" />
     <entry file="file://$PROJECT_DIR$/src/Task2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -310,9 +305,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" selection-start-line="4" selection-end-line="6" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -343,35 +335,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/demo/FileDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="106" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="16" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/demo/ReaderDemo.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task1.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task2.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task4.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task6.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/demo/FileDemo.java" />
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/demo/ReaderDemo.java" />
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task1.java" />
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task2.java" />
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task4.java" />
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task5.java" />
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task6.java" />
     <entry file="file://$PROJECT_DIR$/src/Task2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -395,43 +365,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/poem/ValueChar.txt" />
     <entry file="file://$PROJECT_DIR$/poem/Task2Output.txt" />
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/demo/FileDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="106" selection-start-line="15" selection-start-column="10" selection-end-line="16" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/demo/InputStreamDemo.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/demo/ReaderDemo.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="29" column="29" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="53" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file (1)/file/src/com/itacademy/matveyenka/file/lesson14/ex5/Student.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/demo/FileDemo.java" />
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/demo/InputStreamDemo.java" />
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/demo/ReaderDemo.java" />
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task2.java" />
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task4.java" />
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task1.java" />
+    <entry file="file://$USER_HOME$/Downloads/file (1)/file/src/com/itacademy/matveyenka/file/lesson14/ex5/Student.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/Comparator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -443,10 +383,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding>
-            <element signature="e#186#187#0" expanded="true" />
-            <element signature="e#255#256#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -454,58 +390,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="57" />
-          <folding>
-            <element signature="e#180#181#0" expanded="true" />
-            <element signature="e#244#245#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file (1)/file/src/com/itacademy/matveyenka/file/lesson14/ex5/Task5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="70" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file (1)/file/src/com/itacademy/matveyenka/file/lesson14/ex5/StudentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="31" column="54" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task6.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task5.java" />
+    <entry file="file://$USER_HOME$/Downloads/file (1)/file/src/com/itacademy/matveyenka/file/lesson14/ex5/Task5.java" />
+    <entry file="file://$USER_HOME$/Downloads/file (1)/file/src/com/itacademy/matveyenka/file/lesson14/ex5/StudentService.java" />
+    <entry file="file://$USER_HOME$/Downloads/file/com/itacademy/matveyenka/file/ex/Task6.java" />
     <entry file="file://$PROJECT_DIR$/src/Task2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7">
+        <state relative-caret-position="306">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Task1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
