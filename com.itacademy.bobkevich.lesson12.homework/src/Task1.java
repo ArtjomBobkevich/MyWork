@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.nio.file.StandardOpenOption.CREATE;
 
@@ -17,6 +18,7 @@ public class Task1 {
     }
 
     public static void inputAndOutputPoem() throws IOException {
+
         File file = Paths.get("poem", "monument.txt").toFile();
         Map<String, Integer> map = new HashMap<>();
         try (Scanner scanner = new Scanner(new BufferedInputStream(new FileInputStream(file)))) {
@@ -34,12 +36,16 @@ public class Task1 {
                 }
             }
         }
-        String result = map.entrySet() + "";
+        List <Map.Entry <String, Integer >> comparingByKey = map .entrySet ()
+                .stream()
+                .sorted(Map.Entry.comparingByKey())
+                .collect(Collectors.toList ());
+        String result = comparingByKey + "";
         Path writePath = Paths.get("poem", "AllLettersInPoem.txt");
         Files.write(writePath, result.getBytes(StandardCharsets.UTF_8), CREATE);
     }
 
-    public static boolean isValue (String word){
+    private static boolean isValue (String word){
         return LETTERS.contains(word);
     }
 }

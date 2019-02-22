@@ -12,6 +12,10 @@ public class Task2 {
 
     public static void main(String[] args) throws IOException {
 
+        CreateSortRandomValue ();
+    }
+
+    public static void CreateSortRandomValue () throws IOException  {
 
         int[] array = new int[25];
         Random random = new Random();
@@ -25,23 +29,24 @@ public class Task2 {
             for (int i = 0; i < array.length; i++) {
                 String str = Integer.toString(array[i]);
                 bufferedWriter.write(str + " ");
-                System.out.println(str);
             }
         }
-        Path path = Paths.get("poem", "Task2Output.txt");
-        List<Integer> values = new ArrayList<>();
+        Path path = Paths.get("poem", "Task2RandomValues.txt");
+        String result="";
         try (Scanner scanner = new Scanner(new BufferedInputStream(new FileInputStream(path.toFile())))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                String[] splittedLine = line.split(",");
-                String lastName = splittedLine[0];
-                List<Integer> marks = Arrays.stream(splittedLine)
-                        .skip(1L)
-                        .map(String::trim)
+                String[] splittedLine = line.split(" ");
+                System.out.println(Arrays.toString(splittedLine));
+                List<Integer> values = Arrays.stream(splittedLine)
                         .map(Integer::valueOf)
+                        .sorted(Collections.reverseOrder())
                         .collect(Collectors.toList());
-                values.add();
+                result=values+"";
+                System.out.println(result);
             }
         }
+        Path writePath2 = Paths.get("poem", "Task2SortRandomValues.txt");
+        Files.write(writePath2, result.getBytes(StandardCharsets.UTF_8), CREATE);
     }
 }
