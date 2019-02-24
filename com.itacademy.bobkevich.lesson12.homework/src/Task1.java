@@ -1,12 +1,8 @@
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
-
-import static java.nio.file.StandardOpenOption.CREATE;
 
 public class Task1 {
 
@@ -17,7 +13,7 @@ public class Task1 {
         inputAndOutputPoem();
     }
 
-    public static void inputAndOutputPoem() throws IOException {
+    private static void inputAndOutputPoem() throws IOException {
 
         File file = Paths.get("poem", "monument.txt").toFile();
         Map<String, Integer> map = new HashMap<>();
@@ -36,16 +32,20 @@ public class Task1 {
                 }
             }
         }
-        List <Map.Entry <String, Integer >> comparingByKey = map .entrySet ()
+        List<String> listKey = map.keySet()
                 .stream()
-                .sorted(Map.Entry.comparingByKey())
-                .collect(Collectors.toList ());
-        String result = comparingByKey + "";
+                .sorted()
+                .collect(Collectors.toList());
         Path writePath = Paths.get("poem", "AllLettersInPoem.txt");
-        Files.write(writePath, result.getBytes(StandardCharsets.UTF_8), CREATE);
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(writePath.toFile()))) {
+            for (String aListKey : listKey) {
+                String result = aListKey + "-" + map.get(aListKey) + "\r\n" + "\r\n";
+                bufferedWriter.write(result);
+            }
+        }
     }
 
-    private static boolean isValue (String word){
+    private static boolean isValue(String word) {
         return LETTERS.contains(word);
     }
 }

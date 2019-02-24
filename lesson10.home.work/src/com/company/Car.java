@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Map;
-import java.util.Objects;
 
 public abstract class Car {
 
@@ -39,24 +37,6 @@ public abstract class Car {
         T85
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || !(o instanceof Car)) return false;
-        Car car = (Car) o;
-        return age == car.age &&
-                mass == car.mass &&
-                Objects.equals(mark, car.mark) &&
-                Objects.equals(model, car.model) &&
-                Objects.equals(typeFuel, car.typeFuel);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(mark, model, age, typeFuel, mass);
-    }
-
     public Mark getMark() {
         return mark;
     }
@@ -76,5 +56,4 @@ public abstract class Car {
     public int getMass() {
         return mass;
     }
-
 }

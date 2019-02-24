@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Objects;
+
 public class CivicCar extends Car {
 
     public CivicCar(Mark mark, Model model, int age, TypeFuel typeFuel, int mass) {
@@ -8,12 +10,19 @@ public class CivicCar extends Car {
 
     @Override
     public boolean equals(Object o) {
-        return super.equals(o);
+        if (this == o) return true;
+        if (!(o instanceof Car)) return false;
+        Car car = (Car) o;
+        return getAge() == car.getAge() &&
+                getMass() == car.getMass() &&
+                Objects.equals(getMark(), car.getMark()) &&
+                Objects.equals(getModel(), car.getModel()) &&
+                Objects.equals(getType(), car.getType());
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(getMark(), getModel(), getAge(), getType(), getMass());
     }
 
     @Override
