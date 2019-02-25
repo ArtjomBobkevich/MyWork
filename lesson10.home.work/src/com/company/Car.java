@@ -1,6 +1,8 @@
 package com.company;
 
 
+import java.util.Objects;
+
 public abstract class Car {
 
     private Mark mark;
@@ -15,6 +17,24 @@ public abstract class Car {
         this.typeFuel = typeFuel;
         this.age = age;
         this.mass = mass;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return age == car.age &&
+                mass == car.mass &&
+                mark == car.mark &&
+                model == car.model &&
+                typeFuel == car.typeFuel;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(mark, model, age, typeFuel, mass);
     }
 
     enum TypeFuel {

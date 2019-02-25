@@ -1,16 +1,16 @@
-package com.company;
-
-import java.util.*;
-
-public class Garage {
-
-    private Map<Car,Integer> garage;
-
-    public Garage(Map<Car, Integer> garage) {
-        this.garage = garage;
-    }
-
-    public Map<Car, Integer> getGarage() {
-        return garage;
-    }
-}
+//package com.company;
+//
+//import java.util.*;
+//
+//public class Garage {
+//
+//    private HashMap<Car, Integer> garage;
+//
+//    public Garage() {
+//        this.garage = new HashMap<>();
+//    }
+//
+//    public Map<Car, Integer> getGarage() {
+//        return garage;
+//    }
+//}

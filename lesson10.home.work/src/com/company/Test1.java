@@ -7,20 +7,33 @@ public class Test1 {
 
     public static void main(String[] args) {
 
-        RacingCar car1 = new RacingCar(Car.Mark.nissan, Car.Model.GTR, 2002, Car.TypeFuel.petrol, 1110);
-        RacingCar car2 = new RacingCar(Car.Mark.toyota, Car.Model.supra, 2010, Car.TypeFuel.petrol, 1110);
-        RacingCar car3 = new RacingCar(Car.Mark.toyota, Car.Model.Rav, 2010, Car.TypeFuel.petrol, 1110);
-        RacingCar car4 = new RacingCar(Car.Mark.audi, Car.Model.R8, 1993, Car.TypeFuel.petrol, 1500);
-        CivicCar car5 = new CivicCar(Car.Mark.audi, Car.Model.R8, 1993, Car.TypeFuel.petrol, 1500);
-        CargoCar car12 = new CargoCar(Car.Mark.toyota, Car.Model.supra, 2010, Car.TypeFuel.petrol, 1110);
-        MilitaryCar car15 = new MilitaryCar(Car.Mark.tank, Car.Model.T85, 1972, Car.TypeFuel.diesel, 40000);
-        MilitaryCar car16 = new MilitaryCar(Car.Mark.tank, Car.Model.T85, 1972, Car.TypeFuel.diesel, 40000);
 
-        Garage garage=new Garage(new HashMap<>());
 
-        garage.getGarage(new RacingCar(Car.Mark.nissan, Car.Model.GTR, 2002, Car.TypeFuel.petrol, 1110))
+        SashaGarage garage=new SashaGarage();
 
+        garage.parkIn(new RacingCar(Car.Mark.nissan, Car.Model.GTR, 2002, Car.TypeFuel.petrol, 1110));
+        garage.parkIn(new RacingCar(Car.Mark.nissan, Car.Model.GTR, 2002, Car.TypeFuel.petrol, 1110));
+        garage.brandInGarage(Car.Mark.nissan);
+        System.out.println(garage.getGarage());
+        System.out.println(garage.getAllCarsInGarage());
+
+
+//        RacingCar car1 = new RacingCar(Car.Mark.nissan, Car.Model.GTR, 2002, Car.TypeFuel.petrol, 1110);
+//        RacingCar car2 = new RacingCar(Car.Mark.toyota, Car.Model.supra, 2010, Car.TypeFuel.petrol, 1110);
+//        RacingCar car3 = new RacingCar(Car.Mark.toyota, Car.Model.Rav, 2010, Car.TypeFuel.petrol, 1110);
+//        RacingCar car4 = new RacingCar(Car.Mark.audi, Car.Model.R8, 1993, Car.TypeFuel.petrol, 1500);
+//        CivicCar car5 = new CivicCar(Car.Mark.audi, Car.Model.R8, 1993, Car.TypeFuel.petrol, 1500);
+//        CargoCar car12 = new CargoCar(Car.Mark.toyota, Car.Model.supra, 2010, Car.TypeFuel.petrol, 1110);
+//        MilitaryCar car15 = new MilitaryCar(Car.Mark.tank, Car.Model.T85, 1972, Car.TypeFuel.diesel, 40000);
+//        MilitaryCar car16 = new MilitaryCar(Car.Mark.tank, Car.Model.T85, 1972, Car.TypeFuel.diesel, 40000);
+//
 //        Map<Car, Integer> allCarInGarage = new HashMap<>();
+//
+//        Garage garage=new Garage(allCarInGarage);
+
+
+
+
 //
 //        System.out.println("В гараже находятся авто:");
 //        System.out.println(allCarInGarage);

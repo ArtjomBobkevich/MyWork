@@ -11,7 +11,7 @@ public class MilitaryCar extends Car {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Car)) return false;
+        if (!(o instanceof MilitaryCar)) return false;
         Car car = (Car) o;
         return getAge() == car.getAge() &&
                 getMass() == car.getMass() &&
