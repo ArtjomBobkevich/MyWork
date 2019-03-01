@@ -9,6 +9,6 @@ enum RobotDetails {
     rightFoot,
     CPU,
     RAM,
-    HDD;
+    HDD
 
 }

@@ -1,16 +1,19 @@
 package stream.homework;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Demo {
 
-    public static void main(String[] args) {
-        System.out.println(Factory.factoryRandomDetails());
-        System.out.println(Factory.factoryRandomDetails());
-        System.out.println(Factory.factoryRandomDetails());
-        System.out.println(Factory.factoryRandomDetails());
+    public static void main(String[] args) throws InterruptedException {
+        List<RobotDetails> deatils = new ArrayList<>();
+        Thread firstThread= new Dump(deatils);
+        Thread secondthread= new Minion(deatils);
 
-        Scientist scientist1=new Scientist();
-        Scientist scientist2;
+        firstThread.start();
+        secondthread.start();
 
-        scientist1.getScientist()
+        firstThread.join();
+        secondthread.join();
     }
 }
