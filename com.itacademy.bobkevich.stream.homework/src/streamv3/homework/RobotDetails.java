@@ -1,4 +1,4 @@
-package stream.homework;
+package streamv3.homework;
 
 enum RobotDetails {
     head,
@@ -10,5 +10,4 @@ enum RobotDetails {
     CPU,
     RAM,
     HDD
-
 }
