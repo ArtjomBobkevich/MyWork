@@ -1,6 +1,6 @@
 package streamv3.homework;
 
-public class Night {
+public class Night extends Thread{
 
     private Integer night;
 
@@ -10,5 +10,9 @@ public class Night {
 
     public Integer getNight() {
         return night;
+    }
+
+    public void setNight(Integer night) {
+        this.night = this.night-night;
     }
 }

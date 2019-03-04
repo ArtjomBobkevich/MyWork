@@ -1,36 +1,29 @@
 package streamv3.homework;
 
-
-import org.omg.CORBA.INTERNAL;
-import org.omg.PortableInterceptor.INACTIVE;
-
 import java.util.Map;
 import java.util.Random;
 
 public class Factory extends Thread {
 
     private static final Random RANDOM = new Random();
+    private static final Integer AMOUNT_NIGHT=100;
 
-    Map<RobotDetails, Integer> dump;
-    private Integer night;
+    private Map<RobotDetails, Integer> dump;
+    private Night night;
 
-    public Factory(Map<RobotDetails, Integer> dump, Integer night) {
+    public Factory(Map<RobotDetails, Integer> dump, Night night) {
         this.dump = dump;
         this.night = night;
     }
 
     @Override
     public void run() {
-//        synchronized (night) {
-            while (night > 0) {
-                synchronized (dump) {
-                    int randomValue = 1 + RANDOM.nextInt(4);
-                    if (dump.size() > randomValue) {
-                        try {
-                            dump.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+        synchronized (dump) {
+        while (night.getNight() >0) {
+
+                    int randomValue = 1 + RANDOM.nextInt(3);
+                    if (night.getNight() - AMOUNT_NIGHT == 0) {
+                        randomValue = randomValue + 20;
                     }
                     for (int i = 0; i < randomValue; i++) {
                         int amountThisRobotDetails = 1;
@@ -44,15 +37,15 @@ public class Factory extends Thread {
                             System.out.println("add");
                         }
                     }
-                    dump.notifyAll();
                     try {
-                        dump.wait();
+                        dump.wait(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                    dump.notifyAll();
+
+                    night.setNight(1);
                 }
-                night--;
             }
-//        }
     }
 }

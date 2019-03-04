@@ -1,15 +1,15 @@
 package streamv3.homework;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Scientist {
 
-    private static HashMap<RobotDetails,Integer> scientist;
+    private  HashMap<RobotDetails,Integer> scientist;
 
-    public Scientist() {
-        Scientist.scientist=new HashMap<>();
+    public Scientist(HashMap<RobotDetails, Integer> scientist) {
+        this.scientist = scientist;
     }
-
 
     public void getRobotDatails(RobotDetails... robotDetails) {
         for (RobotDetails robotDetails1 : robotDetails) {
@@ -21,12 +21,14 @@ public class Scientist {
         }
     }
 
-    public static HashMap<RobotDetails, Integer> getScientist() {
-        return scientist;
+    public  void allRobots (){
+        Map<RobotDetails,Integer>robotDatailsByScientist=getScientist();
+        if (robotDatailsByScientist.size()==9){
+            //ищем меньшее число из всех и столько у нас роботов
+        }
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
+    public HashMap<RobotDetails, Integer> getScientist() {
+        return scientist;
     }
 }
