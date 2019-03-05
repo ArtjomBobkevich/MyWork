@@ -23,37 +23,43 @@ public class Minion extends Thread {
 
     @Override
     public void run() {
-            while (night.getNight() > 0) {
-                synchronized (dump) {
-                    if (dump.isEmpty()) {
+        while (night.getNight() > 0) {
+            synchronized (dump) {
+//                if (dump.isEmpty()) {
+//                    try {
+//                        dump.wait();
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+                List<RobotDetails> robotDetailsAtDump = new ArrayList<>(dump.keySet());
+                if (dump.size() > 0) {
+                    int randomValueDetails = 1 + RANDOM.nextInt(4);
+//                    for (int getRandomDetailsAtMinion = 0; getRandomDetailsAtMinion < randomValueDetails; getRandomDetailsAtMinion++) {
+//                        if (dump.size() > 0) {
+                            RobotDetails robotDetails = robotDetailsAtDump.get(dump.size() - 1);
+                            scientist.getRobotDatails(robotDetails);
+                            Integer amountRobotDatailsAtDump = dump.get(robotDetails);
+                            if (amountRobotDatailsAtDump > 1) {
+                                dump.put(robotDetails, amountRobotDatailsAtDump - 1);
+                                System.out.println(getName() + "удалил число");
+                            } else {
+                                dump.remove(robotDetails);
+                                System.out.println(getName() + "удалил ключ");
+                            }
+//                        }
                         try {
                             dump.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                    }
-                    List<RobotDetails> robotDetailsAtDump = new ArrayList<>(dump.keySet());
-                    if (dump.size() > 0) {
-                        RobotDetails robotDetails = robotDetailsAtDump.get(dump.size() - 1);
-                        int randomValueDetails=1+RANDOM.nextInt(3);
-                        for (int getRandomDetailsAtMinion=0;getRandomDetailsAtMinion<randomValueDetails;getRandomDetailsAtMinion++) {
-                            scientist.getRobotDatails(robotDetails);
-                        }
-//                        try {
-//                            dump.wait(10);
-//                        } catch (InterruptedException e) {
-//                            e.printStackTrace();
-//                        }
-                        Integer amountRobotDatailsAtDump = dump.get(robotDetails);
-                        if (amountRobotDatailsAtDump > 1) {
-                            dump.put(robotDetails, amountRobotDatailsAtDump - 1);
-                            System.out.println(getName()+ "удалил число");
-                        } else {
-                            dump.remove(robotDetails);
-                            System.out.println(getName()+"удалил ключ");
-                        }
-                    }
+//                    }
                 }
             }
         }
     }
+}
+/*синхронизировать метод сбора со свалки?*/
+
+/*разбить на методы удаления и сбора, должно брать 3 рандомных значения и 3 этих же значения удалять */
+/*должно во время возвращения к учёному всё отдать и самому заснуть*/
