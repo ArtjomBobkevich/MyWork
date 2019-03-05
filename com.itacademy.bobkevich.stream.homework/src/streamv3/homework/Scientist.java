@@ -1,34 +1,52 @@
 package streamv3.homework;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Scientist {
 
-    private  HashMap<RobotDetails,Integer> scientist;
+    private  Map<RobotDetails,Integer> scientist;
 
-    public Scientist(HashMap<RobotDetails, Integer> scientist) {
+    public Scientist(Map<RobotDetails, Integer> scientist) {
         this.scientist = scientist;
     }
 
-    public void getRobotDatails(RobotDetails... robotDetails) {
-        for (RobotDetails robotDetails1 : robotDetails) {
-            if (scientist.containsKey(robotDetails1)) {
-                scientist.put(robotDetails1, scientist.get(robotDetails1) + 1);
-            } else {
-                scientist.put(robotDetails1, 1);
+    public void getRobotDatails(Map<RobotDetails,Integer>robotDetailsByMinion) {
+        Set<Map.Entry<RobotDetails,Integer>> entries=robotDetailsByMinion.entrySet();
+            for (Map.Entry<RobotDetails,Integer>entry:entries){
+                Integer amountDetailsByScientist = scientist.get(entry.getKey());
+                if (amountDetailsByScientist==null){
+                    scientist.put(entry.getKey(),entry.getValue());
+                }else {
+                    scientist.put(entry.getKey(),entry.getValue());
+                }
             }
-        }
     }
 
-    public  void allRobots (){
-        Map<RobotDetails,Integer>robotDatailsByScientist=getScientist();
-        if (robotDatailsByScientist.size()==9){
-            //ищем меньшее число из всех и столько у нас роботов
+    public Integer Robot (Map<RobotDetails,Integer> scientist){
+        int amountRobots=0;
+        if (scientist.size()==9){
+            amountRobots=Collections.max(scientist.values());
         }
+        return amountRobots;
     }
 
-    public HashMap<RobotDetails, Integer> getScientist() {
-        return scientist;
+    @Override
+    public String toString() {
+        return Robot(scientist)+" Роботов";
     }
 }
+
+//public void getRobotDatails(Map<RobotDetails,Integer>robotDetailsByMinion) {
+//        Set<Map.Entry<RobotDetails,Integer>> entries=robotDetailsByMinion.entrySet();
+//            for (Map.Entry<RobotDetails,Integer>entry:entries){
+//                Integer amountDetailsByScientist = scientist.get(entry.getKey());
+//                if (amountDetailsByScientist==null){
+//                    scientist.put(entry.getKey(),entry.getValue());
+//                }else {
+//                    scientist.put(entry.getKey(),entry.getValue());
+//                }
+//            }
+//    }

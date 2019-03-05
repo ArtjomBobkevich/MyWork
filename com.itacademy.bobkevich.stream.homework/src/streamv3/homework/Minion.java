@@ -1,7 +1,7 @@
 package streamv3.homework;
 
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -10,13 +10,13 @@ public class Minion extends Thread {
 
     private static final Random RANDOM = new Random();
 
-    private Map<RobotDetails, Integer> dump;
+    private Dump gabrigeDump;
     private Scientist scientist;
-
     private Night night;
+    private Map<RobotDetails,Integer> robotDatilsAtMinionHand=new HashMap<>();
 
-    public Minion(Map<RobotDetails, Integer> dump, Scientist scientist, Night night) {
-        this.dump = dump;
+    public Minion(Dump gabrigeDump, Scientist scientist, Night night) {
+        this.gabrigeDump = gabrigeDump;
         this.scientist = scientist;
         this.night = night;
     }
@@ -24,42 +24,108 @@ public class Minion extends Thread {
     @Override
     public void run() {
         while (night.getNight() > 0) {
-            synchronized (dump) {
-//                if (dump.isEmpty()) {
-//                    try {
-//                        dump.wait();
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-                List<RobotDetails> robotDetailsAtDump = new ArrayList<>(dump.keySet());
-                if (dump.size() > 0) {
+            synchronized (gabrigeDump) {
+                if (gabrigeDump.getGabrigeDump().size() > 0) {
                     int randomValueDetails = 1 + RANDOM.nextInt(4);
-//                    for (int getRandomDetailsAtMinion = 0; getRandomDetailsAtMinion < randomValueDetails; getRandomDetailsAtMinion++) {
-//                        if (dump.size() > 0) {
-                            RobotDetails robotDetails = robotDetailsAtDump.get(dump.size() - 1);
-                            scientist.getRobotDatails(robotDetails);
-                            Integer amountRobotDatailsAtDump = dump.get(robotDetails);
-                            if (amountRobotDatailsAtDump > 1) {
-                                dump.put(robotDetails, amountRobotDatailsAtDump - 1);
-                                System.out.println(getName() + "удалил число");
-                            } else {
-                                dump.remove(robotDetails);
-                                System.out.println(getName() + "удалил ключ");
-                            }
-//                        }
-                        try {
-                            dump.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                    for (int getRandomDetailsAtMinion = 0; getRandomDetailsAtMinion < randomValueDetails; getRandomDetailsAtMinion++) {
+                        List<RobotDetails> allRobotDatailsOnDump =new ArrayList<>(gabrigeDump.getGabrigeDump().keySet());
+                        RobotDetails robotDetailsOnDump=allRobotDatailsOnDump.get(gabrigeDump.getGabrigeDump().size()-1);
+                        if (!this.robotDatilsAtMinionHand.containsKey(robotDetailsOnDump)) {
+                            this.robotDatilsAtMinionHand.put(robotDetailsOnDump, 1);
+                            gabrigeDump.takeRobotDatailsOnDump(robotDetailsOnDump);
+                        }else {
+                            this.robotDatilsAtMinionHand.put(robotDetailsOnDump,robotDatilsAtMinionHand.get(robotDetailsOnDump)-1);
+                            gabrigeDump.takeRobotDatailsOnDump(robotDetailsOnDump);
                         }
-//                    }
+                        scientist.getRobotDatails(robotDatilsAtMinionHand);
+                        robotDatilsAtMinionHand.clear();
+                    }
+                    try {
+                        gabrigeDump.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                try {
+                    gabrigeDump.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 }
-/*синхронизировать метод сбора со свалки?*/
 
-/*разбить на методы удаления и сбора, должно брать 3 рандомных значения и 3 этих же значения удалять */
-/*должно во время возвращения к учёному всё отдать и самому заснуть*/
+
+
+
+//
+//import java.util.ArrayList;
+//import java.util.HashMap;
+//import java.util.List;
+//import java.util.Map;
+//import java.util.Random;
+//
+//public class Minion extends Thread {
+//
+//    private static final Random RANDOM = new Random();
+//
+//    private Map<RobotDetails, Integer> dump;
+//    private Scientist scientist;
+//    private Map<RobotDetails, Integer> robotDatilsAtMinionHand = new HashMap<>();
+//    private Night night;
+//
+//    public Minion(Map<RobotDetails, Integer> dump, Scientist scientist, Night night) {
+//        this.dump = dump;
+//        this.scientist = scientist;
+//        this.night = night;
+//    }
+//
+//    @Override
+//    public void run() {
+//        while (night.getNight() > 0) {
+//            synchronized (dump) {
+//                if (!dump.isEmpty()) {
+//                    int randomValueDetails = 1 + RANDOM.nextInt(4);
+//                    for (int getRandomDetailsAtMinion = 0; getRandomDetailsAtMinion < randomValueDetails; getRandomDetailsAtMinion++) {
+//                        List<RobotDetails> allRobotDatailsOnDump = new ArrayList<>(dump.keySet());
+//                        RobotDetails robotDetailsOnDump = allRobotDatailsOnDump.get(dump.size() - 1);
+//                        Integer amountRobotDatailsAtDump = dump.get(robotDetailsOnDump);
+//                        if (!this.robotDatilsAtMinionHand.containsKey(robotDetailsOnDump)) {
+//                            this.robotDatilsAtMinionHand.put(robotDetailsOnDump, 1);
+//                            if (amountRobotDatailsAtDump > 1) {
+//                                dump.put(robotDetailsOnDump, amountRobotDatailsAtDump - 1);
+//                                System.out.println(getName() + "удалил число");
+//                            } else {
+//                                dump.remove(robotDetailsOnDump);
+//                                System.out.println(getName() + "удалил ключ");
+//                            }
+//                        } else {
+//                            this.robotDatilsAtMinionHand.put(robotDetailsOnDump, robotDatilsAtMinionHand.get(robotDetailsOnDump) - 1);
+//                            if (amountRobotDatailsAtDump > 1) {
+//                                dump.put(robotDetailsOnDump, amountRobotDatailsAtDump - 1);
+//                                System.out.println(getName() + "удалил число");
+//                            } else {
+//                                dump.remove(robotDetailsOnDump);
+//                                System.out.println(getName() + "удалил ключ");
+//                            }
+//                        }
+//                        scientist.getRobotDatails(robotDatilsAtMinionHand);
+//
+////                        try {
+////                            dump.wait();
+////                        } catch (InterruptedException e) {
+////                            e.printStackTrace();
+////                        }
+//                    }
+////                    try {
+////                        dump.wait();
+////                    } catch (InterruptedException e) {
+////                        e.printStackTrace();
+////                    }
+//                }
+//            }
+//        }
+//    }
+//}
+
