@@ -5,28 +5,28 @@ import java.util.Map;
 
 public class Dump extends Thread {
 
-    private Map<RobotDetails,Integer>gabrigeDump =new HashMap<>();
+    private Map<RobotDetails, Integer> dump = new HashMap<>();
 
     public Dump() {
     }
 
-    public void discardRobotDatailsOnDump(RobotDetails robotDetails) {     /*для фабрики*/
-            if (gabrigeDump.containsKey(robotDetails)) {            /*меняет саму мапу, добавляя ей значения*/
-                gabrigeDump.put(robotDetails, gabrigeDump.get(robotDetails) + 1);
-            } else {
-                gabrigeDump.put(robotDetails, 1);
-            }
+    public void discardRobotDatailsOnDump(RobotDetails robotDetails) {
+        if (this.dump.containsKey(robotDetails)) {
+            this.dump.put(robotDetails, this.dump.get(robotDetails) + 1);
+        } else {
+            this.dump.put(robotDetails, 1);
+        }
     }
 
-    public void takeRobotDatailsOnDump (RobotDetails robotDetails){   /*для миньонов*/
-            if (gabrigeDump.containsKey(robotDetails)) {        /*когда миньоны забирают они убирают этот ключ из мапы*/
-                gabrigeDump.put(robotDetails, gabrigeDump.get(robotDetails) - 1);
-            } else {
-                gabrigeDump.remove(robotDetails);
-            }
+    public void takeRobotDatailsOnDump(RobotDetails robotDetails) {
+        if (this.dump.containsKey(robotDetails)) {
+            this.dump.put(robotDetails, this.dump.get(robotDetails) - 1);
+        } else {
+            this.dump.remove(robotDetails);
+        }
     }
 
-    public synchronized Map<RobotDetails, Integer> getGabrigeDump() {
-        return this.gabrigeDump;
+    public synchronized Map<RobotDetails, Integer> getDump() {
+        return this.dump;
     }
 }
