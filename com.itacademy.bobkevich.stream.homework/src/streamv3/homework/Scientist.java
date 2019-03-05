@@ -13,7 +13,7 @@ public class Scientist {
         this.scientist = scientist;
     }
 
-    public void getRobotDatails(Map<RobotDetails,Integer>robotDetailsByMinion) {
+    public void getRobotDatails(Map<RobotDetails,Integer>robotDetailsByMinion) {   /*пробегает по переданной мапе и где добавляет ключ, а где значение*/
         Set<Map.Entry<RobotDetails,Integer>> entries=robotDetailsByMinion.entrySet();
             for (Map.Entry<RobotDetails,Integer>entry:entries){
                 Integer amountDetailsByScientist = scientist.get(entry.getKey());
@@ -25,7 +25,7 @@ public class Scientist {
             }
     }
 
-    public Integer Robot (Map<RobotDetails,Integer> scientist){
+    public Integer Robot (Map<RobotDetails,Integer> scientist){ /*условно собирает роботов, если в мапе есть 9 ключей, то наименьшее значение и будет кол-вом роботов*/
         int amountRobots=0;
         if (scientist.size()==9){
             amountRobots=Collections.max(scientist.values());

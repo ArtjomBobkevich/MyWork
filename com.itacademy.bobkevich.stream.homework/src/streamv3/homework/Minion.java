@@ -28,25 +28,25 @@ public class Minion extends Thread {
                 if (gabrigeDump.getGabrigeDump().size() > 0) {
                     int randomValueDetails = 1 + RANDOM.nextInt(4);
                     for (int getRandomDetailsAtMinion = 0; getRandomDetailsAtMinion < randomValueDetails; getRandomDetailsAtMinion++) {
-                        List<RobotDetails> allRobotDatailsOnDump =new ArrayList<>(gabrigeDump.getGabrigeDump().keySet());
-                        RobotDetails robotDetailsOnDump=allRobotDatailsOnDump.get(gabrigeDump.getGabrigeDump().size()-1);
+                        List<RobotDetails> allRobotDatailsOnDump =new ArrayList<>(gabrigeDump.getGabrigeDump().keySet());   /*перевёл все ключи в мапе в лист*/
+                        RobotDetails robotDetailsOnDump=allRobotDatailsOnDump.get(gabrigeDump.getGabrigeDump().size()-1);   /* выбираю деталь робота по листу */
                         if (!this.robotDatilsAtMinionHand.containsKey(robotDetailsOnDump)) {
                             this.robotDatilsAtMinionHand.put(robotDetailsOnDump, 1);
-                            gabrigeDump.takeRobotDatailsOnDump(robotDetailsOnDump);
+                            gabrigeDump.takeRobotDatailsOnDump(robotDetailsOnDump);  /*стираю либо деталь полностью, */
                         }else {
-                            this.robotDatilsAtMinionHand.put(robotDetailsOnDump,robotDatilsAtMinionHand.get(robotDetailsOnDump)-1);
+                            this.robotDatilsAtMinionHand.put(robotDetailsOnDump,robotDatilsAtMinionHand.get(robotDetailsOnDump)-1); /* либо отнимаю её значение */
                             gabrigeDump.takeRobotDatailsOnDump(robotDetailsOnDump);
                         }
-                        scientist.getRobotDatails(robotDatilsAtMinionHand);
-                        robotDatilsAtMinionHand.clear();
+                        scientist.getRobotDatails(robotDatilsAtMinionHand);  /*передаёт мапу деталей миньона, мапе учёного*/
+                        robotDatilsAtMinionHand.clear();  /*по условию миньон приносит и отдаёт, следовательно его лист я чищу*/
                     }
                     try {
-                        gabrigeDump.wait();
+                        gabrigeDump.wait();     /*после того как миньон принёс всё он ждёт следующей ночи*/
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-                try {
+                try {                           /*пришёл раньше, чем фабрика скинула детали, ушёл нисчем до следующей ночи*/
                     gabrigeDump.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();

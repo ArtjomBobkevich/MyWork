@@ -17,10 +17,10 @@ public class Factory extends Thread {
 
     @Override
     public void run() {
-            while (night.getNight() > 0) {
+            while (night.getNight() > 0) {          /*счётчик ночей*/
                 synchronized (gabrigeDump) {
-                int randomValue = 1 + RANDOM.nextInt(4);
-                if (night.getNight() - AMOUNT_NIGHT == 0) {
+                int randomValue = 1 + RANDOM.nextInt(4);        /*рандомное кол-во от 1 до 4*/
+                if (night.getNight() - AMOUNT_NIGHT == 0) {     /*в первую ночь, скидывает на свалку 20 деталей*/
                     randomValue = randomValue + 20;
                 }
                 for (int i = 0; i <= randomValue; i++) {
@@ -28,12 +28,12 @@ public class Factory extends Thread {
                     gabrigeDump.discardRobotDatailsOnDump(robotDetails);
                 }
                 try {
-                    gabrigeDump.wait(100);
+                    gabrigeDump.wait(100);          /*ждёт пока идёт ночь и будит всех, кто ждёт*/
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                     gabrigeDump.notifyAll();
-                night.setNight(1);
+                night.setNight(1);      /*увеличивает счётчик*/
             }
         }
     }
