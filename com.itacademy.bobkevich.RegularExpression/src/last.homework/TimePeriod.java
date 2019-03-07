@@ -20,7 +20,6 @@ public class TimePeriod {
                 newValue=time.getTimeList().get(counter)+" "+nameOfActivity.getListAllActivity().get(counter)+"\r\n"+"\r\n";
                 timePeriod=timePeriod.append(newValue);
             }
-
         }
     }
 
