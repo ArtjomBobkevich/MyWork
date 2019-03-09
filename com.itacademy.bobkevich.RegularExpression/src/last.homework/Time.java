@@ -1,22 +1,19 @@
 package last.homework;
 
-import java.util.LinkedList;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.List;
 
+@AllArgsConstructor
+@Getter
 public class Time {
-    List<String> timeList=new LinkedList<>();
 
-    public Time() {
-    }
+    List<String> timeList;
 
     public void addAtTimeList (String string){
         this.timeList.add(string);
     }
-
-    public List<String> getTimeList() {
-        return this.timeList;
-    }
-
 
     @Override
     public String toString() {

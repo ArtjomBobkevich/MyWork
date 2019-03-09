@@ -1,14 +1,11 @@
 package last.homework;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
 public class TimePeriod {
 
     private StringBuffer timePeriod;
-
-    public TimePeriod(StringBuffer timePeriod) {
-        this.timePeriod = timePeriod;
-    }
 
     public void allTimePeriod (Time time,NameOfActivity nameOfActivity){
         String newValue;

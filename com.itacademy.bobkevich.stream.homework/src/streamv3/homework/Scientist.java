@@ -19,16 +19,20 @@ public class Scientist {
             }
     }
 
-    public Integer valuePreparedRobots (Map<RobotDetails,Integer> scientist){
+    public Integer valuePreparedRobots (){
         int amountRobots=0;
-        if (scientist.size()==9){
+        if (this.scientist.size()==9){
             amountRobots=Collections.min(scientist.values());
         }
         return amountRobots;
     }
 
+    public Map<RobotDetails, Integer> getScientist() {
+        return scientist;
+    }
+
     @Override
     public String toString() {
-        return valuePreparedRobots(scientist)+" Роботов, а деталей всего: " +scientist;
+        return valuePreparedRobots()+" Роботов, а деталей всего: " +scientist;
     }
 }

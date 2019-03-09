@@ -29,16 +29,18 @@ public class Minion extends Thread {
                     int randomValueDetails = 1 + RANDOM.nextInt(4);
                     for (int counter = 0; counter < randomValueDetails; counter++) {
                         List<RobotDetails> allRobotDatailsOnDump = new ArrayList<>(dump.getDump().keySet());
-                        RobotDetails thisRobotDetailsOnDump = allRobotDatailsOnDump.get(RANDOM.nextInt(dump.getDump().size()));
-                        if (!this.robotDatilsAtMinionHand.containsKey(thisRobotDetailsOnDump)) {
-                            this.robotDatilsAtMinionHand.put(thisRobotDetailsOnDump, 1);
-                            dump.takeRobotDatailsOnDump(thisRobotDetailsOnDump);
-                        } else {
-                            this.robotDatilsAtMinionHand.put(thisRobotDetailsOnDump, robotDatilsAtMinionHand.get(thisRobotDetailsOnDump) + 1);
-                            dump.takeRobotDatailsOnDump(thisRobotDetailsOnDump);
+                        if (allRobotDatailsOnDump.size() > 0) {
+                            RobotDetails thisRobotDetailsOnDump = allRobotDatailsOnDump.get(RANDOM.nextInt(dump.getDump().size()));
+                            if (!this.robotDatilsAtMinionHand.containsKey(thisRobotDetailsOnDump)) {
+                                this.robotDatilsAtMinionHand.put(thisRobotDetailsOnDump, 1);
+                                dump.takeRobotDatailsOnDump(thisRobotDetailsOnDump);
+                            } else {
+                                this.robotDatilsAtMinionHand.put(thisRobotDetailsOnDump, robotDatilsAtMinionHand.get(thisRobotDetailsOnDump) + 1);
+                                dump.takeRobotDatailsOnDump(thisRobotDetailsOnDump);
+                            }
+                            scientist.getRobotDatails(robotDatilsAtMinionHand);
+                            robotDatilsAtMinionHand.clear();
                         }
-                        scientist.getRobotDatails(robotDatilsAtMinionHand);
-                        robotDatilsAtMinionHand.clear();
                     }
                 }
                 try {

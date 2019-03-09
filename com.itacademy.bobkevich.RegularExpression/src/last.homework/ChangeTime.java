@@ -1,17 +1,17 @@
 package last.homework;
 
-import java.util.LinkedList;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.List;
 
+@AllArgsConstructor
+@Getter
 public class ChangeTime {
 
     private final static Integer HOUR=60;
 
-    private List<Integer> changeTime = new LinkedList<>();
-
-    public ChangeTime() {
-
-    }
+    private List<Integer> changeTime;
 
     public Integer convertStringToInt (String string){
         Integer value = Integer.parseInt(string);
@@ -35,10 +35,6 @@ public class ChangeTime {
             Integer result=value1+value2;
             this.changeTime.add(result);
         }
-    }
-
-    public List<Integer> getChangeTime() {
-        return changeTime;
     }
 
     @Override

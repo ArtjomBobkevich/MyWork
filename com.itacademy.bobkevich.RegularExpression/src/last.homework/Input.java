@@ -1,5 +1,7 @@
 package last.homework;
 
+import lombok.AllArgsConstructor;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -7,10 +9,8 @@ import java.nio.file.Paths;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@AllArgsConstructor
 public class Input {
-
-    public Input() {
-    }
 
     public String  getInformation () throws IOException {
         Path readPath = Paths.get("Log", "log-file.txt");
