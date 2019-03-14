@@ -2,11 +2,18 @@ CREATE SCHEMA cloud_storage;
 
 SET SEARCH_PATH =cloud_storage;
 
+CREATE TABLE login (
+  id SERIAL PRIMARY KEY ,
+  login_person VARCHAR(124) REFERENCES person (login)
+);
+
 CREATE TABLE person (
   login VARCHAR(124) PRIMARY KEY,
   first_name VARCHAR(124) NOT NULL ,
   last_name VARCHAR(124) NOT NULL,
-  age SMALLINT
+  age SMALLINT,
+  mail VARCHAR(124) UNIQUE NOT NULL ,
+  password VARCHAR(124) NOT NULL
 );
 
 INSERT INTO person (login, first_name, last_name, age)
@@ -30,112 +37,105 @@ INSERT INTO type_file (name_of_type)
       ('Audio_files'),
       ('Games');
 
-CREATE TABLE film_genre (
-  type_id SERIAL PRIMARY KEY ,
-  name_of_genre VARCHAR(124) UNIQUE NOT NULL,
-  type_file_id INTEGER NOT NULL REFERENCES type_file ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE genre (
+  id SERIAL PRIMARY KEY ,
+  name_of_genre VARCHAR(124) UNIQUE NOT NULL
+--  type_file_id INTEGER NOT NULL REFERENCES type_file ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-INSERT INTO film_genre (name_of_genre, type_file_id)
+INSERT INTO genre (name_of_genre)
     VALUES
-      ('Action',1),
-      ('Drama',1),
-      ('Comedy',1),
-      ('Detective',1),
-      ('Historical',1),
-      ('Fairy tale',1),
-      ('Western',1),
-      ('Noir',1);
+      ('Action'),
+      ('Drama'),
+      ('Comedy'),
+      ('Detective'),
+      ('Historical'),
+      ('Fairy tale'),
+      ('Western'),
+      ('Noir'),
+      ('Rock'),
+      ('Pop'),
+      ('Metal'),
+      ('Blues'),
+      ('Jazz'),
+      ('Relax'),
+      ('Rap'),
+      ('Classic'),
+      ('Poetry'),
+      ('Science fiction'),
+      ('Training'),
+      ('Humor'),
+      ('Foto'),
+      ('Wallpaper'),
+      ('Avatar'),
+      ('Painting'),
+      ('Graphics'),
+      ('Sculpture'),
+      ('Digital Art'),
+      ('Booklets'),
+      ('Russian'),
+      ('Overseas'),
+      ('Radio plays'),
+      ('Fantasy'),
+      ('Cultural studies'),
+      ('Religion'),
+      ('Arcades'),
+      ('Strategies'),
+      ('Logical'),
+      ('Role-playing'),
+      ('Fighting'),
+      ('Simulators');
 
-CREATE TABLE music_genre (
-  type_id SERIAL PRIMARY KEY ,
-  name_of_genre VARCHAR(124) UNIQUE NOT NULL,
-  type_file_id INTEGER NOT NULL REFERENCES type_file ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE resource_genre (
+  resources_id INTEGER REFERENCES resource (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  genre_id INTEGER REFERENCES genre (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY (resources_id,genre_id)
 );
 
-INSERT INTO music_genre (name_of_genre, type_file_id)
+INSERT INTO resource_genre
     VALUES
-      ('Rock',2),
-      ('Pop',2),
-      ('Metal',2),
-      ('Classic',2),
-      ('Blues',2),
-      ('Jazz',2),
-      ('Relax',2),
-      ('Rap',2);
-
-CREATE TABLE book_genre (
-  type_id SERIAL PRIMARY KEY ,
-  name_of_genre VARCHAR(124) UNIQUE NOT NULL,
-  type_file_id INTEGER NOT NULL REFERENCES type_file ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-INSERT INTO book_genre (name_of_genre, type_file_id)
-    VALUES
-      ('Classic',4),
-      ('Poetry',4),
-      ('Fantasy',4),
-      ('Science fiction',4),
-      ('Detective',4),
-      ('Fairy tale',4),
-      ('Training',4),
-      ('Humor',4);
-
-CREATE TABLE pictures_genre (
-  type_id SERIAL PRIMARY KEY ,
-  name_of_genre VARCHAR(124) UNIQUE NOT NULL,
-  type_file_id INTEGER NOT NULL REFERENCES type_file ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-INSERT INTO pictures_genre (name_of_genre, type_file_id)
-    VALUES
-      ('Foto',3),
-      ('Wallpaper',3),
-      ('Avatar',3),
-      ('Painting',3),
-      ('Graphics',3),
-      ('Sculpture',3),
-      ('Digital Art',3),
-      ('Booklets',3);
-
-CREATE TABLE nationals_of_serials (
-  type_id SERIAL PRIMARY KEY ,
-  name_of_genre VARCHAR(124) UNIQUE NOT NULL,
-  type_file_id INTEGER NOT NULL REFERENCES type_file ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-INSERT INTO  nationals_of_serials (name_of_genre, type_file_id)
-    VALUES
-      ('Russian',5),
-      ('Overseas',5);
-
-CREATE TABLE genre_of_audio_files (
-  type_id SERIAL PRIMARY KEY ,
-  name_of_genre VARCHAR(124) UNIQUE NOT NULL,
-  type_file_id INTEGER NOT NULL REFERENCES type_file ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-INSERT INTO genre_of_audio_files (name_of_genre, type_file_id)
-    VALUES
-      ('Radio plays',7),
-      ('Fantasy',7),
-      ('Cultural studies',7),
-      ('Religion',7);
-
-CREATE TABLE game_genre (
-  type_id SERIAL PRIMARY KEY ,
-  name_of_genre VARCHAR(124) UNIQUE NOT NULL,
-  type_file_id INTEGER NOT NULL REFERENCES type_file ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-INSERT INTO game_genre (name_of_genre, type_file_id)
-    VALUES
-      ('Arcades',7),
-      ('Strategies',7),
-      ('Logical',7),
-      ('Role-playing',7),
-      ('Fighting',7),
-      ('Simulators',7);
+      (1,1),
+      (1,2),
+      (1,3),
+      (1,4),
+      (1,5),
+      (1,6),
+      (1,7),
+      (1,32),
+      (1,8),
+      (2,9),
+      (2,10),
+      (2,11),
+      (2,13),
+      (2,12),
+      (2,14),
+      (2,15),
+      (2,16),
+      (3,21),
+      (3,22),
+      (3,23),
+      (3,24),
+      (3,25),
+      (3,26),
+      (3,27),
+      (3,28),
+      (4,17),
+      (4,18),
+      (4,19),
+      (4,20),
+      (4,32),
+      (6,31),
+      (6,32),
+      (6,33),
+      (6,34),
+      (4,33),
+      (4,34),
+      (7,35),
+      (7,36),
+      (7,37),
+      (7,38),
+      (7,39),
+      (7,40);
 
 CREATE TABLE category (
   id SERIAL PRIMARY KEY ,
@@ -148,17 +148,49 @@ INSERT INTO category (category_name)
       ('Study'),
       ('Entertainment');
 
-
 CREATE TABLE resource (
   id SERIAL PRIMARY KEY ,
   resource_name VARCHAR(124) NOT NULL,
   type_id INTEGER REFERENCES type_file (id) ,
   caterory_resourse INTEGER REFERENCES category (id),
-  giver_name VARCHAR(123) REFERENCES person (login),
   size_on_MB INTEGER
 );
 
-CREATE TABLE resource_genre (
-  resource_id INTEGER REFERENCES resource (id),
- -- genre_id INTEGER REFERENCES
-)
+CREATE TABLE language (
+  id SERIAL PRIMARY KEY ,
+  language_name VARCHAR(2) UNIQUE NOT NULL
+);
+
+CREATE TABLE resource_login (
+  resources_id INTEGER REFERENCES resource (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  login_id INTEGER REFERENCES login (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY (resources_id,login_id)
+);
+
+CREATE TABLE language_resource (
+  id SERIAL PRIMARY KEY ,
+  language_id INTEGER REFERENCES language (id),
+  resurces_id INTEGER REFERENCES resource (id),
+  translate_text VARCHAR(1000) NOT NULL
+);
+
+CREATE TABLE language_genre (
+  id SERIAL PRIMARY KEY ,
+  language_id INTEGER REFERENCES language (id),
+  genre_id INTEGER REFERENCES genre (id),
+  translate_text VARCHAR(1000) NOT NULL
+);
+
+CREATE TABLE language_type_file (
+  id SERIAL PRIMARY KEY ,
+  language_id INTEGER REFERENCES language (id),
+  type_file_id INTEGER REFERENCES type_file (id),
+  translate_text VARCHAR(1000) NOT NULL
+);
+
+CREATE TABLE language_category (
+  id SERIAL PRIMARY KEY ,
+  language_id INTEGER REFERENCES language (id),
+  category_id INTEGER REFERENCES category (id),
+  translate_text VARCHAR(1000) NOT NULL
+);
