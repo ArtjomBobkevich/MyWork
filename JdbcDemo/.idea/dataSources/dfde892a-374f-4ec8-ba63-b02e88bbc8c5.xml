@@ -52,7 +52,7 @@
     </role>
     <schema id="10" parent="2" name="cloud_storage">
       <ObjectId>24577</ObjectId>
-      <IntrospectionTimestamp>2019-03-15.11:24:00.852</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2019-03-15.11:38:56.555</IntrospectionTimestamp>
       <IntrospectionStateNumber>855</IntrospectionStateNumber>
       <Visible>1</Visible>
     </schema>
@@ -62,6 +62,8 @@
     <schema id="12" parent="2" name="pg_catalog">
       <ObjectId>11</ObjectId>
       <Comment>system catalog schema</Comment>
+      <IntrospectionTimestamp>2019-03-15.11:38:44.694</IntrospectionTimestamp>
+      <IntrospectionStateNumber>506</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <schema id="13" parent="2" name="pg_temp_1">
