@@ -1,6 +1,7 @@
 package com.itacademy.bobkevich.jdbc.dao;
 
 import com.itacademy.bobkevich.jdbc.entity.Category;
+import com.itacademy.bobkevich.jdbc.entity.Genre;
 import com.itacademy.bobkevich.jdbc.entity.Person;
 import com.itacademy.bobkevich.jdbc.entity.Resource;
 import com.itacademy.bobkevich.jdbc.entity.TypeFile;
@@ -14,6 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Optional;
+
+import static java.sql.Statement.*;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ResourceDao {
@@ -44,11 +47,12 @@ public class ResourceDao {
     private static final String DELETE = "DELETE FROM cloud_storage.resource WHERE id=?";
     private static final String SAVE = "INSERT INTO cloud_storage.resource (resource_name, type_id, caterory_id, login_who_giving, url, file_size) VALUES (?,?,?,?,?,?);";
     private static final String UPDATE = "UPDATE cloud_storage.resource SET resource_name=?, type_id=?, caterory_id=?, login_who_giving=?, url=?,file_size=? WHERE id=?";
+    private static final String ADD_GENRE = "INSERT INTO cloud_storage.resource_genre (resources_id, genre_id) VALUES (?,?);";
 
     @SneakyThrows
     public Resource save(Resource resource) {
         try (Connection connection = Connectionmanager.get();
-             PreparedStatement preparedStatement = connection.prepareStatement(SAVE, Statement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SAVE, RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, resource.getResourceName());
             preparedStatement.setObject(2, Optional.ofNullable(resource.getTypeFile()).map(TypeFile::getId).orElse(null));
             preparedStatement.setObject(3, Optional.ofNullable(resource.getCategory()).map(Category::getId).orElse(null));
@@ -125,6 +129,19 @@ public class ResourceDao {
         }
 
         return result;
+    }
+
+    @SneakyThrows
+    public Resource addGenre (Resource resource, Genre genre){
+       try (Connection connection = Connectionmanager.get();
+            PreparedStatement preparedStatement=connection.prepareStatement(ADD_GENRE,RETURN_GENERATED_KEYS)){
+        preparedStatement.setInt(1,resource.getId());
+        preparedStatement.setInt(2,genre.getId());
+
+        preparedStatement.executeUpdate();
+        resource.getGenres().add(genre);
+       }
+       return resource;
     }
 
     public static ResourceDao getResourceDao() {
