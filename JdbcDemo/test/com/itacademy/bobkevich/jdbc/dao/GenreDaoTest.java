@@ -27,5 +27,4 @@ public class GenreDaoTest {
         assertTrue(genre.isPresent());
         System.out.println(genre.get());
     }
-
 }

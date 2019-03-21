@@ -1,6 +1,7 @@
 package com.itacademy.bobkevich.jdbc.dao;
 
 import com.itacademy.bobkevich.jdbc.entity.Category;
+import com.itacademy.bobkevich.jdbc.entity.Comment;
 import com.itacademy.bobkevich.jdbc.entity.Genre;
 import com.itacademy.bobkevich.jdbc.entity.Person;
 import com.itacademy.bobkevich.jdbc.entity.Resource;
