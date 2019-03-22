@@ -1,6 +1,6 @@
 package com.itacademy.bobkevich.servlet.garbage;
 
-import com.itacademy.bobkevich.jdbc.util.Connectionmanager;
+import com.itacademy.bobkevich.servlet.util.Connectionmanager;
 import lombok.SneakyThrows;
 
 import java.sql.Connection;

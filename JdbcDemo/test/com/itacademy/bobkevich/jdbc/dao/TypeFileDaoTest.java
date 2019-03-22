@@ -21,20 +21,20 @@ public class TypeFileDaoTest {
 
     @Test
     public void checkFindOne () {
-        Optional<TypeFile> typeFile = typeFileDao.findOne(8);
+        Optional<TypeFile> typeFile = typeFileDao.findOne(9);
         assertTrue(typeFile.isPresent());
     }
 
     @Test
     public void checkDelite () {
-        boolean delete = TypeFileDao.getTypeFileDao().delete(8);
+        boolean delete = TypeFileDao.getTypeFileDao().delete(9);
         assertTrue(delete);
     }
 
     @Test
     public void checkUpdate () {
         TypeFile update = TypeFileDao.getTypeFileDao().update(TypeFile.builder()
-                .id(8)
+                .id(9)
                 .name("Instance update")
                 .build());
         assertNotNull(update.getId());
