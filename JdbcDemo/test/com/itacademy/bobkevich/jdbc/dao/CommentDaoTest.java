@@ -21,8 +21,8 @@ public class CommentDaoTest {
     public void checkSave () {
         Comment comment=CommentDao.getCommentDao().commentSave(Comment.builder()
                 .resource_id(Resource.builder()
-                        .id(1)
-                        .resourceName("Рэмбо 22")
+                        .id(2)
+                        .resourceName("Avatar")
                         .typeFile(TypeFile.builder()
                                 .id(ResourceType.FILM)
                                 .build())
@@ -32,10 +32,10 @@ public class CommentDaoTest {
                         .person(Person.builder()
                                 .login("beast")
                                 .build())
-                        .url("www.habr.ru")
-                        .size(222)
+                        .url("wwww.kinogo.net")
+                        .size(1400)
                         .build())
-                .text("Как я заманался писать этот метод")
+                .text("Как я заманался писать этот метод++")
                 .build());
         assertNotNull(comment.getId());
     }

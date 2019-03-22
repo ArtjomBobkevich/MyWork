@@ -1,4 +1,4 @@
-package com.itacademy.bobkevich.jdbc;
+package com.itacademy.bobkevich.jdbc.garbage;
 
 import com.itacademy.bobkevich.jdbc.util.Connectionmanager;
 import lombok.SneakyThrows;

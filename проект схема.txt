@@ -4,7 +4,7 @@ SET SEARCH_PATH =cloud_storage;
 
 CREATE TABLE person_role (
   id SERIAL PRIMARY KEY ,
-  role VARCHAR(124) UNIQUE
+  role VARCHAR(124)  UNIQUE NOT NULL
 );
 
 CREATE TABLE person (
@@ -14,7 +14,7 @@ CREATE TABLE person (
   age SMALLINT,
   mail VARCHAR(124) UNIQUE NOT NULL ,
   password VARCHAR(124) NOT NULL,
-  role VARCHAR(124) REFERENCES person_role (role) ON DELETE CASCADE ON UPDATE CASCADE
+  role INTEGER REFERENCES person_role (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE type_file (
@@ -48,11 +48,17 @@ CREATE TABLE resource_genre (
   PRIMARY KEY (resources_id,genre_id)
 );
 
+CREATE TABLE comment (
+  id SERIAL PRIMARY KEY ,
+  resource_id INTEGER REFERENCES resource (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  text VARCHAR(500)
+);
+
 INSERT INTO person (login, first_name, last_name, age, mail, password, role)
 VALUES
-  ('user1','Ivan','Ivanov',18,'www@gmail.com','1234','User'),
-  ('hunter','Max','Faster',16,'ww2@gmail.com','12345','User'),
-  ('beast','Sveta','Nezabudka',30,'w3@gmail.com','12342','Admin');
+  ('user1','Ivan','Ivanov',18,'www@gmail.com','1234',2),
+  ('hunter','Max','Faster',16,'ww2@gmail.com','12345',2),
+  ('beast','Sveta','Nezabudka',30,'w3@gmail.com','12342',1);
 
 
 INSERT INTO person_role (role)

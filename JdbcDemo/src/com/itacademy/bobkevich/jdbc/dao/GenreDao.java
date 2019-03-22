@@ -1,7 +1,6 @@
 package com.itacademy.bobkevich.jdbc.dao;
 
 import com.itacademy.bobkevich.jdbc.entity.Genre;
-import com.itacademy.bobkevich.jdbc.entity.PersonRole;
 import com.itacademy.bobkevich.jdbc.entity.Resource;
 import com.itacademy.bobkevich.jdbc.util.Connectionmanager;
 import lombok.SneakyThrows;
@@ -15,6 +14,12 @@ import java.util.Optional;
 public class GenreDao {
 
     private static final GenreDao GENRE_DAO = new GenreDao();
+    private static final String FIND_ONE =
+            "SELECT " +
+                    "g.id AS id, " +
+                    "g.name_of_genre AS name " +
+                    "FROM cloud_storage.genre g " +
+                    "WHERE g.id=?";
     private static final String SAVE = "INSERT INTO cloud_storage.genre (name_of_genre) VALUES (?)";
     private static final String GET_BY_ID = "SELECT " +
             "g.id AS genre_id," +
@@ -32,9 +37,11 @@ public class GenreDao {
             "JOIN cloud_storage.resource r " +
             "ON r.id=rg.resources_id " +
             "WHERE g.id=?";
+    private static final String DELETE = "DELETE FROM cloud_storage.genre WHERE id=?";
+    private static final String UPDATE = "UPDATE cloud_storage.genre SET name_of_genre=? WHERE id=?";
 
     @SneakyThrows
-    public Optional<Genre> findOne (Integer id) {
+    public Optional<Genre> findWhoHaveThisGenre (Integer id) {
         Genre genre=null;
         try (Connection connection=Connectionmanager.get();
         PreparedStatement preparedStatement=connection.prepareStatement(GET_BY_ID)){
@@ -58,6 +65,23 @@ public class GenreDao {
     }
 
     @SneakyThrows
+    public Optional<Genre> findOne(Integer id) {
+        Genre genre = null;
+        try (Connection connection = Connectionmanager.get();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_ONE)) {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                genre = Genre.builder()
+                        .id(resultSet.getInt("id"))
+                        .name(resultSet.getString("name"))
+                        .build();
+            }
+        }
+        return Optional.ofNullable(genre);
+    }
+
+    @SneakyThrows
     public Genre save(Genre genre) {
         try (Connection connection = Connectionmanager.get();
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE, Statement.RETURN_GENERATED_KEYS)) {
@@ -70,6 +94,33 @@ public class GenreDao {
             }
         }
         return genre;
+    }
+
+    @SneakyThrows
+    public Genre update(Genre genre){
+        try (Connection connection = Connectionmanager.get();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
+            preparedStatement.setString(1, genre.getName());
+            preparedStatement.setObject(2,genre.getId());
+
+            preparedStatement.executeUpdate();
+        }
+        return genre;
+    }
+
+    @SneakyThrows
+    public boolean delete(Integer id) {
+        boolean result = false;
+        try (Connection connection = Connectionmanager.get();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
+            preparedStatement.setInt(1, id);
+
+            if (preparedStatement.executeUpdate() == 1) {
+                result = true;
+            }
+        }
+
+        return result;
     }
 
     public static GenreDao getGenreDao() {
