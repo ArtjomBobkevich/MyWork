@@ -31,41 +31,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="cloud_database@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="cloud_database@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="cloud_database@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="cloud_database: database" type="6d9b600a:PostgresImplModel$Database" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="cloud_database@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="cloud_database: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="cloud_database@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="cloud_database: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="cloud_storage: schema" type="a16502c0:PostgresImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="cloud_database@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="cloud_database: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="cloud_storage: schema" type="a16502c0:PostgresImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
     </expand>
     <select />
   </component>
@@ -78,18 +43,16 @@
               <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#342#343#0" expanded="true" />
-                <element signature="e#381#382#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResourceServlet.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ResourceServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/ResourceServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="177">
-              <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="22" />
+              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,10 +60,75 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="DATABASE/986d968b-e688-4362-b70a-964fb67f184b" pinned="false" current-in-tab="true">
+        <entry file="uml://DATABASE/986d968b-e688-4362-b70a-964fb67f184b">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>DATABASE</ID>
+              <OriginalElement>986d968b-e688-4362-b70a-964fb67f184b</OriginalElement>
+              <nodes>
+                <node x="191.5" y="358.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource</node>
+                <node x="18.5" y="0.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person_role</node>
+                <node x="427.5" y="413.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.genre</node>
+                <node x="409.5" y="603.5">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource_genre</node>
+                <node x="419.0" y="179.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.category</node>
+                <node x="167.0" y="592.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.comment</node>
+                <node x="200.0" y="179.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.type_file</node>
+                <node x="0.0" y="124.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource_genre" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource">
+                  <point x="-40.5" y="-36.5" />
+                  <point x="450.0" y="567.0" />
+                  <point x="353.5" y="567.0" />
+                  <point x="54.0" y="92.0" />
+                </edge>
+                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource_genre" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.genre">
+                  <point x="40.5" y="-36.5" />
+                  <point x="0.0" y="37.0" />
+                </edge>
+                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person">
+                  <point x="-72.0" y="-92.0" />
+                  <point x="227.5" y="333.0" />
+                  <point x="90.0" y="333.0" />
+                  <point x="0.0" y="92.0" />
+                </edge>
+                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.comment" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource">
+                  <point x="0.0" y="-48.0" />
+                  <point x="-54.0" y="92.0" />
+                </edge>
+                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person_role">
+                  <point x="0.0" y="-92.0" />
+                  <point x="0.0" y="37.0" />
+                </edge>
+                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.category">
+                  <point x="72.0" y="-92.0" />
+                  <point x="371.5" y="333.0" />
+                  <point x="522.0" y="333.0" />
+                  <point x="0.0" y="37.0" />
+                </edge>
+                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.type_file">
+                  <point x="0.0" y="-92.0" />
+                  <point x="0.0" y="37.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="0.8163841807909604" x="317.5" y="372.0" />
+              <SelectedNodes>
+                <node>986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Key columns</Category>
+                <Category>Columns</Category>
+              </Categories>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="CommentDaoTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/com/itacademy/bobkevich/servlet/dao/CommentDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
+            <state relative-caret-position="629">
               <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -113,7 +141,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/Propertiesmanager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -124,7 +152,7 @@
       <file leaf-file-name="Connectionmanager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/Connectionmanager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
+            <state relative-caret-position="289">
               <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -145,7 +173,7 @@
       <file leaf-file-name="ResourceDaoTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/com/itacademy/bobkevich/servlet/dao/ResourceDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
+            <state relative-caret-position="816">
               <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -159,10 +187,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
               <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-              <folding>
-                <element signature="e#223#224#0" expanded="true" />
-                <element signature="e#259#260#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -170,7 +194,7 @@
       <file leaf-file-name="ResourceDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/ResourceDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-110">
+            <state relative-caret-position="1054">
               <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
             </state>
           </provider>
@@ -244,9 +268,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -331,6 +352,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -556,6 +580,7 @@
       <workItem from="1553249610072" duration="4806000" />
       <workItem from="1553255844055" duration="1633000" />
       <workItem from="1553365851043" duration="10999000" />
+      <workItem from="1553377449309" duration="59000" />
     </task>
     <servers />
   </component>
@@ -568,44 +593,44 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17438000" />
+    <option name="totallyTimeSpent" value="17497000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32987747" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.19912152" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.399623" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32857144" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32987747" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32857144" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2035139" />
       <window_info id="Web" order="2" side_tool="true" />
+      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.19912152" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.399623" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32857144" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Database Console" weight="0.32857144" />
+      <window_info anchor="bottom" id="Database Console" order="8" weight="0.32857144" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,33 +653,8 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/ResourceDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" column="22" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servletTest/FirstServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servletTest/SecondServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servletTest/FirstServlet.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servletTest/SecondServlet.java" />
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -662,26 +662,8 @@
     <entry file="file://$PROJECT_DIR$/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servletTest/SecondServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servletTest/FirstServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servletTest/SecondServlet.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servletTest/FirstServlet.java" />
     <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/CommentDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -759,13 +741,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/garbage/JdbcDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/garbage/JdbcDemo.java" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/986d968b-e688-4362-b70a-964fb67f184b/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -828,9 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -838,9 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="17" column="114" selection-start-line="17" selection-start-column="114" selection-end-line="17" selection-end-column="114" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -910,10 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-          <folding>
-            <element signature="e#223#224#0" expanded="true" />
-            <element signature="e#259#260#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -930,22 +896,20 @@
           <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#342#343#0" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/ResourceDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-110">
+        <state relative-caret-position="1054">
           <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/itacademy/bobkevich/servlet/dao/ResourceDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
+        <state relative-caret-position="816">
           <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -976,7 +940,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/itacademy/bobkevich/servlet/dao/CommentDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
+        <state relative-caret-position="629">
           <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -986,7 +950,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/Connectionmanager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
+        <state relative-caret-position="289">
           <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -994,20 +958,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/FirstServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret column="47" selection-start-column="47" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/FirstServlet.java" />
     <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/Propertiesmanager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1017,10 +972,73 @@
     <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/ResourceServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
-          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="22" />
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/986d968b-e688-4362-b70a-964fb67f184b">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>986d968b-e688-4362-b70a-964fb67f184b</OriginalElement>
+          <nodes>
+            <node x="191.5" y="358.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource</node>
+            <node x="18.5" y="0.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person_role</node>
+            <node x="427.5" y="413.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.genre</node>
+            <node x="409.5" y="603.5">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource_genre</node>
+            <node x="419.0" y="179.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.category</node>
+            <node x="167.0" y="592.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.comment</node>
+            <node x="200.0" y="179.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.type_file</node>
+            <node x="0.0" y="124.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource_genre" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource">
+              <point x="-40.5" y="-36.5" />
+              <point x="450.0" y="567.0" />
+              <point x="353.5" y="567.0" />
+              <point x="54.0" y="92.0" />
+            </edge>
+            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource_genre" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.genre">
+              <point x="40.5" y="-36.5" />
+              <point x="0.0" y="37.0" />
+            </edge>
+            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person">
+              <point x="-72.0" y="-92.0" />
+              <point x="227.5" y="333.0" />
+              <point x="90.0" y="333.0" />
+              <point x="0.0" y="92.0" />
+            </edge>
+            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.comment" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource">
+              <point x="0.0" y="-48.0" />
+              <point x="-54.0" y="92.0" />
+            </edge>
+            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person_role">
+              <point x="0.0" y="-92.0" />
+              <point x="0.0" y="37.0" />
+            </edge>
+            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.category">
+              <point x="72.0" y="-92.0" />
+              <point x="371.5" y="333.0" />
+              <point x="522.0" y="333.0" />
+              <point x="0.0" y="37.0" />
+            </edge>
+            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.type_file">
+              <point x="0.0" y="-92.0" />
+              <point x="0.0" y="37.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.8163841807909604" x="317.5" y="372.0" />
+          <SelectedNodes>
+            <node>986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
         </state>
       </provider>
     </entry>
