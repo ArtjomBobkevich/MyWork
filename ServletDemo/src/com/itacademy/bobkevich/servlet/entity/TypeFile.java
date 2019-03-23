@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,4 +18,6 @@ public class TypeFile {
 
     private Integer id;
     private String name;
+    @Builder.Default
+    private Set<Resource> resources =new HashSet<>();
 }

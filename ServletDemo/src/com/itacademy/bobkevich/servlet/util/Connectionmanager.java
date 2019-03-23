@@ -13,6 +13,14 @@ public class Connectionmanager {
     private static final String USERNAME_KEY = "db.user";
     private static final String PASSWORD_KEY = "db.password";
 
+    static {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     @SneakyThrows
     public static Connection get() {
         return DriverManager.getConnection(Propertiesmanager.get(URL_KEY),

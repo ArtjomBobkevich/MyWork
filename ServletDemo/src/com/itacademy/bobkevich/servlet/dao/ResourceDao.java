@@ -51,7 +51,7 @@ public class ResourceDao {
     private static final String GET_BY_ID = "SELECT " +
             "r.id AS resource_id, " +
             "r.resource_name AS resource_name, " +
-            "r.type_id AS type_id, " +
+            "r.type_id AS type_id_at_type, " +
             "r.caterory_id AS category_id, " +
             "r.login_who_giving AS login_who_giving, " +
             "r.url AS url, " +
