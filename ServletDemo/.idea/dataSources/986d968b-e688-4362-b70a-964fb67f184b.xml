@@ -55,7 +55,7 @@
     </role>
     <schema id="11" parent="2" name="cloud_storage">
       <ObjectId>16402</ObjectId>
-      <IntrospectionTimestamp>2019-03-23.20:32:46.837</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2019-03-25.08:57:18.346</IntrospectionTimestamp>
       <IntrospectionStateNumber>639</IntrospectionStateNumber>
       <Visible>1</Visible>
     </schema>

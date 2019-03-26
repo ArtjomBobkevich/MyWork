@@ -36,166 +36,99 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ResourceServlet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/ResourceServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resource.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/resource.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Resource.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/entity/Resource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="18" column="31" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JspPath.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/JspPath.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+              <folding>
+                <element signature="e#238#239#0" expanded="true" />
+                <element signature="e#291#292#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResourceSearchByGenre.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/ResourceSearchByGenre.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/TestServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="83" selection-start-line="17" selection-start-column="83" selection-end-line="17" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/CategoryDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2091">
+              <caret line="123" column="4" selection-start-line="123" selection-start-column="4" selection-end-line="123" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ResourceService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/ResourceService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="663">
+              <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResourceServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/ResourceServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DATABASE/986d968b-e688-4362-b70a-964fb67f184b" pinned="false" current-in-tab="true">
-        <entry file="uml://DATABASE/986d968b-e688-4362-b70a-964fb67f184b">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>DATABASE</ID>
-              <OriginalElement>986d968b-e688-4362-b70a-964fb67f184b</OriginalElement>
-              <nodes>
-                <node x="191.5" y="358.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource</node>
-                <node x="18.5" y="0.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person_role</node>
-                <node x="427.5" y="413.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.genre</node>
-                <node x="409.5" y="603.5">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource_genre</node>
-                <node x="419.0" y="179.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.category</node>
-                <node x="167.0" y="592.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.comment</node>
-                <node x="200.0" y="179.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.type_file</node>
-                <node x="0.0" y="124.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource_genre" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource">
-                  <point x="-40.5" y="-36.5" />
-                  <point x="450.0" y="567.0" />
-                  <point x="353.5" y="567.0" />
-                  <point x="54.0" y="92.0" />
-                </edge>
-                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource_genre" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.genre">
-                  <point x="40.5" y="-36.5" />
-                  <point x="0.0" y="37.0" />
-                </edge>
-                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person">
-                  <point x="-72.0" y="-92.0" />
-                  <point x="227.5" y="333.0" />
-                  <point x="90.0" y="333.0" />
-                  <point x="0.0" y="92.0" />
-                </edge>
-                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.comment" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource">
-                  <point x="0.0" y="-48.0" />
-                  <point x="-54.0" y="92.0" />
-                </edge>
-                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person_role">
-                  <point x="0.0" y="-92.0" />
-                  <point x="0.0" y="37.0" />
-                </edge>
-                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.category">
-                  <point x="72.0" y="-92.0" />
-                  <point x="371.5" y="333.0" />
-                  <point x="522.0" y="333.0" />
-                  <point x="0.0" y="37.0" />
-                </edge>
-                <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.type_file">
-                  <point x="0.0" y="-92.0" />
-                  <point x="0.0" y="37.0" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="0.8163841807909604" x="317.5" y="372.0" />
-              <SelectedNodes>
-                <node>986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person</node>
-              </SelectedNodes>
-              <Categories>
-                <Category>Key columns</Category>
-                <Category>Columns</Category>
-              </Categories>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentDaoTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/itacademy/bobkevich/servlet/dao/CommentDaoTest.java">
+      <file leaf-file-name="TypeFileService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/TypeFileService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="629">
-              <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Propertiesmanager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/Propertiesmanager.java">
+      <file leaf-file-name="TypeFileDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/TypeFileDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Connectionmanager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/Connectionmanager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MediaType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/MediaType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResourceDaoTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/itacademy/bobkevich/servlet/dao/ResourceDaoTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StringUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/StringUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResourceDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/ResourceDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+            <state relative-caret-position="2108">
+              <caret line="124" column="4" selection-start-line="124" selection-start-column="4" selection-end-line="124" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -206,6 +139,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -231,14 +165,24 @@
         <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/TypeFileDao.java" />
         <option value="$PROJECT_DIR$/test/com/itacademy/bobkevich/servlet/dao/CategoryDaoTest.java" />
         <option value="$PROJECT_DIR$/test/com/itacademy/bobkevich/servlet/dao/TypeFileDaoTest.java" />
-        <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/ResourceService.java" />
         <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/StringUtils.java" />
         <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/MediaType.java" />
         <option value="$PROJECT_DIR$/test/com/itacademy/bobkevich/servlet/dao/CommentDaoTest.java" />
         <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/Propertiesmanager.java" />
-        <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/ResourceServlet.java" />
         <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/Connectionmanager.java" />
         <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/FirstServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/ResourceService.java" />
+        <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/CategoryService.java" />
+        <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/CommentService.java" />
+        <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/GenreService.java" />
+        <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/PersonService.java" />
+        <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/PersonRoleService.java" />
+        <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/TypeFileService.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/ResourceSearchByGenre.jsp" />
+        <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/JspPath.java" />
+        <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/TestServlet.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/resource.jsp" />
+        <option value="$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/ResourceServlet.java" />
       </list>
     </option>
   </component>
@@ -348,13 +292,20 @@
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ServletDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServletDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -581,6 +532,9 @@
       <workItem from="1553255844055" duration="1633000" />
       <workItem from="1553365851043" duration="10999000" />
       <workItem from="1553377449309" duration="59000" />
+      <workItem from="1553497016864" duration="7010000" />
+      <workItem from="1553517624135" duration="2949000" />
+      <workItem from="1553527358641" duration="1249000" />
     </task>
     <servers />
   </component>
@@ -593,7 +547,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17497000" />
+    <option name="totallyTimeSpent" value="28705000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -601,36 +555,36 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Java Enterprise" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info id="Image Layers" order="7" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32987747" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32857144" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2035139" />
-      <window_info id="Web" order="2" side_tool="true" />
-      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.19912152" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20278184" />
+      <window_info id="Web" order="6" side_tool="true" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.1954612" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="UI Designer" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.399623" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32857144" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32857144" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Database Console" order="8" weight="0.32857144" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.32857144" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,57 +595,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/ResourceServlet.java</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servletTest/FirstServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servletTest/SecondServlet.java" />
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4f93526c-5fbe-435e-bc4b-7a6fe23e1cda/console.sql" />
     <entry file="file://$PROJECT_DIR$/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servletTest/SecondServlet.java" />
     <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servletTest/FirstServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/CommentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/GenreDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/PersonDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/PersonRoleDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/entity/Person.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -777,9 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -794,9 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="21" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -811,109 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="17" column="114" selection-start-line="17" selection-start-column="114" selection-end-line="17" selection-end-column="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/CategoryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-268">
-          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/TypeFileDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="131" column="30" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/TypeFileService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/PersonRoleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/PersonService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/GenreService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/CommentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/CategoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/StringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/entity/Resource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="27" column="51" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="27" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/ResourceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/ResourceDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/itacademy/bobkevich/servlet/dao/ResourceDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -938,13 +741,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/itacademy/bobkevich/servlet/dao/CommentDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/FirstServlet.java" />
+    <entry file="uml://DATABASE/986d968b-e688-4362-b70a-964fb67f184b">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>986d968b-e688-4362-b70a-964fb67f184b</OriginalElement>
+          <nodes>
+            <node x="" y="">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource</node>
+            <node x="" y="">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person_role</node>
+            <node x="" y="">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.genre</node>
+            <node x="" y="">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource_genre</node>
+            <node x="" y="">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.category</node>
+            <node x="" y="">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.comment</node>
+            <node x="" y="">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.type_file</node>
+            <node x="" y="">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="408.0" y="289.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -958,7 +779,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/FirstServlet.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/StringUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/itacademy/bobkevich/servlet/dao/ResourceDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/Propertiesmanager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -969,76 +803,212 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/ResourceServlet.java">
+    <entry file="file://$PROJECT_DIR$/test/com/itacademy/bobkevich/servlet/dao/CommentDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="22" />
+        <state relative-caret-position="548">
+          <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/CommentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="114" column="4" lean-forward="true" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/CommentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+            <element signature="e#464#465#0" expanded="true" />
+            <element signature="e#555#556#0" expanded="true" />
+            <element signature="e#587#588#0" expanded="true" />
+            <element signature="e#714#715#0" expanded="true" />
+            <element signature="e#746#747#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#878#879#0" expanded="true" />
+            <element signature="e#953#954#0" expanded="true" />
+            <element signature="e#991#992#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/ResourceDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3077">
+          <caret line="197" column="62" selection-start-line="197" selection-start-column="4" selection-end-line="197" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/GenreService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#461#462#0" expanded="true" />
+            <element signature="e#491#492#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#676#677#0" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
+            <element signature="e#772#773#0" expanded="true" />
+            <element signature="e#802#803#0" expanded="true" />
+            <element signature="e#872#873#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#939#940#0" expanded="true" />
+            <element signature="e#975#976#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/GenreDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="111" column="4" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/PersonDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1261">
+          <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="uml://DATABASE/986d968b-e688-4362-b70a-964fb67f184b">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>986d968b-e688-4362-b70a-964fb67f184b</OriginalElement>
-          <nodes>
-            <node x="191.5" y="358.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource</node>
-            <node x="18.5" y="0.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person_role</node>
-            <node x="427.5" y="413.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.genre</node>
-            <node x="409.5" y="603.5">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource_genre</node>
-            <node x="419.0" y="179.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.category</node>
-            <node x="167.0" y="592.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.comment</node>
-            <node x="200.0" y="179.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.type_file</node>
-            <node x="0.0" y="124.0">986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource_genre" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource">
-              <point x="-40.5" y="-36.5" />
-              <point x="450.0" y="567.0" />
-              <point x="353.5" y="567.0" />
-              <point x="54.0" y="92.0" />
-            </edge>
-            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource_genre" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.genre">
-              <point x="40.5" y="-36.5" />
-              <point x="0.0" y="37.0" />
-            </edge>
-            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person">
-              <point x="-72.0" y="-92.0" />
-              <point x="227.5" y="333.0" />
-              <point x="90.0" y="333.0" />
-              <point x="0.0" y="92.0" />
-            </edge>
-            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.comment" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource">
-              <point x="0.0" y="-48.0" />
-              <point x="-54.0" y="92.0" />
-            </edge>
-            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person_role">
-              <point x="0.0" y="-92.0" />
-              <point x="0.0" y="37.0" />
-            </edge>
-            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.category">
-              <point x="72.0" y="-92.0" />
-              <point x="371.5" y="333.0" />
-              <point x="522.0" y="333.0" />
-              <point x="0.0" y="37.0" />
-            </edge>
-            <edge source="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.resource" target="986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.type_file">
-              <point x="0.0" y="-92.0" />
-              <point x="0.0" y="37.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.8163841807909604" x="317.5" y="372.0" />
-          <SelectedNodes>
-            <node>986d968b-e688-4362-b70a-964fb67f184b.TABLE:cloud_database.cloud_storage.person</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/PersonService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="e#448#449#0" expanded="true" />
+            <element signature="e#519#520#0" expanded="true" />
+            <element signature="e#550#551#0" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#690#691#0" expanded="true" />
+            <element signature="e#767#768#0" expanded="true" />
+            <element signature="e#798#799#0" expanded="true" />
+            <element signature="e#840#841#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/PersonRoleDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="71" column="4" lean-forward="true" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/PersonRoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="24" column="59" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/ResourceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/CategoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="31" column="63" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#634#635#0" expanded="true" />
+            <element signature="e#708#709#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+            <element signature="e#841#842#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#1022#1023#0" expanded="true" />
+            <element signature="e#1092#1093#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/TypeFileDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2108">
+          <caret line="124" column="4" selection-start-line="124" selection-start-column="4" selection-end-line="124" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/service/TypeFileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/ResourceSearchByGenre.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/util/JspPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+          <folding>
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#291#292#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/TestServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="83" selection-start-line="17" selection-start-column="83" selection-end-line="17" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/dao/CategoryDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2091">
+          <caret line="123" column="4" selection-start-line="123" selection-start-column="4" selection-end-line="123" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/entity/Resource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/resource.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itacademy/bobkevich/servlet/servlet/ResourceServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

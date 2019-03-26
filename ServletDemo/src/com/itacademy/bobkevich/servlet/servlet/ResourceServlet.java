@@ -3,7 +3,6 @@ package com.itacademy.bobkevich.servlet.servlet;
 import com.itacademy.bobkevich.servlet.entity.Resource;
 import com.itacademy.bobkevich.servlet.service.ResourceService;
 import com.itacademy.bobkevich.servlet.util.MediaType;
-import com.itacademy.bobkevich.servlet.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
