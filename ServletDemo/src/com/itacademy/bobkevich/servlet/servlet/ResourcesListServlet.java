@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/resources-list")
+@WebServlet("/resources-list")      /*не работает*/
 public class ResourcesListServlet extends HttpServlet {
 
     private ResourceService resourceService=ResourceService.getResourceService();

@@ -31,7 +31,7 @@ public class ResourceService {
 
     public List<ViewResourceBasicInfoDto> findAll() {
         return ResourceDao.getResourceDao().findAll().stream()
-                .map(it-> new ViewResourceBasicInfoDto(it.getId(),it.getResourceName()))
+                .map(it-> new ViewResourceBasicInfoDto(it.getId(),it.getResourceName(),it.getTypeFile().getName(),it.getCategory().getName()))
                 .collect(Collectors.toList());
     }
 

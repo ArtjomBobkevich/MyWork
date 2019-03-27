@@ -21,12 +21,12 @@ public class GenreDaoTest {
         Assert.assertNotNull(save.getId());
     }
 
-    @Test
-    public void checkById() {
-        Optional<Genre> genre = genreDao.findWhoHaveThisGenre(41);
-        assertTrue(genre.isPresent());
-        System.out.println(genre.get());
-    }
+//    @Test
+//    public void checkById() {
+//        Optional<Genre> genre = genreDao.findWhoHaveThisGenre(41);
+//        assertTrue(genre.isPresent());
+//        System.out.println(genre.get());
+//    }
 
     @Test
     public void checkFindOne() {

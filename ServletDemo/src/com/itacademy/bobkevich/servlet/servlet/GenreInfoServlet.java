@@ -10,17 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/genres-list")
+@WebServlet("/genre-info")
 public class GenreInfoServlet extends HttpServlet {
 
     private GenreService genreService=GenreService.getGenreService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("genres",genreService.findAll());
+        String id = req.getParameter("id");
+        req.setAttribute("genre",genreService.findOne(Long.parseLong(id)));
 
         getServletContext()
-                .getRequestDispatcher(JspPath.get("genres-list"))
-                .forward(req,resp);
+                .getRequestDispatcher(JspPath.get("genre-info"))
+                .forward(req, resp);
     }
 }

@@ -11,5 +11,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ViewGenreInfoDto {
 
+    private Long id;
     private String name;
 }

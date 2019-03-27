@@ -15,6 +15,6 @@ public class ViewResourceBasicInfoDto {
 
     private Long id;
     private String resourceName;
-//    private String typeFile;
-//    private String category;
+    private String typeFile;
+    private String category;
 }
