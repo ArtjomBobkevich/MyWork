@@ -22,7 +22,7 @@ public class ResourceDaoTest {
     @Test
     public void checkAddGenre() {
         Resource resource = Resource.builder()
-                .id(1)
+                .id(1L)
                 .build();
         Genre genre1 = Genre.builder()
                 .id(ResourceGenre.ACTION)
@@ -44,7 +44,7 @@ public class ResourceDaoTest {
 
     @Test
     public void checkById() {
-        Optional<Resource> resource = resourceDao.findAllCommentsAboutThisResource(2);
+        Optional<Resource> resource = resourceDao.findAllCommentsAboutThisResource(1);
         assertTrue(resource.isPresent());
         System.out.println(resource.get());
     }
@@ -70,7 +70,7 @@ public class ResourceDaoTest {
 
     @Test
     public void checkFindOne() {
-        Optional<Resource> resource = resourceDao.findOne(1);
+        Optional<Resource> resource = resourceDao.findById(1L);
         assertTrue(resource.isPresent());
     }
 
@@ -83,7 +83,7 @@ public class ResourceDaoTest {
     @Test
     public void checkUpdate() {
         Resource update = ResourceDao.getResourceDao().update(Resource.builder()
-                .id(1)
+                .id(1L)
                 .resourceName("Рэмбо 22")
                 .typeFile(TypeFile.builder()
                         .id(ResourceType.FILM)

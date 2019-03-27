@@ -1,7 +1,8 @@
 package com.itacademy.bobkevich.servlet.dao;
 
+import com.itacademy.bobkevich.servlet.connection.ConnectionPool;
 import com.itacademy.bobkevich.servlet.entity.PersonRole;
-import com.itacademy.bobkevich.servlet.util.Connectionmanager;
+//import com.itacademy.bobkevich.servlet.util.Connectionmanager;
 import lombok.SneakyThrows;
 
 import java.sql.Connection;
@@ -26,14 +27,14 @@ public class PersonRoleDao {
 
     @SneakyThrows
     public PersonRole save(PersonRole personRole) {
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE, RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, personRole.getNameOfRole());
 
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
             if (generatedKeys.next()) {
-                personRole.setId(generatedKeys.getInt(1));
+                personRole.setId(generatedKeys.getLong(1));
             }
         }
         return personRole;
@@ -41,7 +42,7 @@ public class PersonRoleDao {
 
     @SneakyThrows
     public PersonRole update(PersonRole personRole) {
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
             preparedStatement.setString(1, personRole.getNameOfRole());
             preparedStatement.setObject(2, personRole.getId());
@@ -54,13 +55,13 @@ public class PersonRoleDao {
     @SneakyThrows
     public Optional<PersonRole> findOne(Integer id) {
         PersonRole personRole = null;
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_ONE)) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 personRole=PersonRole.builder()
-                        .id(resultSet.getInt("role_id"))
+                        .id(resultSet.getLong("role_id"))
                         .nameOfRole(resultSet.getString("role_name"))
                         .build();
             }
@@ -71,7 +72,7 @@ public class PersonRoleDao {
     @SneakyThrows
     public boolean delete(Integer id) {
         boolean result = false;
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
             preparedStatement.setInt(1, id);
 

@@ -12,7 +12,7 @@ public class CategoryService {
 
     private static final CategoryService CATEGORY_SERVICE=new CategoryService();
 
-    public Optional<Category> findAllResourcesAboutThisCategory(Integer id) {
+    public Optional<Category> findAllResourcesAboutThisCategory(Long id) {
         return CategoryDao.getCategoryDao().findAllResourcesAboutThisCategory(id);
     }
 

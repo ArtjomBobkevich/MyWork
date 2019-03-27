@@ -31,7 +31,7 @@ public class CategoryDaoTest {
     @Test
     public void checkUpdate () {
         Category updateCategory = CategoryDao.getCategoryDao().categoryUpdate(Category.builder()
-                .id(6)
+                .id(6L)
                 .name("Instance2")
                 .build());
         assertNotNull(updateCategory.getId());

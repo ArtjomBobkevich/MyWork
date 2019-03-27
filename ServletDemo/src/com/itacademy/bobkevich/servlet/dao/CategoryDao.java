@@ -1,11 +1,12 @@
 package com.itacademy.bobkevich.servlet.dao;
 
+import com.itacademy.bobkevich.servlet.connection.ConnectionPool;
 import com.itacademy.bobkevich.servlet.entity.Category;
 import com.itacademy.bobkevich.servlet.entity.Comment;
 import com.itacademy.bobkevich.servlet.entity.Person;
 import com.itacademy.bobkevich.servlet.entity.Resource;
 import com.itacademy.bobkevich.servlet.entity.TypeFile;
-import com.itacademy.bobkevich.servlet.util.Connectionmanager;
+//import com.itacademy.bobkevich.servlet.util.Connectionmanager;
 import lombok.SneakyThrows;
 
 import java.sql.Connection;
@@ -32,6 +33,7 @@ public class CategoryDao {
             "r.id AS resource_id, " +
             "r.resource_name AS resource_name, " +
             "r.type_id AS type_id, " +
+            "r.caterory_id AS category_id," +
             "r.login_who_giving AS login_who_giving, " +
             "r.url AS url, " +
             "r.file_size AS file_size, " +
@@ -48,27 +50,37 @@ public class CategoryDao {
             "WHERE cat.id=?";
 
     @SneakyThrows
-    public Optional<Category> findAllResourcesAboutThisCategory(Integer id) {
+    public Optional<Category> findAllResourcesAboutThisCategory(Long id) {
         Category category = null;
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(GET_BY_ID)) {
-            preparedStatement.setInt(1, id);
+            preparedStatement.setLong(1, id);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 if (category == null) {
+
                     category=Category.builder()
-                            .id(resultSet.getInt("id"))
+                            .id(resultSet.getLong("id"))
                             .name(resultSet.getString("category_name"))
                             .build();
                 }
                 category.getResources().add(Resource.builder()
-                        .id(resultSet.getInt("resource_id"))
+                        .id(resultSet.getLong("resource_id"))
                         .resourceName(resultSet.getString("resource_name"))
                         .typeFile(TypeFile.builder()
-                                .id(resultSet.getInt("type_id"))
+                                .id(resultSet.getLong("type_id"))
                                 .name(resultSet.getString("type_file_name"))
                                 .build())
+                        .category(Category.builder()
+                                .id(resultSet.getLong("id"))
+                                .name(resultSet.getString("category_name"))
+                                .build())
+                        .person(Person.builder()
+                                .login(resultSet.getString("person_login"))
+                                .build())
+                        .url(resultSet.getString("url"))
+                        .size(resultSet.getInt("file_size"))
                         .build());
 
             }
@@ -78,14 +90,14 @@ public class CategoryDao {
 
     @SneakyThrows
     public Category categorySave(Category category) {
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setObject(1, category.getName());
 
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
             if (generatedKeys.next()) {
-                category.setId(generatedKeys.getInt(1));
+                category.setId(generatedKeys.getLong(1));
             }
         }
         return category;
@@ -93,7 +105,7 @@ public class CategoryDao {
 
     @SneakyThrows
     public Category categoryUpdate(Category category) {
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
             preparedStatement.setObject(1, category.getName());
             preparedStatement.setObject(2,category.getId());
@@ -106,13 +118,13 @@ public class CategoryDao {
     @SneakyThrows
     public Optional<Category> categoryFindOne(Integer id) {
         Category category = null;
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_ONE)) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 category = Category.builder()
-                        .id(resultSet.getInt("category_id"))
+                        .id(resultSet.getLong("category_id"))
                         .name(resultSet.getString("category_name"))
                         .build();
             }
@@ -123,7 +135,7 @@ public class CategoryDao {
     @SneakyThrows
     public boolean categoryDelite(Integer id) {
         boolean result = false;
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
             preparedStatement.setInt(1, id);
 

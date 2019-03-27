@@ -1,12 +1,13 @@
 package com.itacademy.bobkevich.servlet.dao;
 
+import com.itacademy.bobkevich.servlet.connection.ConnectionPool;
 import com.itacademy.bobkevich.servlet.entity.Category;
 import com.itacademy.bobkevich.servlet.entity.Comment;
 import com.itacademy.bobkevich.servlet.entity.Genre;
 import com.itacademy.bobkevich.servlet.entity.Person;
 import com.itacademy.bobkevich.servlet.entity.Resource;
 import com.itacademy.bobkevich.servlet.entity.TypeFile;
-import com.itacademy.bobkevich.servlet.util.Connectionmanager;
+//import com.itacademy.bobkevich.servlet.util.Connectionmanager;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -14,6 +15,10 @@ import lombok.SneakyThrows;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static java.sql.Statement.*;
@@ -22,12 +27,33 @@ import static java.sql.Statement.*;
 public class ResourceDao {
 
     private static final ResourceDao RESOURCE_DAO = new ResourceDao();
+    private static final String FIND_ALL =
+            "SELECT " +
+                    "r.id AS resource_id, " +
+                    "r.resource_name AS resource_name, " +
+                    "r.type_id AS type_id, " +
+                    "r.caterory_id AS categ_id, " +
+                    "r.login_who_giving AS login_who_giving, " +
+                    "r.url AS url, " +
+                    "r.file_size AS file_size, " +
+                    "t.id AS type_file_id, " +
+                    "t.name_of_type AS type_file_name, " +
+                    "c.id AS category_id_at_category, " +
+                    "c.category_name AS category_name_at_category, " +
+                    "p.login AS person_login " +
+                    "FROM cloud_storage.resource r " +
+                    "INNER JOIN cloud_storage.type_file t " +
+                    "ON r.type_id=t.id " +
+                    "INNER JOIN cloud_storage.category c " +
+                    "ON r.caterory_id=c.id " +
+                    "INNER JOIN cloud_storage.person p " +
+                    "ON r.login_who_giving=p.login ";
     private static final String FIND_ONE =
             "SELECT " +
                     "r.id AS resource_id, " +
                     "r.resource_name AS resource_name, " +
                     "r.type_id AS type_id, " +
-                    "r.caterory_id AS category_id, " +
+                    "r.caterory_id AS categ_id, " +
                     "r.login_who_giving AS login_who_giving, " +
                     "r.url AS url, " +
                     "r.file_size AS file_size, " +
@@ -78,7 +104,7 @@ public class ResourceDao {
     @SneakyThrows
     public Optional<Resource> findAllCommentsAboutThisResource(Integer id) {
         Resource resource = null;
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(GET_BY_ID)) {
             preparedStatement.setInt(1, id);
 
@@ -86,14 +112,14 @@ public class ResourceDao {
             while (resultSet.next()) {
                 if (resource == null) {
                     resource = Resource.builder()
-                            .id(resultSet.getInt("resource_id"))
+                            .id(resultSet.getLong("resource_id"))
                             .resourceName(resultSet.getString("resource_name"))
                             .typeFile(TypeFile.builder()
-                                    .id(resultSet.getInt("type_id"))
+                                    .id(resultSet.getLong("type_id"))
                                     .name(resultSet.getString("type_file_name"))
                                     .build())
                             .category(Category.builder()
-                                    .id(resultSet.getInt("id"))
+                                    .id(resultSet.getLong("id"))
                                     .name(resultSet.getString("category_name"))
                                     .build())
                             .person(Person.builder()
@@ -104,7 +130,7 @@ public class ResourceDao {
                             .build();
                 }
                 resource.getComments().add(Comment.builder()
-                        .id(resultSet.getInt("comment_id"))
+                        .id(resultSet.getLong("comment_id"))
                         .text(resultSet.getString("comment_text"))
                         .build());
             }
@@ -114,7 +140,7 @@ public class ResourceDao {
 
     @SneakyThrows
     public Resource save(Resource resource) {
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE, RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, resource.getResourceName());
             preparedStatement.setObject(2, Optional.ofNullable(resource.getTypeFile()).map(TypeFile::getId).orElse(null));
@@ -126,7 +152,7 @@ public class ResourceDao {
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
             if (generatedKeys.next()) {
-                resource.setId(generatedKeys.getInt(1));
+                resource.setId(generatedKeys.getLong(1));
             }
         }
         return resource;
@@ -134,7 +160,7 @@ public class ResourceDao {
 
     @SneakyThrows
     public Resource update(Resource resource) {
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
             preparedStatement.setString(1, resource.getResourceName());
             preparedStatement.setObject(2, Optional.ofNullable(resource.getTypeFile()).map(TypeFile::getId).orElse(null));
@@ -149,40 +175,63 @@ public class ResourceDao {
         return resource;
     }
 
-    @SneakyThrows
-    public Optional<Resource> findOne(Integer id) {
-        Resource resource = null;
-        try (Connection connection = Connectionmanager.get();
-             PreparedStatement preparedStatement = connection.prepareStatement(FIND_ONE)) {
-            preparedStatement.setInt(1, id);
+    public List<Resource> findAll() {
+        List<Resource>resources=new ArrayList<>();
+        try (Connection connection=ConnectionPool.getConnection();
+             Statement statement=connection.createStatement()) {
+            ResultSet resultSet=statement.executeQuery(FIND_ALL);
+            while (resultSet.next()){
+                Resource resource=getResourceFromResultSet(resultSet);
+                resources.add(resource);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return resources;
+    }
+
+
+    public Optional<Resource> findById(Long id) {
+        Optional<Resource>resource=Optional.empty();
+        try (Connection connection = ConnectionPool.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_ONE)) { /*тут поменял*/
+            preparedStatement.setLong(1, id);
+
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                resource = Resource.builder()
-                        .id(resultSet.getInt("resource_id"))
-                        .resourceName(resultSet.getString("resource_name"))
-                        .typeFile(TypeFile.builder()
-                                .id(resultSet.getInt("type_id"))
-                                .name(resultSet.getString("type_file_name"))
-                                .build())
-                        .category(Category.builder()
-                                .id(resultSet.getInt("category_id"))
-                                .name(resultSet.getString("category_name"))
-                                .build())
-                        .person(Person.builder()
-                                .login(resultSet.getString("person_login"))
-                                .build())
-                        .url(resultSet.getString("url"))
-                        .size(resultSet.getInt("file_size"))
-                        .build();
+                resource = Optional.of(getResourceFromResultSet(resultSet));
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return Optional.ofNullable(resource);
+        return resource;
+    }
+
+    private Resource getResourceFromResultSet (ResultSet resultSet) throws SQLException {
+        return Resource.builder()
+                .id(resultSet.getLong("resource_id"))
+                .resourceName(resultSet.getString("resource_name"))
+                .typeFile(TypeFile.builder()
+                        .id(resultSet.getLong("type_id"))
+                        .name(resultSet.getString("type_file_name"))
+                        .build())
+                .category(Category.builder()
+                        .id(resultSet.getLong("category_id"))
+                        .name(resultSet.getString("category_name"))
+                        .build())
+                .person(Person.builder()
+                        .login(resultSet.getString("person_login"))
+                        .build())
+                .url(resultSet.getString("url"))
+                .size(resultSet.getInt("file_size"))
+                .build();
     }
 
     @SneakyThrows
     public boolean delete(Integer id) {
         boolean result = false;
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
             preparedStatement.setInt(1, id);
 
@@ -196,10 +245,10 @@ public class ResourceDao {
 
     @SneakyThrows
     public Resource addGenre(Resource resource, Genre genre) {
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(ADD_GENRE, RETURN_GENERATED_KEYS)) {
-            preparedStatement.setInt(1, resource.getId());
-            preparedStatement.setInt(2, genre.getId());
+            preparedStatement.setLong(1, resource.getId());
+            preparedStatement.setLong(2, genre.getId());
 
             preparedStatement.executeUpdate();
             resource.getGenres().add(genre);

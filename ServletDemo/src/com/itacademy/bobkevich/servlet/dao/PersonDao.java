@@ -1,8 +1,9 @@
 package com.itacademy.bobkevich.servlet.dao;
 
+import com.itacademy.bobkevich.servlet.connection.ConnectionPool;
 import com.itacademy.bobkevich.servlet.entity.Person;
 import com.itacademy.bobkevich.servlet.entity.PersonRole;
-import com.itacademy.bobkevich.servlet.util.Connectionmanager;
+//import com.itacademy.bobkevich.servlet.util.Connectionmanager;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -38,8 +39,8 @@ public class PersonDao {
 
     @SneakyThrows
     public Person save (Person entity) {
-        try (Connection connection = Connectionmanager.get();
-        PreparedStatement preparedStatement=connection.prepareStatement(SAVE, Statement.RETURN_GENERATED_KEYS)){
+        try (Connection connection = ConnectionPool.getConnection();
+             PreparedStatement preparedStatement=connection.prepareStatement(SAVE, Statement.RETURN_GENERATED_KEYS)){
             preparedStatement.setString(1,entity.getLogin());
             preparedStatement.setString(2,entity.getFirst_name());
             preparedStatement.setString(3,entity.getLast_name());
@@ -59,7 +60,7 @@ public class PersonDao {
 
     @SneakyThrows
     public Person update(Person person){
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
             preparedStatement.setString(1,person.getFirst_name());
             preparedStatement.setString(2,person.getLast_name());
@@ -77,7 +78,7 @@ public class PersonDao {
     @SneakyThrows
     public Optional<Person> findOne(String login) {
         Person person = null;
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_ONE)) {
             preparedStatement.setString(1, login);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -90,7 +91,7 @@ public class PersonDao {
                         .mail(resultSet.getString("mail"))
                         .password(resultSet.getString("password"))
                         .personRole(PersonRole.builder()
-                                .id(resultSet.getInt("id"))
+                                .id(resultSet.getLong("id"))
                                 .nameOfRole(resultSet.getString("role_name"))
                                 .build())
                         .build();
@@ -102,7 +103,7 @@ public class PersonDao {
     @SneakyThrows
     public boolean delete(String login) {
         boolean result = false;
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
             preparedStatement.setString(1, login);
 

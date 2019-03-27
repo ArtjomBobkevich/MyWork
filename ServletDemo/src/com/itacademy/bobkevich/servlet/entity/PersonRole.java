@@ -13,6 +13,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class PersonRole {
 
-    private Integer id;
+    private Long id;
     private String nameOfRole;
 }

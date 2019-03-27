@@ -36,7 +36,7 @@ public class PersonRoleDaoTest {
     @Test
     public void checkUpdate() {
         PersonRole update = PersonRoleDao.getPersonRoleDao().update(PersonRole.builder()
-                .id(4)
+                .id(4L)
                 .nameOfRole("Instance update")
                 .build());
         assertNotNull(update.getId());

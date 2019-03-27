@@ -21,7 +21,7 @@ public class CommentDaoTest {
     public void checkSave () {
         Comment comment=CommentDao.getCommentDao().commentSave(Comment.builder()
                 .resource_id(Resource.builder()
-                        .id(1)
+                        .id(1L)
                         .resourceName("Avatar")
                         .typeFile(TypeFile.builder()
                                 .id(ResourceType.FILM)
@@ -49,7 +49,7 @@ public class CommentDaoTest {
     @Test
     public void checkUpdate (){
         Comment updateComment =CommentDao.getCommentDao().commentUpdate(Comment.builder()
-                .id(1)
+                .id(1L)
                 .resource_id(Resource.builder()
                         .resourceName("Рэмбо 22")
                         .typeFile(TypeFile.builder()

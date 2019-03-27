@@ -30,7 +30,7 @@ public class GenreDaoTest {
 
     @Test
     public void checkFindOne() {
-        Optional<Genre> genre = genreDao.findOne(42);
+        Optional<Genre> genre = genreDao.findOne(42L);
         assertTrue(genre.isPresent());
     }
 
@@ -43,7 +43,7 @@ public class GenreDaoTest {
     @Test
     public void checkUpdate() {
         Genre update = GenreDao.getGenreDao().update(Genre.builder()
-                .id(42)
+                .id(42L)
                 .name("Instance Update")
                 .build());
         assertNotNull(update.getId());

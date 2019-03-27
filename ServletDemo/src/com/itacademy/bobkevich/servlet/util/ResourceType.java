@@ -5,11 +5,11 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class ResourceType {
 
-    public static final Integer FILM = 1;
-    public static final Integer SOUND = 2;
-    public static final Integer PICTURES = 3;
-    public static final Integer BOOK = 4;
-    public static final Integer SERIALS = 5;
-    public static final Integer AUDIO_FILES = 6;
-    public static final Integer GAMES = 7;
+    public static final Long FILM = 1L;
+    public static final Long SOUND = 2L;
+    public static final Long PICTURES = 3L;
+    public static final Long BOOK = 4L;
+    public static final Long SERIALS = 5L;
+    public static final Long AUDIO_FILES = 6L;
+    public static final Long GAMES = 7L;
 }

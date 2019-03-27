@@ -16,7 +16,7 @@ import java.util.Set;
 @Accessors(chain = true)
 public class Genre {
 
-    private Integer id;
+    private Long id;
     private String name;
     @Builder.Default
     private Set<Resource> resources =new HashSet<>();

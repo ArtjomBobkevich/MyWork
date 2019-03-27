@@ -12,7 +12,7 @@ public class TypeFileService {
 
     private static final TypeFileService TYPE_FILE_SERVICE=new TypeFileService();
 
-    public Optional<TypeFile> findAllresourcesAboutThisTypeFile(Integer id) {
+    public Optional<TypeFile> findAllresourcesAboutThisTypeFile(Long id) {
         return TypeFileDao.getTypeFileDao().findAllresourcesAboutThisTypeFile(id);
     }
 

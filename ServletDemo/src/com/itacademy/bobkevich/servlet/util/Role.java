@@ -5,6 +5,6 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class Role {
 
-    public static final Integer USER = 2;
-    public static final Integer ADMIN = 1;
+    public static final Long USER = 2L;
+    public static final Long ADMIN = 1L;
 }

@@ -12,7 +12,7 @@
 </head>
 <body>
 <div>
-    <span>${requestScope.values().}</span>>
+    <span>${requestScope.values().id}</span>>
     <span>${requestScope.resource.resourceName} </span>>
 </div>>
 </body>

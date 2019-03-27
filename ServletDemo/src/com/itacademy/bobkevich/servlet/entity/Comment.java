@@ -13,7 +13,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class Comment {
 
-    private Integer id;
+    private Long id;
     private Resource resource_id;
     private String text;
 }

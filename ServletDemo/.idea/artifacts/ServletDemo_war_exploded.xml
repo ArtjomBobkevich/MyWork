@@ -9,6 +9,8 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="tomcat-jdbc" />
+          <element id="library" level="project" name="jstl-1.2" />
         </element>
       </element>
     </root>

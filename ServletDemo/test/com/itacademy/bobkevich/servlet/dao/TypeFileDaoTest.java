@@ -45,7 +45,7 @@ public class TypeFileDaoTest {
     @Test
     public void checkUpdate () {
         TypeFile update = TypeFileDao.getTypeFileDao().update(TypeFile.builder()
-                .id(9)
+                .id(9L)
                 .name("Instance update")
                 .build());
         assertNotNull(update.getId());

@@ -1,8 +1,9 @@
 package com.itacademy.bobkevich.servlet.util;
 
-import lombok.experimental.UtilityClass;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
-@UtilityClass
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class JspPath {
 
     private static final String FORMAT = "/WEB-INF/jsp/%s.jsp";

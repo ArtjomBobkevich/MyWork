@@ -1,11 +1,12 @@
 package com.itacademy.bobkevich.servlet.dao;
 
+import com.itacademy.bobkevich.servlet.connection.ConnectionPool;
 import com.itacademy.bobkevich.servlet.entity.Category;
 import com.itacademy.bobkevich.servlet.entity.Comment;
 import com.itacademy.bobkevich.servlet.entity.Person;
 import com.itacademy.bobkevich.servlet.entity.Resource;
 import com.itacademy.bobkevich.servlet.entity.TypeFile;
-import com.itacademy.bobkevich.servlet.util.Connectionmanager;
+//import com.itacademy.bobkevich.servlet.util.Connectionmanager;
 import lombok.SneakyThrows;
 
 import java.sql.Connection;
@@ -50,7 +51,7 @@ public class CommentDao {
 
     @SneakyThrows
     public Comment commentSave(Comment comment) {
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setObject(1, Optional.ofNullable(comment.getResource_id()).map(Resource::getId).orElse(null));
             preparedStatement.setObject(2,comment.getText());
@@ -58,7 +59,7 @@ public class CommentDao {
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
             if (generatedKeys.next()) {
-                comment.setId(generatedKeys.getInt(1));
+                comment.setId(generatedKeys.getLong(1));
             }
         }
         return comment;
@@ -66,7 +67,7 @@ public class CommentDao {
 
     @SneakyThrows
     public Comment commentUpdate(Comment comment) {
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
             preparedStatement.setObject(1, Optional.ofNullable(comment.getResource_id()).map(Resource::getId).orElse(null));
             preparedStatement.setObject(2, comment.getText());
@@ -80,22 +81,22 @@ public class CommentDao {
     @SneakyThrows
     public Optional<Comment> commentFindOne(Integer id) {
         Comment comment = null;
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_ONE)) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 comment = Comment.builder()
-                        .id(resultSet.getInt("comment_id"))
+                        .id(resultSet.getLong("comment_id"))
                         .resource_id(Resource.builder()
-                                .id(resultSet.getInt("id"))
+                                .id(resultSet.getLong("id"))
                                 .resourceName(resultSet.getString("resource_name"))
                                 .typeFile(TypeFile.builder()
-                                        .id(resultSet.getInt("type_id"))
+                                        .id(resultSet.getLong("type_id"))
                                         .name(resultSet.getString("type_file_name"))
                                         .build())
                                 .category(Category.builder()
-                                        .id(resultSet.getInt("category_id"))
+                                        .id(resultSet.getLong("category_id"))
                                         .name(resultSet.getString("category_name"))
                                         .build())
                                 .person(Person.builder()
@@ -114,7 +115,7 @@ public class CommentDao {
     @SneakyThrows
     public boolean commentDelite(Integer id) {
         boolean result = false;
-        try (Connection connection = Connectionmanager.get();
+        try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
             preparedStatement.setInt(1, id);
 
