@@ -29,6 +29,14 @@ public class ResourceService {
         return  ResourceDao.getResourceDao().update(resource);
     }
 
+    public List<ViewResourceBasicInfoDto> findWhoHaveThisGenre() {
+
+
+        return ResourceDao.getResourceDao().findAll().stream()
+                .map(it-> new ViewResourceBasicInfoDto(it.getId(),it.getResourceName(),it.getTypeFile().getName(),it.getCategory().getName()))
+                .collect(Collectors.toList());
+    }
+
     public List<ViewResourceBasicInfoDto> findAll() {
         return ResourceDao.getResourceDao().findAll().stream()
                 .map(it-> new ViewResourceBasicInfoDto(it.getId(),it.getResourceName(),it.getTypeFile().getName(),it.getCategory().getName()))

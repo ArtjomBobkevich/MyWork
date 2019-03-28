@@ -57,25 +57,19 @@ public class GenreDao {
             "ON r.login_who_giving=p.login " +
             "WHERE g.id=?";
     private static final String DELETE = "DELETE FROM cloud_storage.genre WHERE id=?";
-    private static final String UPDATE = "UPDATE cloud_storage.genre SET name_of_genre=? WHERE id(SELECT id FROM cloud_storage.genre)=?";
+    private static final String UPDATE = "UPDATE cloud_storage.genre SET name_of_genre=? WHERE id=?";
 
     @SneakyThrows
-    public Optional<Genre> findWhoHaveThisGenre(Long id) {
-        Genre genre = null;
+    public List<Resource> findWhoHaveThisGenre(Long genreId) {
+        List<Resource> resources =new ArrayList<>();
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(GET_BY_ID)) {
-            preparedStatement.setLong(1, id);
+            preparedStatement.setLong(1, genreId);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                if (genre == null) {
-                    genre = Genre.builder()
-                            .id(resultSet.getLong("genre_id"))
-                            .name(resultSet.getString("genre_name"))
-                            .build();
-                }
-                genre.getResources().add(Resource.builder()
-                        .id(resultSet.getLong("resource_id"))
+                resources.add(Resource.builder()
+                        .id(resultSet.getLong("id"))
                         .resourceName(resultSet.getString("resource_name"))
                         .typeFile(TypeFile.builder()
                                 .id(resultSet.getLong("type_file_id"))
@@ -93,7 +87,7 @@ public class GenreDao {
                         .build());
             }
         }
-        return Optional.ofNullable(genre);
+        return resources;
     }
 
     public List<Genre> findAll() {
@@ -161,11 +155,11 @@ public class GenreDao {
     }
 
     @SneakyThrows
-    public boolean delete(Integer id) {
+    public boolean delete(Genre genre) {
         boolean result = false;
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
-            preparedStatement.setInt(1, id);
+            preparedStatement.setLong(1, genre.getId());
 
             if (preparedStatement.executeUpdate() == 1) {
                 result = true;

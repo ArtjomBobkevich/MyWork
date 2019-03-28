@@ -14,7 +14,10 @@
 <body>
 <div>
 <c:forEach var="resource" items="${requestScope.resources}">
-    <a href="${pageContext.request.contextPath}/show-resource-details?id=${resource.id}">${resource.resourceName}</a><br>
+    <a >${resource.id}</a><br>
+    <a >${resource.resourceName}</a><br>
+    <a >${resource.typeFile}</a><br>
+    <a >${resource.category}</a><br>
 </c:forEach>
 </div>
 </body>

@@ -19,6 +19,11 @@
     </label><br>
 </div>
 <input type="submit" value="Сохранить">
+    <div>
+        <c:forEach var="hero" items="${requestScope.heroes}">
+            <a href="${pageContext.request.contextPath}/show-hero-details?id=${hero.id}">${hero.name}</a><br>
+        </c:forEach>
+    </div>
 </form>
 </body>
 </html>

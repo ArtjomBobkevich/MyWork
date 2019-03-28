@@ -1,10 +1,13 @@
 package com.itacademy.bobkevich.servlet.service;
 
 import com.itacademy.bobkevich.servlet.dao.GenreDao;
+import com.itacademy.bobkevich.servlet.dao.ResourceDao;
 import com.itacademy.bobkevich.servlet.dto.CreateNewGenreDto;
 import com.itacademy.bobkevich.servlet.dto.ViewGenreInfoDto;
+import com.itacademy.bobkevich.servlet.dto.ViewResourceBasicInfoDto;
 import com.itacademy.bobkevich.servlet.entity.Genre;
 import com.itacademy.bobkevich.servlet.entity.Resource;
+import com.itacademy.bobkevich.servlet.entity.TypeFile;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +15,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static org.junit.Assert.assertTrue;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class GenreService {
@@ -24,8 +29,11 @@ public class GenreService {
                 .collect(Collectors.toList());
     }
 
-    public Set<Resource> findWhoHaveThisGenre (Long id) {
-        return GenreDao.getGenreDao().findWhoHaveThisGenre(id).get().getResources(); /*тут фигачить дто*/
+    public List<Resource> findWhoHaveThisGenre (Long genreId) {
+        return GenreDao.getGenreDao().findWhoHaveThisGenre(genreId);
+//        return GenreDao.getGenreDao().findWhoHaveThisGenre(genreId).stream()
+//                .map(it-> new ViewResourceBasicInfoDto(it.getId(),it.getResourceName(),it.getTypeFile().getName(),it.getCategory().getName()))
+//                .collect(Collectors.toList());
     }
 
     public ViewGenreInfoDto findOne(Long genreId) {
@@ -50,8 +58,9 @@ public class GenreService {
         return GenreDao.getGenreDao().update(genre);
     }
 
-    public boolean delete(Integer id) {
-        return GenreDao.getGenreDao().delete(id);
+    public boolean delete(Genre genre) {
+
+        return GenreDao.getGenreDao().delete(genre);
     }
 
     public static GenreService getGenreService() {
