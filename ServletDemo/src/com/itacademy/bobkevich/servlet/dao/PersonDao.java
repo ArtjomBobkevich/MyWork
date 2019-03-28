@@ -87,7 +87,7 @@ public class PersonDao {
                         .login(resultSet.getString("login"))
                         .first_name(resultSet.getString("first_name"))
                         .last_name(resultSet.getString("last_name"))
-                        .age(resultSet.getInt("age"))
+                        .age(resultSet.getLong("age"))
                         .mail(resultSet.getString("mail"))
                         .password(resultSet.getString("password"))
                         .personRole(PersonRole.builder()
@@ -98,6 +98,37 @@ public class PersonDao {
             }
         }
         return Optional.ofNullable(person);
+    }
+
+    @SneakyThrows
+    public Optional<Person> findById (String login){
+        Optional<Person> person=Optional.empty();
+        try (Connection connection=ConnectionPool.getConnection();
+        PreparedStatement preparedStatement=connection.prepareStatement(FIND_ONE)){
+            preparedStatement.setString(1,login);
+
+            ResultSet resultSet=preparedStatement.executeQuery();
+            if (resultSet.next()){
+                person=Optional.of(getPersonFromResultSet(resultSet));
+            }
+        }
+        return person;
+    }
+
+    @SneakyThrows
+    private Person getPersonFromResultSet (ResultSet resultSet){
+        return Person.builder()
+                .login(resultSet.getString("login"))
+                .first_name(resultSet.getString("first_name"))
+                .last_name(resultSet.getString("last_name"))
+                .age(resultSet.getLong("age"))
+                .mail(resultSet.getString("mail"))
+                .password(resultSet.getString("password"))
+                .personRole(PersonRole.builder()
+                        .id(resultSet.getLong("id"))
+                        .nameOfRole(resultSet.getString("role_name"))
+                        .build())
+                .build();
     }
 
     @SneakyThrows

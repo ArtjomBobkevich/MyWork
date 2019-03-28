@@ -25,7 +25,7 @@ public class GenreService {
     }
 
     public Set<Resource> findWhoHaveThisGenre (Long id) {
-        return GenreDao.getGenreDao().findWhoHaveThisGenre(id).get().getResources();
+        return GenreDao.getGenreDao().findWhoHaveThisGenre(id).get().getResources(); /*тут фигачить дто*/
     }
 
     public ViewGenreInfoDto findOne(Long genreId) {
