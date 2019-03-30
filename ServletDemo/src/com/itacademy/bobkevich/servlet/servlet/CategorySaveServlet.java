@@ -17,24 +17,24 @@ import java.io.IOException;
 @WebServlet("/category-save")
 public class CategorySaveServlet extends HttpServlet {
 
-    private CategoryService categoryService=CategoryService.getCategoryService();
+    private CategoryService categoryService = CategoryService.getCategoryService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("category-save"))  /*тупо перенаправление*/
-                .forward(req,resp);
+                .forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        CreateNewCategoryDto createNewCategoryDto=CreateNewCategoryDto.builder()
+        CreateNewCategoryDto createNewCategoryDto = CreateNewCategoryDto.builder()
                 .name(req.getParameter("name"))
                 .build();
 
-        CreateNewCategoryDto newCategory= categoryService.categorySave(createNewCategoryDto);
-        resp.sendRedirect("/category-info?id="+ newCategory.getId());
+        CreateNewCategoryDto newCategory = categoryService.categorySave(createNewCategoryDto);
+        resp.sendRedirect("/category-info?id=" + newCategory.getId());
     }
 }

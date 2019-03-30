@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/typefiles-list")
-public class AllTypeFileServlet  extends HttpServlet {
+public class AllTypeFileServlet extends HttpServlet {
 
-    private TypeFileService typeFileService=TypeFileService.getTypeFileService();
+    private TypeFileService typeFileService = TypeFileService.getTypeFileService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("typefiles",typeFileService.findAll());
+        req.setAttribute("typefiles", typeFileService.findAll());
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("typefiles-list"))
-                .forward(req,resp);
+                .forward(req, resp);
     }
 }

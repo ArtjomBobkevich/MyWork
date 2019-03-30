@@ -20,7 +20,7 @@ public final class ConnectionPool {
     }
 
     private static void initConnectionPool() {
-        PoolProperties poolProperties1=new PoolProperties();
+        PoolProperties poolProperties1 = new PoolProperties();
         poolProperties1.setDriverClassName(PropertyManager.get("db.driver"));
         poolProperties1.setUrl(PropertyManager.get("db.url"));
         poolProperties1.setUsername(PropertyManager.get("db.user"));

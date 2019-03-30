@@ -14,12 +14,12 @@ import java.io.IOException;
 @WebServlet("/typefile-info")
 public class TypeFileInfoServlet extends HttpServlet {
 
-    private TypeFileService typeFileService=TypeFileService.getTypeFileService();
+    private TypeFileService typeFileService = TypeFileService.getTypeFileService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
-        req.setAttribute("typefile",typeFileService.findOne(Long.parseLong(id)));
+        req.setAttribute("typefile", typeFileService.findOne(Long.parseLong(id)));
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("typefile-info"))

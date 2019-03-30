@@ -17,8 +17,8 @@ import java.util.Optional;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PersonDao {
 
-    private static final PersonDao PERSON_DAO=new PersonDao();
-    private static final String SAVE ="INSERT INTO cloud_storage.person (login, first_name, last_name, age, mail, password, role)  VALUES (?,?,?,?,?,?,?);";
+    private static final PersonDao PERSON_DAO = new PersonDao();
+    private static final String SAVE = "INSERT INTO cloud_storage.person (login, first_name, last_name, age, mail, password, role)  VALUES (?,?,?,?,?,?,?);";
     private static final String FIND_ONE =
             "SELECT " +
                     "p.login AS login, " +
@@ -38,20 +38,20 @@ public class PersonDao {
     private static final String UPDATE = "UPDATE cloud_storage.person SET first_name=?, last_name=?, age=?,mail=?,password=?,role=? WHERE login=?";
 
     @SneakyThrows
-    public Person save (Person entity) {
+    public Person save(Person entity) {
         try (Connection connection = ConnectionPool.getConnection();
-             PreparedStatement preparedStatement=connection.prepareStatement(SAVE, Statement.RETURN_GENERATED_KEYS)){
-            preparedStatement.setString(1,entity.getLogin());
-            preparedStatement.setString(2,entity.getFirst_name());
-            preparedStatement.setString(3,entity.getLast_name());
-            preparedStatement.setObject(4,entity.getAge());
-            preparedStatement.setString(5,entity.getMail());
-            preparedStatement.setString(6,entity.getPassword());
-            preparedStatement.setObject(7,Optional.ofNullable(entity.getPersonRole()).map(PersonRole::getId).orElse(null));
+             PreparedStatement preparedStatement = connection.prepareStatement(SAVE, Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.setString(1, entity.getLogin());
+            preparedStatement.setString(2, entity.getFirst_name());
+            preparedStatement.setString(3, entity.getLast_name());
+            preparedStatement.setObject(4, entity.getAge());
+            preparedStatement.setString(5, entity.getMail());
+            preparedStatement.setString(6, entity.getPassword());
+            preparedStatement.setObject(7, Optional.ofNullable(entity.getPersonRole()).map(PersonRole::getId).orElse(null));
 
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-            if (generatedKeys.next()){
+            if (generatedKeys.next()) {
                 entity.setLogin(generatedKeys.getString(1));
             }
         }
@@ -59,16 +59,16 @@ public class PersonDao {
     }
 
     @SneakyThrows
-    public Person update(Person person){
+    public Person update(Person person) {
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
-            preparedStatement.setString(1,person.getFirst_name());
-            preparedStatement.setString(2,person.getLast_name());
-            preparedStatement.setObject(3,person.getAge());
-            preparedStatement.setString(4,person.getMail());
-            preparedStatement.setString(5,person.getPassword());
-            preparedStatement.setObject(6,Optional.ofNullable(person.getPersonRole()).map(PersonRole::getId).orElse(null));
-            preparedStatement.setObject(7,person.getLogin());
+            preparedStatement.setString(1, person.getFirst_name());
+            preparedStatement.setString(2, person.getLast_name());
+            preparedStatement.setObject(3, person.getAge());
+            preparedStatement.setString(4, person.getMail());
+            preparedStatement.setString(5, person.getPassword());
+            preparedStatement.setObject(6, Optional.ofNullable(person.getPersonRole()).map(PersonRole::getId).orElse(null));
+            preparedStatement.setObject(7, person.getLogin());
 
             preparedStatement.executeUpdate();
         }
@@ -83,7 +83,7 @@ public class PersonDao {
             preparedStatement.setString(1, login);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                person=Person.builder()
+                person = Person.builder()
                         .login(resultSet.getString("login"))
                         .first_name(resultSet.getString("first_name"))
                         .last_name(resultSet.getString("last_name"))
@@ -101,22 +101,22 @@ public class PersonDao {
     }
 
     @SneakyThrows
-    public Optional<Person> findById (String login){
-        Optional<Person> person=Optional.empty();
-        try (Connection connection=ConnectionPool.getConnection();
-        PreparedStatement preparedStatement=connection.prepareStatement(FIND_ONE)){
-            preparedStatement.setString(1,login);
+    public Optional<Person> findById(String login) {
+        Optional<Person> person = Optional.empty();
+        try (Connection connection = ConnectionPool.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_ONE)) {
+            preparedStatement.setString(1, login);
 
-            ResultSet resultSet=preparedStatement.executeQuery();
-            if (resultSet.next()){
-                person=Optional.of(getPersonFromResultSet(resultSet));
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                person = Optional.of(getPersonFromResultSet(resultSet));
             }
         }
         return person;
     }
 
     @SneakyThrows
-    private Person getPersonFromResultSet (ResultSet resultSet){
+    private Person getPersonFromResultSet(ResultSet resultSet) {
         return Person.builder()
                 .login(resultSet.getString("login"))
                 .first_name(resultSet.getString("first_name"))

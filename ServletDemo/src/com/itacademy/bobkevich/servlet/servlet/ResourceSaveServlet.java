@@ -21,20 +21,20 @@ import java.io.IOException;
 @WebServlet("/save-resource")
 public class ResourceSaveServlet extends HttpServlet {
 
-    private ResourceService resourceService=ResourceService.getResourceService();
+    private ResourceService resourceService = ResourceService.getResourceService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("save-resource"))  /*тупо перенаправление*/
-                .forward(req,resp);
+                .forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        CreateNewResourceDto resource =CreateNewResourceDto.builder()
+        CreateNewResourceDto resource = CreateNewResourceDto.builder()
                 .resourceName(req.getParameter("name"))
                 .typeFile(TypeFile.builder()
                         .name(req.getParameter("name_of_type_file"))
@@ -49,7 +49,7 @@ public class ResourceSaveServlet extends HttpServlet {
                 .size(req.getParameter("size"))
                 .build();
 
-        ViewResourceFullInfoDto savedResource= resourceService.save(resource);
-        resp.sendRedirect("/resource-info?id="+ savedResource.getId());
+        ViewResourceFullInfoDto savedResource = resourceService.save(resource);
+        resp.sendRedirect("/resource-info?id=" + savedResource.getId());
     }
 }

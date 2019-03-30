@@ -13,12 +13,12 @@ import java.io.IOException;
 @WebServlet("/category-info")
 public class CategoryInfoServlet extends HttpServlet {
 
-    private CategoryService categoryService=CategoryService.getCategoryService();
+    private CategoryService categoryService = CategoryService.getCategoryService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
-        req.setAttribute("category",categoryService.findOne(Long.parseLong(id)));
+        req.setAttribute("category", categoryService.findOne(Long.parseLong(id)));
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("category-info"))

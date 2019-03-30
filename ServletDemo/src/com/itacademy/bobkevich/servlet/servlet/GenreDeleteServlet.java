@@ -16,20 +16,20 @@ import java.io.IOException;
 @WebServlet("/delete-genre")
 public class GenreDeleteServlet extends HttpServlet {
 
-    private GenreService genreService=GenreService.getGenreService();
+    private GenreService genreService = GenreService.getGenreService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("delete-genre"))
-                .forward(req,resp);
+                .forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Genre genre =Genre.builder()
+        Genre genre = Genre.builder()
                 .name(req.getParameter("name"))
                 .build();
         genreService.delete(genre);

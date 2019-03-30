@@ -54,7 +54,7 @@ public class ResourceDao {
     private static final String SAVE = "INSERT INTO cloud_storage.resource (resource_name, type_id /*сохраняет, но нужен подзапрос*/, caterory_id, login_who_giving, url, file_size) VALUES (?,?,?,?,?,?);";
     private static final String UPDATE = "UPDATE cloud_storage.resource SET resource_name=?, type_id=?, caterory_id=?, login_who_giving=?, url=?,file_size=? WHERE id=?";
     private static final String ADD_GENRE = "INSERT INTO cloud_storage.resource_genre (resources_id, genre_id) VALUES (?,?);";
-    private static final String  GET_RESOURCES_BY_GENRE_ID = "SELECT " +
+    private static final String GET_RESOURCES_BY_GENRE_ID = "SELECT " +
             "r.id AS resource_id, " +
             "r.resource_name AS resource_name, " +
             "r.type_id AS type_id, " +
@@ -120,14 +120,14 @@ public class ResourceDao {
             "WHERE t.id=?";
 
     @SneakyThrows
-    public List<Resource> resourcesByTypeFile (Long typeFileId){
-        List<Resource>resources=new ArrayList<>();
+    public List<Resource> resourcesByTypeFile(Long typeFileId) {
+        List<Resource> resources = new ArrayList<>();
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(GET_RESOURCES_BY_TYPE_FILE_ID)) {
-            preparedStatement.setLong(1,typeFileId);
+            preparedStatement.setLong(1, typeFileId);
 
-            ResultSet resultSet=preparedStatement.executeQuery();
-            while (resultSet.next()){
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
                 Resource resource = Resource.builder()
                         .id(resultSet.getLong("resource_id"))
                         .resourceName(resultSet.getString("resource_name"))
@@ -153,47 +153,47 @@ public class ResourceDao {
     }
 
     @SneakyThrows
-    public List<Resource> resourcesByGenre (Long genreId){
-        List<Resource>resources=new ArrayList<>();
+    public List<Resource> resourcesByGenre(Long genreId) {
+        List<Resource> resources = new ArrayList<>();
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(GET_RESOURCES_BY_GENRE_ID)) {
-        preparedStatement.setLong(1,genreId);
+            preparedStatement.setLong(1, genreId);
 
-        ResultSet resultSet=preparedStatement.executeQuery();
-        while (resultSet.next()){
-            Resource resource = Resource.builder()
-                    .id(resultSet.getLong("resource_id"))
-                    .resourceName(resultSet.getString("resource_name"))
-                    .typeFile(TypeFile.builder()
-                            .id(resultSet.getLong("type_file_id"))
-                            .name(resultSet.getString("type_file_name"))
-                            .build())
-                    .category(Category.builder()
-                            .id(resultSet.getLong("category_id_at_category"))
-                            .name(resultSet.getString("category_name_at_category"))
-                            .build())
-                    .person(Person.builder()
-                            .login(resultSet.getString("person_login"))
-                            .build())
-                    .url(resultSet.getString("url"))
-                    .size(resultSet.getString("file_size"))
-                    .build();
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Resource resource = Resource.builder()
+                        .id(resultSet.getLong("resource_id"))
+                        .resourceName(resultSet.getString("resource_name"))
+                        .typeFile(TypeFile.builder()
+                                .id(resultSet.getLong("type_file_id"))
+                                .name(resultSet.getString("type_file_name"))
+                                .build())
+                        .category(Category.builder()
+                                .id(resultSet.getLong("category_id_at_category"))
+                                .name(resultSet.getString("category_name_at_category"))
+                                .build())
+                        .person(Person.builder()
+                                .login(resultSet.getString("person_login"))
+                                .build())
+                        .url(resultSet.getString("url"))
+                        .size(resultSet.getString("file_size"))
+                        .build();
 
-            resources.add(resource);
-        }
+                resources.add(resource);
+            }
         }
         return resources;
     }
 
     @SneakyThrows
-    public List<Resource> resourcesByCategory (Long categoryId){
-        List<Resource>resources=new ArrayList<>();
+    public List<Resource> resourcesByCategory(Long categoryId) {
+        List<Resource> resources = new ArrayList<>();
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(GET_RESOURCES_BY_CATEGORY_ID)) {
-            preparedStatement.setLong(1,categoryId);
+            preparedStatement.setLong(1, categoryId);
 
-            ResultSet resultSet=preparedStatement.executeQuery();
-            while (resultSet.next()){
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
                 Resource resource = Resource.builder()
                         .id(resultSet.getLong("resource_id"))
                         .resourceName(resultSet.getString("resource_name"))
@@ -323,15 +323,15 @@ public class ResourceDao {
 
     @SneakyThrows
     public List<Genre> addGenre(Long resourceId, Long genreId) {
-        List<Genre> genres=new ArrayList<>();
+        List<Genre> genres = new ArrayList<>();
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(ADD_GENRE, RETURN_GENERATED_KEYS)) {
             preparedStatement.setLong(1, resourceId);
             preparedStatement.setLong(2, genreId);
 
-            ResultSet resultSet=preparedStatement.executeQuery();
-            while (resultSet.next()){
-                Genre genreAdd=Genre.builder()
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Genre genreAdd = Genre.builder()
                         .id(resultSet.getLong("id"))
                         .name(resultSet.getString("name_of_genre"))
                         .build();

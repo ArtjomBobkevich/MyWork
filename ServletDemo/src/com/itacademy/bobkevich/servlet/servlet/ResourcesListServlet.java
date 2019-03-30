@@ -13,14 +13,14 @@ import java.io.IOException;
 @WebServlet("/resources-list")      /*не работает*/
 public class ResourcesListServlet extends HttpServlet {
 
-    private ResourceService resourceService=ResourceService.getResourceService();
+    private ResourceService resourceService = ResourceService.getResourceService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("resources",resourceService.findAll());
+        req.setAttribute("resources", resourceService.findAll());
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("resources-list"))
-                .forward(req,resp);
+                .forward(req, resp);
     }
 }

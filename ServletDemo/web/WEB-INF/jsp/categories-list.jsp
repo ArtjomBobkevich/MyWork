@@ -14,7 +14,7 @@
 <body>
 <div>
     <c:forEach var="category" items="${requestScope.categories}">
-        <a >${category.name}</a><br>
+        <a>${category.name}</a><br>
     </c:forEach>
 </div>
 </body>

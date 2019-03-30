@@ -15,20 +15,20 @@ import java.io.IOException;
 @WebServlet("/delete-resource")
 public class ResourceDeleteServlet extends HttpServlet {
 
-    private ResourceService resourceService=ResourceService.getResourceService();
+    private ResourceService resourceService = ResourceService.getResourceService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("delete-resource"))
-                .forward(req,resp);
+                .forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Resource resource=Resource.builder()
+        Resource resource = Resource.builder()
                 .resourceName("name")
                 .build();
         resourceService.delete(resource);

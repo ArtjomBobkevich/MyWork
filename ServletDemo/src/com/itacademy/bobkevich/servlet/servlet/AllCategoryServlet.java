@@ -13,14 +13,14 @@ import java.io.IOException;
 @WebServlet("/categories-list")
 public class AllCategoryServlet extends HttpServlet {
 
-    private CategoryService categoryService=CategoryService.getCategoryService();
+    private CategoryService categoryService = CategoryService.getCategoryService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("categories",categoryService.findAll());
+        req.setAttribute("categories", categoryService.findAll());
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("categories-list"))
-                .forward(req,resp);
+                .forward(req, resp);
     }
 }

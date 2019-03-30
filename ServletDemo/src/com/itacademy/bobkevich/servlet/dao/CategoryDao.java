@@ -79,7 +79,7 @@ public class CategoryDao {
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
             preparedStatement.setObject(1, category.getName());
-            preparedStatement.setObject(2,category.getId());
+            preparedStatement.setObject(2, category.getId());
 
             preparedStatement.executeUpdate();
         }

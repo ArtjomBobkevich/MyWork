@@ -15,20 +15,20 @@ import java.io.IOException;
 @WebServlet("/category-delete")
 public class CategoryDeleteServlet extends HttpServlet {
 
-    private CategoryService categoryService=CategoryService.getCategoryService();
+    private CategoryService categoryService = CategoryService.getCategoryService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("category-delete"))
-                .forward(req,resp);
+                .forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Category category =Category.builder()
+        Category category = Category.builder()
                 .name(req.getParameter("name"))
                 .build();
         categoryService.delete(category);

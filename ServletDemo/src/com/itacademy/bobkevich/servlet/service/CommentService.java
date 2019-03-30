@@ -23,23 +23,23 @@ import java.util.stream.Collectors;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CommentService {
 
-    private static final CommentService COMMENT_SERVICE=new CommentService();
+    private static final CommentService COMMENT_SERVICE = new CommentService();
 
-    public List<CreateNewCommentDto> allByResource(Long resourceId){
+    public List<CreateNewCommentDto> allByResource(Long resourceId) {
         return CommentDao.getCommentDao().findAllByResource(resourceId).stream()
-                .map(it->new CreateNewCommentDto(it.getId(),it.getResource_id(),it.getText()))
+                .map(it -> new CreateNewCommentDto(it.getId(), it.getResource_id(), it.getText()))
                 .collect(Collectors.toList());
     }
 
     public CreateNewCommentDto save(CreateNewCommentDto comment) {
-        Comment savedComment =CommentDao.getCommentDao().commentSave(
+        Comment savedComment = CommentDao.getCommentDao().commentSave(
                 Comment.builder()
                         .id(comment.getId())
                         .resource_id(comment.getResourceId())
                         .text(comment.getText())
                         .build());
 
-        return new CreateNewCommentDto(savedComment.getId(),savedComment.getResource_id(),savedComment.getText());
+        return new CreateNewCommentDto(savedComment.getId(), savedComment.getResource_id(), savedComment.getText());
     }
 
     public boolean commentDelite(Comment comment) {

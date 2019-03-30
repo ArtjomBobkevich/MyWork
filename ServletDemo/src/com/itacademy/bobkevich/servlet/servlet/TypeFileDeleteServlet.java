@@ -16,20 +16,20 @@ import java.io.IOException;
 @WebServlet("/typefile-delete")
 public class TypeFileDeleteServlet extends HttpServlet {
 
-    private TypeFileService typeFileService=TypeFileService.getTypeFileService();
+    private TypeFileService typeFileService = TypeFileService.getTypeFileService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("typefile-delete"))
-                .forward(req,resp);
+                .forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        TypeFile typeFile =TypeFile.builder()
+        TypeFile typeFile = TypeFile.builder()
                 .name(req.getParameter("name"))
                 .build();
         typeFileService.delete(typeFile);

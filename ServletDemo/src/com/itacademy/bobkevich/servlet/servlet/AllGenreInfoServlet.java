@@ -13,14 +13,14 @@ import java.io.IOException;
 @WebServlet("/genres-list")
 public class AllGenreInfoServlet extends HttpServlet {
 
-    private GenreService genreService=GenreService.getGenreService();
+    private GenreService genreService = GenreService.getGenreService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("genres",genreService.findAll());
+        req.setAttribute("genres", genreService.findAll());
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("genres-list"))
-                .forward(req,resp);
+                .forward(req, resp);
     }
 }

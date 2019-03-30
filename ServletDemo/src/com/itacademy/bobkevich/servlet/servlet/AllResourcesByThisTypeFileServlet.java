@@ -17,17 +17,17 @@ import static com.itacademy.bobkevich.servlet.util.StringUtils.isEmpty;
 @WebServlet("/resources-by-typefile-list")
 public class AllResourcesByThisTypeFileServlet extends HttpServlet {
 
-    private ResourceService resourceService=ResourceService.getResourceService();
+    private ResourceService resourceService = ResourceService.getResourceService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String typeFileId= req.getParameter("id");
-        if (!isEmpty(typeFileId)){
+        String typeFileId = req.getParameter("id");
+        if (!isEmpty(typeFileId)) {
             resp.setContentType("text/html");
             resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
-            List<ViewResourceBasicInfoDto> resources =resourceService.findAllByTypeFile(Long.valueOf(typeFileId));
-            for (ViewResourceBasicInfoDto resource: resources){
-                resp.getWriter().println(resource.getId()+resource.getResourceName()+resource.getTypeFile()+resource.getCategory());
+            List<ViewResourceBasicInfoDto> resources = resourceService.findAllByTypeFile(Long.valueOf(typeFileId));
+            for (ViewResourceBasicInfoDto resource : resources) {
+                resp.getWriter().println(resource.getId() + resource.getResourceName() + resource.getTypeFile() + resource.getCategory());
             }
         }
     }

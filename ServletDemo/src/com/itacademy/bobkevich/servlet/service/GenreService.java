@@ -21,30 +21,30 @@ import static org.junit.Assert.assertTrue;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class GenreService {
 
-    private static final GenreService GENRE_SERVICE=new GenreService();
+    private static final GenreService GENRE_SERVICE = new GenreService();
 
-    public List<ViewGenreInfoDto>findAll () {
+    public List<ViewGenreInfoDto> findAll() {
         return GenreDao.getGenreDao().findAll().stream()
-                .map(it-> new ViewGenreInfoDto(it.getId(),it.getName()))
+                .map(it -> new ViewGenreInfoDto(it.getId(), it.getName()))
                 .collect(Collectors.toList());
     }
 
     public ViewGenreInfoDto findOne(Long genreId) {
         return GenreDao.getGenreDao().findOne(genreId)
-                .map(it->ViewGenreInfoDto.builder()
+                .map(it -> ViewGenreInfoDto.builder()
                         .name(it.getName())
                         .build())
                 .orElse(null);
     }
 
     public ViewGenreInfoDto save(CreateNewGenreDto genre) {
-        Genre savedGenre =GenreDao.getGenreDao().save(
+        Genre savedGenre = GenreDao.getGenreDao().save(
                 Genre.builder()
                         .id(genre.getId())
                         .name(genre.getName())
                         .build());
 
-        return new ViewGenreInfoDto(savedGenre.getId(),savedGenre.getName());
+        return new ViewGenreInfoDto(savedGenre.getId(), savedGenre.getName());
     }
 
     public boolean delete(Genre genre) {

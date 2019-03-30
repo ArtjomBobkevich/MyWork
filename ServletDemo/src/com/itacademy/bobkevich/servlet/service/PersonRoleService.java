@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public class PersonRoleService {
 
-    private static final PersonRoleService PERSON_ROLE_SERVICE=new PersonRoleService();
+    private static final PersonRoleService PERSON_ROLE_SERVICE = new PersonRoleService();
 
     public PersonRole save(PersonRole personRole) {
         return PersonRoleDao.getPersonRoleDao().save(personRole);

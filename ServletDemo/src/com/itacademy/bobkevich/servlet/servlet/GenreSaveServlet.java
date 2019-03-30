@@ -15,24 +15,24 @@ import java.io.IOException;
 @WebServlet("/save-genre")
 public class GenreSaveServlet extends HttpServlet {
 
-    private GenreService genreService= GenreService.getGenreService();
+    private GenreService genreService = GenreService.getGenreService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("save-genre"))  /*тупо перенаправление*/
-                .forward(req,resp);
+                .forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        CreateNewGenreDto createNewGenreDto=CreateNewGenreDto.builder()
+        CreateNewGenreDto createNewGenreDto = CreateNewGenreDto.builder()
                 .name(req.getParameter("name"))
                 .build();
 
-        ViewGenreInfoDto savedGenre= genreService.save(createNewGenreDto);
-        resp.sendRedirect("/genre-info?id="+ savedGenre.getId());
+        ViewGenreInfoDto savedGenre = genreService.save(createNewGenreDto);
+        resp.sendRedirect("/genre-info?id=" + savedGenre.getId());
     }
 }

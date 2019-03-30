@@ -16,6 +16,6 @@ public class DeleteInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         getServletContext()
                 .getRequestDispatcher(JspPath.get("delete-info"))
-                .forward(req,resp);
+                .forward(req, resp);
     }
 }

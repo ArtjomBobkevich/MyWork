@@ -24,7 +24,7 @@ public class CommentDao {
     private static final CommentDao COMMENT_DAO = new CommentDao();
     private static final String FIND_ALL =
             "SELECT " +
-            " c.id AS comment_id, " +
+                    " c.id AS comment_id, " +
                     "c.resource_id AS resource_id, " +
                     "c.text AS text, " +
                     "r.id AS id, " +
@@ -146,14 +146,14 @@ public class CommentDao {
 
     @SneakyThrows
     public List<Comment> findAllByResource(Long resourceId) {
-        List<Comment>comments=new ArrayList<>();
+        List<Comment> comments = new ArrayList<>();
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(GET_COMMENTS_BY_RESOURCE_ID)) {
-            preparedStatement.setLong(1,resourceId);
+            preparedStatement.setLong(1, resourceId);
 
-            ResultSet resultSet=preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Comment comment=Comment.builder()
+                Comment comment = Comment.builder()
                         .id(resultSet.getLong("comment_id"))
                         .resource_id(Resource.builder()
                                 .id(resultSet.getLong("resource_id"))
@@ -186,7 +186,7 @@ public class CommentDao {
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setObject(1, Optional.ofNullable(comment.getResource_id()).map(Resource::getId).orElse(null));
-            preparedStatement.setObject(2,comment.getText());
+            preparedStatement.setObject(2, comment.getText());
 
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
@@ -203,7 +203,7 @@ public class CommentDao {
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
             preparedStatement.setObject(1, Optional.ofNullable(comment.getResource_id()).map(Resource::getId).orElse(null));
             preparedStatement.setObject(2, comment.getText());
-            preparedStatement.setObject(3,comment.getId());
+            preparedStatement.setObject(3, comment.getId());
 
             preparedStatement.executeUpdate();
         }

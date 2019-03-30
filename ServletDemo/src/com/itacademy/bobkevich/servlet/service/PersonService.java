@@ -11,21 +11,21 @@ import java.util.Optional;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PersonService {
 
-    private static final PersonService PERSON_SERVICE=new PersonService();
+    private static final PersonService PERSON_SERVICE = new PersonService();
 
-    public Person save (Person entity) {
+    public Person save(Person entity) {
         return PersonDao.getPersonDao().save(entity);
     }
 
-    public Person update(Person person){
+    public Person update(Person person) {
         return PersonDao.getPersonDao().update(person);
     }
 
 //    public Optional<ViewPersonFromLogin> login (Str name, Str password
 
-    public ViewPersonFromLogin FindById (String login){  /*к авторизации отношения не имеет*/
+    public ViewPersonFromLogin FindById(String login) {  /*к авторизации отношения не имеет*/
         return PersonDao.getPersonDao().findById(login)
-                .map(it->ViewPersonFromLogin.builder()
+                .map(it -> ViewPersonFromLogin.builder()
                         .login(it.getLogin())
                         .mail(it.getMail())
                         .password(it.getPassword())

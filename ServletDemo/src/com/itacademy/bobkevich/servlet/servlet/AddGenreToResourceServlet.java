@@ -20,14 +20,14 @@ import java.util.List;
 @WebServlet("/add-genre-to-resource")
 public class AddGenreToResourceServlet extends HttpServlet {  /*пока не корректно работает*/
 
-    private ResourceService resourceService=ResourceService.getResourceService();
+    private ResourceService resourceService = ResourceService.getResourceService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("add-genre-to-resource"))
-                .forward(req,resp);
+                .forward(req, resp);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class AddGenreToResourceServlet extends HttpServlet {  /*пока не к
 
 
         String resourceId = req.getParameter("resourceId");
-        String genreId =req.getParameter("genreId");
-        List<ViewGenreInfoDto> genres = resourceService.addGenre(Long.parseLong(resourceId),Long.parseLong(genreId));
+        String genreId = req.getParameter("genreId");
+        List<ViewGenreInfoDto> genres = resourceService.addGenre(Long.parseLong(resourceId), Long.parseLong(genreId));
     }
 }

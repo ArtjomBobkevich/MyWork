@@ -19,18 +19,18 @@ import static junit.framework.Assert.assertTrue;
 @WebServlet("/all-comment-by-resource")
 public class AllCommentsByResourceServlet extends HttpServlet {
 
-    private CommentService commentService=CommentService.getCommentService();
+    private CommentService commentService = CommentService.getCommentService();
 
-        @Override
-        protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            String resourseId = req.getParameter("id");
-            if (!isEmpty(resourseId)){
-                resp.setContentType(MediaType.TEXT_HTML);
-                resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
-                List<CreateNewCommentDto>comments =commentService.allByResource(Long.valueOf(resourseId));
-                for (CreateNewCommentDto comment: comments){
-                    resp.getWriter().println(comment.getId()+comment.getText());
-                }
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String resourseId = req.getParameter("id");
+        if (!isEmpty(resourseId)) {
+            resp.setContentType(MediaType.TEXT_HTML);
+            resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
+            List<CreateNewCommentDto> comments = commentService.allByResource(Long.valueOf(resourseId));
+            for (CreateNewCommentDto comment : comments) {
+                resp.getWriter().println(comment.getId() + comment.getText());
             }
         }
+    }
 }

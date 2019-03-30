@@ -16,24 +16,24 @@ import java.io.IOException;
 @WebServlet("/typefile-save")
 public class TypeFileSaveServlet extends HttpServlet {
 
-    private TypeFileService typeFileService= TypeFileService.getTypeFileService();
+    private TypeFileService typeFileService = TypeFileService.getTypeFileService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("typefile-save"))  /*тупо перенаправление*/
-                .forward(req,resp);
+                .forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        CreateNewTypeFileDto newTypeFile =CreateNewTypeFileDto.builder()
+        CreateNewTypeFileDto newTypeFile = CreateNewTypeFileDto.builder()
                 .name(req.getParameter("name"))
                 .build();
 
-       CreateNewTypeFileDto savedTypeFile= typeFileService.save(newTypeFile);
-        resp.sendRedirect("/typefile-info?id="+ savedTypeFile.getId());
+        CreateNewTypeFileDto savedTypeFile = typeFileService.save(newTypeFile);
+        resp.sendRedirect("/typefile-info?id=" + savedTypeFile.getId());
     }
 }
