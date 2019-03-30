@@ -29,13 +29,6 @@ public class GenreService {
                 .collect(Collectors.toList());
     }
 
-    public List<Resource> findWhoHaveThisGenre (Long genreId) {
-        return GenreDao.getGenreDao().findWhoHaveThisGenre(genreId);
-//        return GenreDao.getGenreDao().findWhoHaveThisGenre(genreId).stream()
-//                .map(it-> new ViewResourceBasicInfoDto(it.getId(),it.getResourceName(),it.getTypeFile().getName(),it.getCategory().getName()))
-//                .collect(Collectors.toList());
-    }
-
     public ViewGenreInfoDto findOne(Long genreId) {
         return GenreDao.getGenreDao().findOne(genreId)
                 .map(it->ViewGenreInfoDto.builder()
@@ -54,12 +47,7 @@ public class GenreService {
         return new ViewGenreInfoDto(savedGenre.getId(),savedGenre.getName());
     }
 
-    public Genre update(Genre genre){  /*не пашет*/
-        return GenreDao.getGenreDao().update(genre);
-    }
-
     public boolean delete(Genre genre) {
-
         return GenreDao.getGenreDao().delete(genre);
     }
 

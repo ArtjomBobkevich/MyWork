@@ -20,7 +20,6 @@ public class GenreDeleteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("genres",genreService.findAll());
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("delete-genre"))
@@ -34,5 +33,6 @@ public class GenreDeleteServlet extends HttpServlet {
                 .name(req.getParameter("name"))
                 .build();
         genreService.delete(genre);
+        resp.sendRedirect("/delete-info");
     }
 }

@@ -1,6 +1,8 @@
 package com.itacademy.bobkevich.servlet.service;
 
 import com.itacademy.bobkevich.servlet.dao.ResourceDao;
+import com.itacademy.bobkevich.servlet.dto.CreateNewResourceDto;
+import com.itacademy.bobkevich.servlet.dto.ViewGenreInfoDto;
 import com.itacademy.bobkevich.servlet.dto.ViewResourceBasicInfoDto;
 import com.itacademy.bobkevich.servlet.dto.ViewResourceFullInfoDto;
 import com.itacademy.bobkevich.servlet.entity.Genre;
@@ -17,23 +19,45 @@ public class ResourceService {
 
     private static final ResourceService RESOURCE_SERVICE=new ResourceService();
 
-    public Optional<Resource> findAllCommentsAboutThisResource(Integer resourceId){
-        return ResourceDao.getResourceDao().findAllCommentsAboutThisResource(resourceId);
-    }
-
-    public Resource save(Resource resource) {
-        return ResourceDao.getResourceDao().save(resource);
+    public ViewResourceFullInfoDto save(CreateNewResourceDto resource) {
+       Resource savedResource = ResourceDao.getResourceDao().save(Resource.builder()
+               .id(resource.getId())
+               .resourceName(resource.getResourceName())
+               .typeFile(resource.getTypeFile())
+               .category(resource.getCategory())
+               .person(resource.getPerson())
+               .url(resource.getUrl())
+               .size(resource.getSize())
+               .build());
+       return new ViewResourceFullInfoDto(
+               savedResource.getId(),
+               savedResource.getResourceName(),
+               savedResource.getTypeFile().getName(),
+               savedResource.getCategory().getName(),
+               savedResource.getPerson().getLogin(),
+               savedResource.getUrl(),
+               savedResource.getSize());
     }
 
     public Resource update(Resource resource) {
         return  ResourceDao.getResourceDao().update(resource);
     }
 
-    public List<ViewResourceBasicInfoDto> findWhoHaveThisGenre() {
+    public List<ViewResourceBasicInfoDto> findAllByTypeFile (Long typeFileId){
+        return ResourceDao.getResourceDao().resourcesByTypeFile(typeFileId).stream()
+                .map(it->new ViewResourceBasicInfoDto(it.getId(),it.getResourceName(),it.getTypeFile().getName(),it.getCategory().getName()))
+                .collect(Collectors.toList());
+    }
 
+    public List<ViewResourceBasicInfoDto> findAllByGenre (Long genreId){
+        return ResourceDao.getResourceDao().resourcesByGenre(genreId).stream()
+                .map(it->new ViewResourceBasicInfoDto(it.getId(),it.getResourceName(),it.getTypeFile().getName(),it.getCategory().getName()))
+                .collect(Collectors.toList());
+    }
 
-        return ResourceDao.getResourceDao().findAll().stream()
-                .map(it-> new ViewResourceBasicInfoDto(it.getId(),it.getResourceName(),it.getTypeFile().getName(),it.getCategory().getName()))
+    public List<ViewResourceBasicInfoDto> findAllByCategory (Long categoryId){
+        return ResourceDao.getResourceDao().resourcesByCategory(categoryId).stream()
+                .map(it->new ViewResourceBasicInfoDto(it.getId(),it.getResourceName(),it.getTypeFile().getName(),it.getCategory().getName()))
                 .collect(Collectors.toList());
     }
 
@@ -56,12 +80,14 @@ public class ResourceService {
                 .orElse(null);
     }
 
-    public boolean delete(Integer id) {
-        return ResourceDao.getResourceDao().delete(id);
+    public boolean delete(Resource resource) {
+        return ResourceDao.getResourceDao().delete(resource);
     }
 
-    public Resource addGenre(Resource resource, Genre genre) {
-        return ResourceDao.getResourceDao().addGenre(resource,genre);
+    public List<ViewGenreInfoDto> addGenre(Long resourceId,Long genreId) {
+        return ResourceDao.getResourceDao().addGenre(resourceId,genreId).stream()
+                .map(it->new ViewGenreInfoDto(it.getId(),it.getName()))
+                .collect(Collectors.toList());
     }
 
     public static ResourceService getResourceService() {

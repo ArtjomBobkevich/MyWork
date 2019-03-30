@@ -21,11 +21,5 @@ public class Resource {
     private Category category;
     private Person person;
     private String url;
-    private Integer size;
-    @Builder.Default
-    private Set<Genre> genres = new HashSet<>();   /*могут из-за этого возникнуть проблемы*/
-    @Builder.Default
-    private Set<Comment> comments =new HashSet<>();
-    @Builder.Default
-    private Set<Resource> resources = new HashSet<>();
+    private String size;
 }

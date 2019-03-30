@@ -52,16 +52,25 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="cloud_storage: schema" type="a16502c0:PostgresImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="cloud_database@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="cloud_database: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="cloud_storage: schema" type="a16502c0:PostgresImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="console.sql" pinned="false" current-in-tab="true">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b2193851-8b09-476f-a4c3-ad833ced00c1/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2295">
-              <caret line="135" column="6" selection-start-line="135" selection-start-column="6" selection-end-line="135" selection-end-column="6" />
+            <state relative-caret-position="324">
+              <caret line="135" column="3" selection-start-line="135" selection-start-column="3" selection-end-line="135" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -96,6 +105,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -120,7 +130,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -167,11 +176,12 @@
       <workItem from="1552539782613" duration="21000" />
       <workItem from="1553162581778" duration="5000" />
       <workItem from="1553244875173" duration="279000" />
+      <workItem from="1553978429479" duration="171000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3902000" />
+    <option name="totallyTimeSpent" value="4073000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -185,8 +195,8 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info active="true" anchor="bottom" id="Database Console" order="7" visible="true" weight="0.32857144" />
@@ -197,8 +207,8 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -214,6 +224,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b2193851-8b09-476f-a4c3-ad833ced00c1/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2295">
+          <caret line="135" column="6" selection-start-line="135" selection-start-column="6" selection-end-line="135" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5d97ccfc-43f1-47c7-8d88-7b5a0e8a19b7/console.sql" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ecdc9352-e489-45e0-94ec-8dc9a04eeb6f/console.sql" />
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
@@ -223,21 +240,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://e085c35b-9e19-45e0-93f7-878980f3fcbd/database/employee_repository/schema/employee_storage/table/employee">
+    <entry file="das://e085c35b-9e19-45e0-93f7-878980f3fcbd/database/employee_repository/schema/employee_storage/table/employee" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e085c35b-9e19-45e0-93f7-878980f3fcbd/console.sql" />
+    <entry file="das://b2193851-8b09-476f-a4c3-ad833ced00c1/database/cloud_database/schema/cloud_storage/table/comment">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-          <column-attributes>
-            <column name="ctid" enabled="false" />
-          </column-attributes>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e085c35b-9e19-45e0-93f7-878980f3fcbd/console.sql" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b2193851-8b09-476f-a4c3-ad833ced00c1/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="135" column="6" selection-start-line="135" selection-start-column="6" selection-end-line="135" selection-end-column="6" />
+        <state relative-caret-position="324">
+          <caret line="135" column="3" selection-start-line="135" selection-start-column="3" selection-end-line="135" selection-end-column="3" />
         </state>
       </provider>
     </entry>

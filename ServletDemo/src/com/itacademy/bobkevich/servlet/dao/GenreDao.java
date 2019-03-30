@@ -2,7 +2,6 @@ package com.itacademy.bobkevich.servlet.dao;
 
 import com.itacademy.bobkevich.servlet.connection.ConnectionPool;
 import com.itacademy.bobkevich.servlet.entity.*;
-//import com.itacademy.bobkevich.servlet.util.Connectionmanager;
 import lombok.SneakyThrows;
 
 import java.sql.Connection;
@@ -29,67 +28,10 @@ public class GenreDao {
                     "FROM cloud_storage.genre g " +
                     "WHERE g.id=?";
     private static final String SAVE = "INSERT INTO cloud_storage.genre (name_of_genre) VALUES (?)";
-    private static final String GET_BY_ID = "SELECT " +
-            "g.id AS genre_id," +
-            "g.name_of_genre AS genre_name," +
-            "r.id AS id, " +
-            "r.resource_name AS resource_name, " +
-            "r.type_id AS type_id, " +
-            "r.caterory_id AS category_id, " +
-            "r.login_who_giving AS login_who_giving, " +
-            "r.url AS url, " +
-            "r.file_size AS file_size, " +
-            "t.id AS type_file_id, " +
-            "t.name_of_type AS type_file_name, " +
-            "cat.id AS category_id, " +
-            "cat.category_name AS category_name, " +
-            "p.login AS person_login " +
-            "FROM cloud_storage.genre g " +
-            "JOIN cloud_storage.resource_genre rg " +
-            "ON rg.genre_id=g.id " +
-            "JOIN cloud_storage.resource r " +
-            "ON r.id=rg.resources_id " +
-            "LEFT JOIN cloud_storage.type_file t " +
-            "ON r.type_id=t.id " +
-            "LEFT JOIN cloud_storage.category cat " +
-            "ON r.caterory_id=cat.id " +
-            "LEFT JOIN cloud_storage.person p " +
-            "ON r.login_who_giving=p.login " +
-            "WHERE g.id=?";
-    private static final String DELETE = "DELETE FROM cloud_storage.genre WHERE id=?";
+    private static final String DELETE = "DELETE FROM cloud_storage.genre WHERE name_of_genre=?";
     private static final String UPDATE = "UPDATE cloud_storage.genre SET name_of_genre=? WHERE id=?";
 
     @SneakyThrows
-    public List<Resource> findWhoHaveThisGenre(Long genreId) {
-        List<Resource> resources =new ArrayList<>();
-        try (Connection connection = ConnectionPool.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(GET_BY_ID)) {
-            preparedStatement.setLong(1, genreId);
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                resources.add(Resource.builder()
-                        .id(resultSet.getLong("id"))
-                        .resourceName(resultSet.getString("resource_name"))
-                        .typeFile(TypeFile.builder()
-                                .id(resultSet.getLong("type_file_id"))
-                                .name(resultSet.getString("type_file_name"))
-                                .build())
-                        .category(Category.builder()
-                                .id(resultSet.getLong("category_id"))
-                                .name(resultSet.getString("category_name"))
-                                .build())
-                        .person(Person.builder()
-                                .login(resultSet.getString("person_login"))
-                                .build())
-                        .url(resultSet.getString("url"))
-                        .size(resultSet.getInt("file_size"))
-                        .build());
-            }
-        }
-        return resources;
-    }
-
     public List<Genre> findAll() {
         List<Genre> genres = new ArrayList<>();
         try (Connection connection = ConnectionPool.getConnection();
@@ -99,8 +41,6 @@ public class GenreDao {
                 Genre genre = getGenreFromResultSet(resultSet);
                 genres.add(genre);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
         return genres;
     }
@@ -159,7 +99,7 @@ public class GenreDao {
         boolean result = false;
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
-            preparedStatement.setLong(1, genre.getId());
+            preparedStatement.setString(1, genre.getName());
 
             if (preparedStatement.executeUpdate() == 1) {
                 result = true;

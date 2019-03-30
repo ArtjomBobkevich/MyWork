@@ -3,6 +3,7 @@ package com.itacademy.bobkevich.servlet.dao;
 import com.itacademy.bobkevich.servlet.connection.ConnectionPool;
 import com.itacademy.bobkevich.servlet.entity.Category;
 import com.itacademy.bobkevich.servlet.entity.Comment;
+import com.itacademy.bobkevich.servlet.entity.Genre;
 import com.itacademy.bobkevich.servlet.entity.Person;
 import com.itacademy.bobkevich.servlet.entity.Resource;
 import com.itacademy.bobkevich.servlet.entity.TypeFile;
@@ -12,6 +13,10 @@ import lombok.SneakyThrows;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
@@ -19,63 +24,41 @@ import static java.sql.Statement.RETURN_GENERATED_KEYS;
 public class TypeFileDao {
 
     private static final TypeFileDao TYPE_FILE_DAO = new TypeFileDao();
+    private static final String FIND_ALL =
+            "SELECT " +
+                    "t.id AS id, " +
+                    "t.name_of_type AS name " +
+                    "FROM cloud_storage.type_file t ";
     private static final String FIND_ONE =
             "SELECT " +
-                    "t.id AS type_file_id, " +
-                    "t.name_of_type AS type_file_name " +
+                    "t.id AS id, " +
+                    "t.name_of_type AS name " +
                     "FROM cloud_storage.type_file t " +
                     "WHERE t.id=?";
-    private static final String DELETE = "DELETE FROM cloud_storage.type_file WHERE id=?";
+    private static final String DELETE = "DELETE FROM cloud_storage.type_file WHERE name_of_type=?";
     private static final String SAVE = "INSERT INTO cloud_storage.type_file (name_of_type) VALUES (?);";
     private static final String UPDATE = "UPDATE cloud_storage.type_file SET name_of_type=? WHERE id=?";
-    private static final String GET_BY_ID = "SELECT " +
-            "t.id AS id, " +
-            "t.name_of_type AS type_file_name, " +
-            "r.id AS resource_id, " +
-            "r.resource_name AS resource_name, " +
-            "r.caterory_id AS category_id_at_resource, " +
-            "r.login_who_giving AS login_who_giving, " +
-            "r.url AS url, " +
-            "r.file_size AS file_size, " +
-            "c.id AS category_id_at_category, " +
-            "c.category_name AS category_name, " +
-            "p.login AS person_login " +
-            "FROM cloud_storage.type_file t " +
-            "JOIN cloud_storage.resource r " +
-            "ON r.type_id=t.id " +
-            "LEFT JOIN cloud_storage.category c " +
-            "ON r.caterory_id=c.id " +
-            "LEFT JOIN cloud_storage.person p " +
-            "ON r.login_who_giving=p.login " +
-            "WHERE t.id=?";
 
     @SneakyThrows
-    public Optional<TypeFile> findAllresourcesAboutThisTypeFile(Long id) {
-        TypeFile typeFile = null;
+    private TypeFile getTypeFileFromResultSet(ResultSet resultSet) {
+        return TypeFile.builder()
+                .id(resultSet.getLong("id"))
+                .name(resultSet.getString("name"))
+                .build();
+    }
+
+    @SneakyThrows
+    public List<TypeFile> findAll() {
+        List<TypeFile> typeFiles = new ArrayList<>();
         try (Connection connection = ConnectionPool.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(GET_BY_ID)) {
-            preparedStatement.setLong(1, id);
-
-            ResultSet resultSet = preparedStatement.executeQuery();
+             Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(FIND_ALL);
             while (resultSet.next()) {
-                if (typeFile == null) {
-                    typeFile=TypeFile.builder()
-                            .id(resultSet.getLong("id"))
-                            .name(resultSet.getString("type_file_name"))
-                            .build();
-                }
-                typeFile.getResources().add(Resource.builder()
-                        .id(resultSet.getLong("resource_id"))
-                        .resourceName(resultSet.getString("resource_name"))
-                        .category(Category.builder()
-                                .id(resultSet.getLong("category_id_at_category"))
-                                .name(resultSet.getString("category_name"))
-                                .build())
-                        .build());
-
+                TypeFile typeFile = getTypeFileFromResultSet(resultSet);
+                typeFiles.add(typeFile);
             }
         }
-        return Optional.ofNullable(typeFile);
+        return typeFiles;
     }
 
     @SneakyThrows
@@ -106,28 +89,26 @@ public class TypeFileDao {
     }
 
     @SneakyThrows
-    public Optional<TypeFile> findOne(Integer id) {
-        TypeFile typeFile = null;
+    public Optional<TypeFile> findOne(Long id) {
+        Optional<TypeFile> typeFile = Optional.empty();
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_ONE)) {
-            preparedStatement.setInt(1, id);
+            preparedStatement.setLong(1, id);
+
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                typeFile = TypeFile.builder()
-                        .id(resultSet.getLong("type_file_id"))
-                        .name(resultSet.getString("type_file_name"))
-                        .build();
+                typeFile = Optional.of(getTypeFileFromResultSet(resultSet));
             }
         }
-        return Optional.ofNullable(typeFile);
+        return typeFile;
     }
 
     @SneakyThrows
-    public boolean delete(Integer id) {
+    public boolean delete(TypeFile typeFile) {
         boolean result = false;
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, typeFile.getName());
 
             if (preparedStatement.executeUpdate() == 1) {
                 result = true;

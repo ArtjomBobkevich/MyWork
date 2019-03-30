@@ -1,7 +1,9 @@
 package com.itacademy.bobkevich.servlet.servlet;
 
+import com.itacademy.bobkevich.servlet.dto.ViewResourceBasicInfoDto;
 import com.itacademy.bobkevich.servlet.entity.Resource;
 import com.itacademy.bobkevich.servlet.service.GenreService;
+import com.itacademy.bobkevich.servlet.service.ResourceService;
 import com.itacademy.bobkevich.servlet.util.JspPath;
 import com.itacademy.bobkevich.servlet.util.StringUtils;
 
@@ -14,27 +16,22 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+import static com.itacademy.bobkevich.servlet.util.StringUtils.isEmpty;
+
 @WebServlet("/resources-by-genre-list")
 public class AllResourceBythisGenreServlet extends HttpServlet {
 
-    private GenreService genreService=GenreService.getGenreService();
+    private ResourceService resourceService=ResourceService.getResourceService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        String id = req.getParameter("id");
-//        req.setAttribute("resources",genreService.findWhoHaveThisGenre(Long.parseLong(id)));
-
-//        getServletContext()
-//                .getRequestDispatcher(JspPath.get("resources-by-genre-list"))
-//                .forward(req, resp);
-
         String genreId= req.getParameter("id");
-        if (StringUtils.isEmpty(genreId)){
+        if (!isEmpty(genreId)){
             resp.setContentType("text/html");
             resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
-            List<Resource> resources =genreService.findWhoHaveThisGenre(Long.valueOf(genreId));
-            for (Resource resource: resources){
-                resp.getWriter().println(resource.getId()+resource.getResourceName()+resource.getTypeFile().getId()+resource.getCategory().getId()+resource.getPerson().getLogin()+resource.getUrl()+resource.getSize());
+            List<ViewResourceBasicInfoDto> resources =resourceService.findAllByGenre(Long.valueOf(genreId));
+            for (ViewResourceBasicInfoDto resource: resources){
+                resp.getWriter().println(resource.getId()+resource.getResourceName()+resource.getTypeFile()+resource.getCategory());
             }
         }
     }

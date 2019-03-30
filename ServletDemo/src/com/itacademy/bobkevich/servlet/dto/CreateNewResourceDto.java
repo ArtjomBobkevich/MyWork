@@ -14,10 +14,11 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CreateNewResourceDto {
 
+    private Long id;
     private String resourceName;
     private TypeFile typeFile;
     private Category category;
     private Person person;
     private String url;
-    private Integer size;
+    private String size;
 }

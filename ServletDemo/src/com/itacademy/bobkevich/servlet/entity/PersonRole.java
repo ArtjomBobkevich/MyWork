@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Accessors(chain = true)

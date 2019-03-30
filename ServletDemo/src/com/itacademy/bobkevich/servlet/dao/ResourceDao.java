@@ -50,72 +50,172 @@ public class ResourceDao {
                     "ON r.login_who_giving=p.login ";
     private static final String FIND_ONE =
             FIND_ALL + "WHERE r.id=?";
-    private static final String DELETE = "DELETE FROM cloud_storage.resource WHERE id=?";
-    private static final String SAVE = "INSERT INTO cloud_storage.resource (resource_name, type_id, caterory_id, login_who_giving, url, file_size) VALUES (?,?,?,?,?,?);";
+    private static final String DELETE = "DELETE FROM cloud_storage.resource WHERE resource_name=?";
+    private static final String SAVE = "INSERT INTO cloud_storage.resource (resource_name, type_id /*сохраняет, но нужен подзапрос*/, caterory_id, login_who_giving, url, file_size) VALUES (?,?,?,?,?,?);";
     private static final String UPDATE = "UPDATE cloud_storage.resource SET resource_name=?, type_id=?, caterory_id=?, login_who_giving=?, url=?,file_size=? WHERE id=?";
     private static final String ADD_GENRE = "INSERT INTO cloud_storage.resource_genre (resources_id, genre_id) VALUES (?,?);";
-    private static final String GET_BY_ID = "SELECT " +
+    private static final String  GET_RESOURCES_BY_GENRE_ID = "SELECT " +
             "r.id AS resource_id, " +
             "r.resource_name AS resource_name, " +
-            "r.type_id AS type_id_at_type, " +
+            "r.type_id AS type_id, " +
             "r.caterory_id AS category_id, " +
             "r.login_who_giving AS login_who_giving, " +
             "r.url AS url, " +
             "r.file_size AS file_size, " +
-            "com.id AS comment_id," +
-            "com.resource_id AS comment_resource_id," +
-            "com.text AS comment_text, " +
-            "t.id AS type_id, " +
+            "t.id AS type_file_id, " +
             "t.name_of_type AS type_file_name, " +
-            "c.id AS id, " +
-            "c.category_name AS category_name, " +
+            "c.id AS category_id_at_category, " +
+            "c.category_name AS category_name_at_category, " +
             "p.login AS person_login " +
             "FROM cloud_storage.resource r " +
-            "JOIN cloud_storage.comment com " +
-            "ON com.resource_id=r.id " +
+            "JOIN cloud_storage.resource_genre rg " +
+            "ON r.id = rg.resources_id " +
             "LEFT JOIN cloud_storage.type_file t " +
             "ON r.type_id=t.id " +
             "LEFT JOIN cloud_storage.category c " +
             "ON r.caterory_id=c.id " +
             "LEFT JOIN cloud_storage.person p " +
             "ON r.login_who_giving=p.login " +
-            "WHERE r.id=?";
+            "WHERE rg.genre_id=?";
+    private static final String GET_RESOURCES_BY_CATEGORY_ID = "SELECT " +
+            "cat.id AS id, " +
+            "cat.category_name AS category_name, " +
+            "r.id AS resource_id, " +
+            "r.resource_name AS resource_name, " +
+            "r.type_id AS type_id, " +
+            "r.caterory_id AS category_id," +
+            "r.login_who_giving AS login_who_giving, " +
+            "r.url AS url, " +
+            "r.file_size AS file_size, " +
+            "t.id AS type_id, " +
+            "t.name_of_type AS type_file_name, " +
+            "p.login AS person_login " +
+            "FROM cloud_storage.category cat " +
+            "JOIN cloud_storage.resource r " +
+            "ON r.caterory_id=cat.id " +
+            "LEFT JOIN cloud_storage.type_file t " +
+            "ON r.type_id=t.id " +
+            "LEFT JOIN cloud_storage.person p " +
+            "ON r.login_who_giving=p.login " +
+            "WHERE cat.id=?";
+    private static final String GET_RESOURCES_BY_TYPE_FILE_ID = "SELECT " +
+            "t.id AS id, " +
+            "t.name_of_type AS type_file_name, " +
+            "r.id AS resource_id, " +
+            "r.resource_name AS resource_name, " +
+            "r.caterory_id AS category_id_at_resource, " +
+            "r.login_who_giving AS login_who_giving, " +
+            "r.url AS url, " +
+            "r.file_size AS file_size, " +
+            "c.id AS category_id_at_category, " +
+            "c.category_name AS category_name, " +
+            "p.login AS person_login " +
+            "FROM cloud_storage.type_file t " +
+            "JOIN cloud_storage.resource r " +
+            "ON r.type_id=t.id " +
+            "LEFT JOIN cloud_storage.category c " +
+            "ON r.caterory_id=c.id " +
+            "LEFT JOIN cloud_storage.person p " +
+            "ON r.login_who_giving=p.login " +
+            "WHERE t.id=?";
 
     @SneakyThrows
-    public Optional<Resource> findAllCommentsAboutThisResource(Integer id) {
-        Resource resource = null;
+    public List<Resource> resourcesByTypeFile (Long typeFileId){
+        List<Resource>resources=new ArrayList<>();
         try (Connection connection = ConnectionPool.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(GET_BY_ID)) {
-            preparedStatement.setInt(1, id);
+             PreparedStatement preparedStatement = connection.prepareStatement(GET_RESOURCES_BY_TYPE_FILE_ID)) {
+            preparedStatement.setLong(1,typeFileId);
 
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                if (resource == null) {
-                    resource = Resource.builder()
-                            .id(resultSet.getLong("resource_id"))
-                            .resourceName(resultSet.getString("resource_name"))
-                            .typeFile(TypeFile.builder()
-                                    .id(resultSet.getLong("type_id"))
-                                    .name(resultSet.getString("type_file_name"))
-                                    .build())
-                            .category(Category.builder()
-                                    .id(resultSet.getLong("id"))
-                                    .name(resultSet.getString("category_name"))
-                                    .build())
-                            .person(Person.builder()
-                                    .login(resultSet.getString("person_login"))
-                                    .build())
-                            .url(resultSet.getString("url"))
-                            .size(resultSet.getInt("file_size"))
-                            .build();
-                }
-                resource.getComments().add(Comment.builder()
-                        .id(resultSet.getLong("comment_id"))
-                        .text(resultSet.getString("comment_text"))
-                        .build());
+            ResultSet resultSet=preparedStatement.executeQuery();
+            while (resultSet.next()){
+                Resource resource = Resource.builder()
+                        .id(resultSet.getLong("resource_id"))
+                        .resourceName(resultSet.getString("resource_name"))
+                        .typeFile(TypeFile.builder()
+                                .id(resultSet.getLong("id"))
+                                .name(resultSet.getString("type_file_name"))
+                                .build())
+                        .category(Category.builder()
+                                .id(resultSet.getLong("category_id_at_category"))
+                                .name(resultSet.getString("category_name"))
+                                .build())
+                        .person(Person.builder()
+                                .login(resultSet.getString("person_login"))
+                                .build())
+                        .url(resultSet.getString("url"))
+                        .size(resultSet.getString("file_size"))
+                        .build();
+
+                resources.add(resource);
             }
         }
-        return Optional.ofNullable(resource);
+        return resources;
+    }
+
+    @SneakyThrows
+    public List<Resource> resourcesByGenre (Long genreId){
+        List<Resource>resources=new ArrayList<>();
+        try (Connection connection = ConnectionPool.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(GET_RESOURCES_BY_GENRE_ID)) {
+        preparedStatement.setLong(1,genreId);
+
+        ResultSet resultSet=preparedStatement.executeQuery();
+        while (resultSet.next()){
+            Resource resource = Resource.builder()
+                    .id(resultSet.getLong("resource_id"))
+                    .resourceName(resultSet.getString("resource_name"))
+                    .typeFile(TypeFile.builder()
+                            .id(resultSet.getLong("type_file_id"))
+                            .name(resultSet.getString("type_file_name"))
+                            .build())
+                    .category(Category.builder()
+                            .id(resultSet.getLong("category_id_at_category"))
+                            .name(resultSet.getString("category_name_at_category"))
+                            .build())
+                    .person(Person.builder()
+                            .login(resultSet.getString("person_login"))
+                            .build())
+                    .url(resultSet.getString("url"))
+                    .size(resultSet.getString("file_size"))
+                    .build();
+
+            resources.add(resource);
+        }
+        }
+        return resources;
+    }
+
+    @SneakyThrows
+    public List<Resource> resourcesByCategory (Long categoryId){
+        List<Resource>resources=new ArrayList<>();
+        try (Connection connection = ConnectionPool.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(GET_RESOURCES_BY_CATEGORY_ID)) {
+            preparedStatement.setLong(1,categoryId);
+
+            ResultSet resultSet=preparedStatement.executeQuery();
+            while (resultSet.next()){
+                Resource resource = Resource.builder()
+                        .id(resultSet.getLong("resource_id"))
+                        .resourceName(resultSet.getString("resource_name"))
+                        .typeFile(TypeFile.builder()
+                                .id(resultSet.getLong("type_id"))
+                                .name(resultSet.getString("type_file_name"))
+                                .build())
+                        .category(Category.builder()
+                                .id(resultSet.getLong("id"))
+                                .name(resultSet.getString("category_name"))
+                                .build())
+                        .person(Person.builder()
+                                .login(resultSet.getString("person_login"))
+                                .build())
+                        .url(resultSet.getString("url"))
+                        .size(resultSet.getString("file_size"))
+                        .build();
+
+                resources.add(resource);
+            }
+        }
+        return resources;
     }
 
     @SneakyThrows
@@ -174,7 +274,7 @@ public class ResourceDao {
     public Optional<Resource> findById(Long id) {
         Optional<Resource> resource = Optional.empty();
         try (Connection connection = ConnectionPool.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(FIND_ONE)) { /*тут поменял*/
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_ONE)) {
             preparedStatement.setLong(1, id);
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -203,36 +303,44 @@ public class ResourceDao {
                         .login(resultSet.getString("person_login"))
                         .build())
                 .url(resultSet.getString("url"))
-                .size(resultSet.getInt("file_size"))
+                .size(resultSet.getString("file_size"))
                 .build();
     }
 
     @SneakyThrows
-    public boolean delete(Integer id) {
+    public boolean delete(Resource resource) {
         boolean result = false;
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, resource.getResourceName());
 
             if (preparedStatement.executeUpdate() == 1) {
                 result = true;
             }
         }
-
         return result;
     }
 
     @SneakyThrows
-    public Resource addGenre(Resource resource, Genre genre) {
+    public List<Genre> addGenre(Long resourceId, Long genreId) {
+        List<Genre> genres=new ArrayList<>();
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(ADD_GENRE, RETURN_GENERATED_KEYS)) {
-            preparedStatement.setLong(1, resource.getId());
-            preparedStatement.setLong(2, genre.getId());
+            preparedStatement.setLong(1, resourceId);
+            preparedStatement.setLong(2, genreId);
 
-            preparedStatement.executeUpdate();
-            resource.getGenres().add(genre);
+            ResultSet resultSet=preparedStatement.executeQuery();
+            while (resultSet.next()){
+                Genre genreAdd=Genre.builder()
+                        .id(resultSet.getLong("id"))
+                        .name(resultSet.getString("name_of_genre"))
+                        .build();
+
+                genres.add(genreAdd);
+            }
+
         }
-        return resource;
+        return genres;
     }
 
     public static ResourceDao getResourceDao() {

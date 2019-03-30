@@ -14,10 +14,11 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ViewResourceFullInfoDto {
 
+    private Long id;
     private String resourceName;
     private String typeFile;
     private String category;
     private String person;
     private String url;
-    private int size;
+    private String  size;
 }

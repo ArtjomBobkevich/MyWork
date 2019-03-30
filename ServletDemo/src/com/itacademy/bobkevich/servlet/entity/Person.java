@@ -13,11 +13,15 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class Person {
 
+    PersonRole user = PersonRole.builder()
+            .id(2L)
+            .build();
+
     private String login;
     private String first_name;
     private String last_name;
     private Long age;
     private String mail;
     private String password;
-    private PersonRole personRole;
+    private PersonRole personRole=user;
 }
