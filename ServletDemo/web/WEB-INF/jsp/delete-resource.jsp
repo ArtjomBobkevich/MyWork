@@ -15,7 +15,7 @@
 <form action="${pageContext.request.contextPath}/delete-resource" method="post">
     <div>
         <label for="name">Ресурс
-            <input id="name" type="text" name="name" value="${param.name}"/>
+            <input id="name" type="text" name="name"/>
         </label><br>
     </div>
     <input type="submit" value="Удалить">

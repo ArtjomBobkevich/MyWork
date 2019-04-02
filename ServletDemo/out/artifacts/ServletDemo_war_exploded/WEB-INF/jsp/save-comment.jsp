@@ -14,8 +14,8 @@
 <body>
 <form action="${pageContext.request.contextPath}/save-comment" method="post">
     <div>
-        <label for="id">РесурсИд
-            <input id="id" type="text" name="id"/>
+        <label for="name">Имя ресурса
+            <input id="name" type="text" name="name"/>
         </label><br>
     </div>
     <div>

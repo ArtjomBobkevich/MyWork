@@ -34,8 +34,8 @@
 //    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //
 //
-//        String resourceId = req.getParameter("resourceId");
-//        String genreId = req.getParameter("genreId");
-//        resourceService.addGenre(Long.parseLong(resourceId), Long.parseLong(genreId));
+//        String resourceId = req.getParameter("resourceName");
+//        String genreId = req.getParameter("genreName");
+//        resourceService.addGenre(resourceId, genreId);
 //    }
 //}

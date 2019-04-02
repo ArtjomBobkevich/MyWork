@@ -2,6 +2,7 @@ package com.itacademy.bobkevich.servlet.servlet;
 
 import com.itacademy.bobkevich.servlet.dto.ViewResourceBasicInfoDto;
 import com.itacademy.bobkevich.servlet.service.ResourceService;
+import com.itacademy.bobkevich.servlet.util.JspPath;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,13 +23,11 @@ public class AllResourcesByThisTypeFileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String typeFileId = req.getParameter("id");
-        if (!isEmpty(typeFileId)) {
-            resp.setContentType("text/html");
-            resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
-            List<ViewResourceBasicInfoDto> resources = resourceService.findAllByTypeFile(Long.valueOf(typeFileId));
-            for (ViewResourceBasicInfoDto resource : resources) {
-                resp.getWriter().println(resource.getId() + resource.getResourceName() + resource.getTypeFile() + resource.getCategory());
-            }
-        }
+
+        req.setAttribute("resource", resourceService.findAllByTypeFile(Long.parseLong(typeFileId)));
+
+        getServletContext()
+                .getRequestDispatcher(JspPath.get("resources-by-typefile-list"))
+                .forward(req, resp);
     }
 }

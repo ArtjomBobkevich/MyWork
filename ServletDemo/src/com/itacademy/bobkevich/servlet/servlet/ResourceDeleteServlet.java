@@ -32,6 +32,6 @@ public class ResourceDeleteServlet extends HttpServlet {
                 .resourceName(req.getParameter("name"))
                 .build();
         resourceService.delete(resource);
-        resp.sendRedirect("/genre-info?id=1");
+        resp.sendRedirect("/delete-info");
     }
 }

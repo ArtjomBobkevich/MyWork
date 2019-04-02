@@ -26,13 +26,11 @@ public class AllResourceBythisGenreServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String genreId = req.getParameter("id");
-        if (!isEmpty(genreId)) {
-            resp.setContentType("text/html");
-            resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
-            List<ViewResourceBasicInfoDto> resources = resourceService.findAllByGenre(Long.valueOf(genreId));
-            for (ViewResourceBasicInfoDto resource : resources) {
-                resp.getWriter().println(resource.getId() + resource.getResourceName() + resource.getTypeFile() + resource.getCategory());
-            }
-        }
+
+        req.setAttribute("resource", resourceService.findAllByGenre(Long.parseLong(genreId)));
+
+        getServletContext()
+                .getRequestDispatcher(JspPath.get("resources-by-genre-list"))
+                .forward(req, resp);
     }
 }

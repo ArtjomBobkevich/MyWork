@@ -1,10 +1,7 @@
 package com.itacademy.bobkevich.servlet.service;
 
 import com.itacademy.bobkevich.servlet.dao.ResourceDao;
-import com.itacademy.bobkevich.servlet.dto.CreateNewResourceDto;
-import com.itacademy.bobkevich.servlet.dto.ViewGenreInfoDto;
-import com.itacademy.bobkevich.servlet.dto.ViewResourceBasicInfoDto;
-import com.itacademy.bobkevich.servlet.dto.ViewResourceFullInfoDto;
+import com.itacademy.bobkevich.servlet.dto.*;
 import com.itacademy.bobkevich.servlet.entity.Genre;
 import com.itacademy.bobkevich.servlet.entity.Resource;
 import lombok.AccessLevel;
@@ -84,9 +81,9 @@ public class ResourceService {
         return ResourceDao.getResourceDao().delete(resource);
     }
 
-    public List<ViewGenreInfoDto> addGenre(Long resourceId, Long genreId) {
-        return ResourceDao.getResourceDao().addGenre(resourceId, genreId).stream()
-                .map(it -> new ViewGenreInfoDto(it.getId(), it.getName()))
+    public List<CreateNewGenreDto> addGenre(Long resourceName, Long genreName) {
+        return ResourceDao.getResourceDao().addGenre(resourceName, genreName).stream()
+                .map(it -> new CreateNewGenreDto(it.getId(), it.getName()))
                 .collect(Collectors.toList());
     }
 

@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ViewPersonFromLogin {
+public class ViewPersonLogin {
 
     private String login;
-    private String mail;
-    private String password;
 }

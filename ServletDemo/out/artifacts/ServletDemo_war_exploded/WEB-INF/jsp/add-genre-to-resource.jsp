@@ -14,13 +14,13 @@
 <body>
 <form action="${pageContext.request.contextPath}/add-genre-to-resource" method="post">
     <div>
-        <label for="resourceId">Ресурс
-            <input id="resourceId" type="text" name="resourcedId"/>
+        <label for="resourceName">Ресурс
+            <input id="resourceName" type="text" name="resourceName"/>
         </label><br>
     </div>
     <div>
-        <label for="genreId">Жанр
-            <input id="genreId" type="text" name="genreId"/>
+        <label for="genreName">Жанр
+            <input id="genreName" type="text" name="genreName"/>
         </label><br>
     </div>
     <input type="submit" value="Сохранить">

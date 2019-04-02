@@ -2,6 +2,7 @@ package com.itacademy.bobkevich.servlet.servlet;
 
 import com.itacademy.bobkevich.servlet.dto.CreateNewCommentDto;
 import com.itacademy.bobkevich.servlet.service.CommentService;
+import com.itacademy.bobkevich.servlet.util.JspPath;
 import com.itacademy.bobkevich.servlet.util.MediaType;
 
 import javax.servlet.ServletException;
@@ -24,13 +25,11 @@ public class AllCommentsByResourceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String resourseId = req.getParameter("id");
-        if (!isEmpty(resourseId)) {
-            resp.setContentType(MediaType.TEXT_HTML);
-            resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
-            List<CreateNewCommentDto> comments = commentService.allByResource(Long.valueOf(resourseId));
-            for (CreateNewCommentDto comment : comments) {
-                resp.getWriter().println(comment.getId() + comment.getText());
-            }
-        }
+
+        req.setAttribute("comment", commentService.allByResource(Long.parseLong(resourseId)));
+
+        getServletContext()
+                .getRequestDispatcher(JspPath.get("all-comment-by-resource"))
+                .forward(req, resp);
     }
 }

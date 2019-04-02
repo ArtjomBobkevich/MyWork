@@ -39,7 +39,7 @@ public class ResourceSaveServlet extends HttpServlet {
                 .typeFile(TypeFile.builder()
                         .name(req.getParameter("name_of_type_file"))
                         .build())
-                .category(Category.builder()  /*сохраняет, но нужен подзапрос*/
+                .category(Category.builder()
                         .name(req.getParameter("name_of_category"))
                         .build())
                 .person(Person.builder()

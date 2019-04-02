@@ -36,12 +36,11 @@ public class CommentSaveServlet extends HttpServlet {
 
         CreateNewCommentDto newComment = CreateNewCommentDto.builder()
                 .resourceId(Resource.builder()
-                        .id(req.getDateHeader("id"))
-                        .resourceName("name")
+                        .resourceName(req.getParameter("name"))
                         .typeFile(TypeFile.builder()
                                 .name("name_of_type_file")
                                 .build())
-                        .category(Category.builder()  /*сохраняет, но нужен подзапрос*/
+                        .category(Category.builder()
                                 .name("name_of_category")
                                 .build())
                         .person(Person.builder()

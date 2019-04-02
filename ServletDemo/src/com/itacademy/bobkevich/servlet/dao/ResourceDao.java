@@ -51,7 +51,7 @@ public class ResourceDao {
     private static final String FIND_ONE =
             FIND_ALL + "WHERE r.id=?";
     private static final String DELETE = "DELETE FROM cloud_storage.resource WHERE resource_name=?";
-    private static final String SAVE = "INSERT INTO cloud_storage.resource (resource_name, type_id /*сохраняет, но нужен подзапрос*/, caterory_id, login_who_giving, url, file_size) VALUES (?,?,?,?,?,?);";
+    private static final String SAVE = "INSERT INTO cloud_storage.resource (resource_name, type_id , caterory_id, login_who_giving, url, file_size) VALUES (?,(SELECT id FROM cloud_storage.type_file WHERE name_of_type=?),(SELECT id FROM cloud_storage.category WHERE category_name=?),?,?,?);";
     private static final String UPDATE = "UPDATE cloud_storage.resource SET resource_name=?, type_id=?, caterory_id=?, login_who_giving=?, url=?,file_size=? WHERE id=?";
     private static final String ADD_GENRE = "INSERT INTO cloud_storage.resource_genre (resources_id, genre_id) VALUES (?,?);";
     private static final String GET_RESOURCES_BY_GENRE_ID = "SELECT " +
@@ -219,12 +219,34 @@ public class ResourceDao {
     }
 
     @SneakyThrows
+    public List<Genre> addGenre(Long resourceId, Long genreId) {
+        List<Genre> genres = new ArrayList<>();
+        try (Connection connection = ConnectionPool.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(ADD_GENRE, RETURN_GENERATED_KEYS)) {
+            preparedStatement.setObject(1, resourceId);
+            preparedStatement.setObject(2, genreId);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Genre genreAdd = Genre.builder()
+                        .id(resultSet.getLong("id"))
+                        .name(resultSet.getString("name_of_genre"))
+                        .build();
+
+                genres.add(genreAdd);
+            }
+
+        }
+        return genres;
+    }
+
+    @SneakyThrows
     public Resource save(Resource resource) {
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE, RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, resource.getResourceName());
-            preparedStatement.setObject(2, Optional.ofNullable(resource.getTypeFile()).map(TypeFile::getId).orElse(null));
-            preparedStatement.setObject(3, Optional.ofNullable(resource.getCategory()).map(Category::getId).orElse(null));
+            preparedStatement.setObject(2, Optional.ofNullable(resource.getTypeFile()).map(TypeFile::getName).orElse(null));
+            preparedStatement.setObject(3, Optional.ofNullable(resource.getCategory()).map(Category::getName).orElse(null));
             preparedStatement.setObject(4, Optional.ofNullable(resource.getPerson()).map(Person::getLogin).orElse(null));
             preparedStatement.setObject(5, resource.getUrl());
             preparedStatement.setObject(6, resource.getSize());
@@ -255,6 +277,7 @@ public class ResourceDao {
         return resource;
     }
 
+    @SneakyThrows
     public List<Resource> findAll() {
         List<Resource> resources = new ArrayList<>();
         try (Connection connection = ConnectionPool.getConnection();
@@ -264,13 +287,11 @@ public class ResourceDao {
                 Resource resource = getResourceFromResultSet(resultSet);
                 resources.add(resource);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
         return resources;
     }
 
-
+    @SneakyThrows
     public Optional<Resource> findById(Long id) {
         Optional<Resource> resource = Optional.empty();
         try (Connection connection = ConnectionPool.getConnection();
@@ -281,8 +302,6 @@ public class ResourceDao {
             if (resultSet.next()) {
                 resource = Optional.of(getResourceFromResultSet(resultSet));
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
         return resource;
     }
@@ -319,28 +338,6 @@ public class ResourceDao {
             }
         }
         return result;
-    }
-
-    @SneakyThrows
-    public List<Genre> addGenre(Long resourceId, Long genreId) {
-        List<Genre> genres = new ArrayList<>();
-        try (Connection connection = ConnectionPool.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(ADD_GENRE, RETURN_GENERATED_KEYS)) {
-            preparedStatement.setLong(1, resourceId);
-            preparedStatement.setLong(2, genreId);
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                Genre genreAdd = Genre.builder()
-                        .id(resultSet.getLong("id"))
-                        .name(resultSet.getString("name_of_genre"))
-                        .build();
-
-                genres.add(genreAdd);
-            }
-
-        }
-        return genres;
     }
 
     public static ResourceDao getResourceDao() {
