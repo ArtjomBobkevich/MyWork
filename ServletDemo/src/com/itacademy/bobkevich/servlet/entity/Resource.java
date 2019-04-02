@@ -15,6 +15,7 @@ import java.util.Set;
 @Builder
 @Accessors(chain = true)
 public class Resource {
+
     private Long id;
     private String resourceName;
     private TypeFile typeFile;

@@ -29,7 +29,7 @@ public class ResourceDeleteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Resource resource = Resource.builder()
-                .resourceName("name")
+                .resourceName(req.getParameter("name"))
                 .build();
         resourceService.delete(resource);
         resp.sendRedirect("/genre-info?id=1");

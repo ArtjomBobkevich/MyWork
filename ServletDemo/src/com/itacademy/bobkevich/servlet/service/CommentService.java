@@ -5,6 +5,7 @@ import com.itacademy.bobkevich.servlet.dao.CommentDao;
 import com.itacademy.bobkevich.servlet.dao.GenreDao;
 import com.itacademy.bobkevich.servlet.dto.CreateNewCommentDto;
 import com.itacademy.bobkevich.servlet.dto.CreateNewGenreDto;
+import com.itacademy.bobkevich.servlet.dto.ViewCommentFullINfoDto;
 import com.itacademy.bobkevich.servlet.dto.ViewGenreInfoDto;
 import com.itacademy.bobkevich.servlet.entity.Comment;
 import com.itacademy.bobkevich.servlet.entity.Genre;
@@ -31,15 +32,18 @@ public class CommentService {
                 .collect(Collectors.toList());
     }
 
-    public CreateNewCommentDto save(CreateNewCommentDto comment) {
-        Comment savedComment = CommentDao.getCommentDao().commentSave(
-                Comment.builder()
+    public ViewCommentFullINfoDto save(CreateNewCommentDto comment) {
+        Comment savedComment = CommentDao.getCommentDao().commentSave(Comment.builder()
                         .id(comment.getId())
                         .resource_id(comment.getResourceId())
                         .text(comment.getText())
                         .build());
 
-        return new CreateNewCommentDto(savedComment.getId(), savedComment.getResource_id(), savedComment.getText());
+        return new ViewCommentFullINfoDto(
+                savedComment.getId(),
+                savedComment.getResource_id().getResourceName(),
+                savedComment.getText()
+        );
     }
 
     public boolean commentDelite(Comment comment) {

@@ -75,7 +75,7 @@ public class CommentDao {
                     "LEFT JOIN cloud_storage.person p " +
                     "ON r.login_who_giving=p.login " +
                     "WHERE c.id=?";
-    private static final String DELETE = "DELETE FROM cloud_storage.comment WHERE id=?";
+    private static final String DELETE = "DELETE FROM cloud_storage.comment WHERE text=?";
     private static final String SAVE = "INSERT INTO cloud_storage.comment  (resource_id, text) VALUES (?,?);";
     private static final String UPDATE = "UPDATE cloud_storage.comment SET resource_id=?, text=? WHERE id=?";
     private static final String GET_COMMENTS_BY_RESOURCE_ID = "SELECT " +
@@ -230,7 +230,7 @@ public class CommentDao {
         boolean result = false;
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
-            preparedStatement.setLong(1, comment.getId());
+            preparedStatement.setString(1, comment.getText());
 
             if (preparedStatement.executeUpdate() == 1) {
                 result = true;

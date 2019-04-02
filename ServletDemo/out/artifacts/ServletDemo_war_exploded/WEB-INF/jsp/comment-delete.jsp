@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Boss
-  Date: 31.03.2019
-  Time: 0:28
+  Date: 01.04.2019
+  Time: 15:49
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,10 +12,13 @@
     <title>Title</title>
 </head>
 <body>
-<div>
-    <c:forEach var="category" items="${requestScope.categories}">
-        <a>${category.name}</a><br>
-    </c:forEach>
-</div>
+<form action="${pageContext.request.contextPath}/comment-delete" method="post">
+    <div>
+        <label for="text">Коментарий
+            <input id="text" type="text" name="text"/>
+        </label><br>
+    </div>
+    <input type="submit" value="Удалить">
+</form>
 </body>
 </html>
