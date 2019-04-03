@@ -15,12 +15,12 @@
 <form action="${pageContext.request.contextPath}/login" method="post">
     <div>
         <label for="login">Имя пользователя
-            <input id="login" type="text" name="login" value="${param.login}"/>
+            <input id="login" type="text" name="login"/>
         </label><br>
     </div>
     <div class="form-group">
         <label for="password">Пароль
-            <input id="password" type="text" name="password" value="${param.password}"/>
+            <input id="password" type="password" name="password"/>
         </label><br>
     </div>
     <input type="submit" value="Войти">

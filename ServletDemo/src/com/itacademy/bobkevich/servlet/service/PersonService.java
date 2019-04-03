@@ -7,6 +7,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -54,6 +55,15 @@ public class PersonService {
                         .personRole(it.getPersonRole().getNameOfRole())
                         .build())
                 .orElse(null);
+    }
+
+    public Optional<UserDto> FindByLogin(String login, String password) {
+        return PersonDao.getPersonDao().findByLogin(login, password)
+                .map(it -> UserDto.builder()
+                        .login(it.getLogin())
+                        .password(it.getPassword())
+                        .personRole(it.getPersonRole().getNameOfRole())
+                        .build());
     }
 
     public boolean delete(Person person) {

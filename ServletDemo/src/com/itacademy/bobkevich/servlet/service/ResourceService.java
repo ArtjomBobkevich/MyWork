@@ -7,7 +7,9 @@ import com.itacademy.bobkevich.servlet.entity.Resource;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -35,6 +37,23 @@ public class ResourceService {
                 savedResource.getUrl(),
                 savedResource.getSize());
     }
+
+//    public Map<ViewResourceFullInfoDto,ViewGenreInfoDto> addGenre(CreateNewResourceDto resource, CreateNewGenreDto genre) {
+//        Map<Resource,Genre> resourceGenreMap = ResourceDao.getResourceDao().addGenre(Resource.builder()
+//                .id(resource.getId())
+//                .resourceName(resource.getResourceName())
+//                .typeFile(resource.getTypeFile())
+//                .category(resource.getCategory())
+//                .person(resource.getPerson())
+//                .url(resource.getUrl())
+//                .size(resource.getSize())
+//                .build(),
+//                Genre.builder()
+//                        .id(genre.getId())
+//                        .name(genre.getName())
+//                        .build());
+//        return new HashMap<ViewResourceFullInfoDto,ViewGenreInfoDto>();
+//    }
 
     public Resource update(Resource resource) {
         return ResourceDao.getResourceDao().update(resource);
@@ -79,12 +98,6 @@ public class ResourceService {
 
     public boolean delete(Resource resource) {
         return ResourceDao.getResourceDao().delete(resource);
-    }
-
-    public List<CreateNewGenreDto> addGenre(Long resourceName, Long genreName) {
-        return ResourceDao.getResourceDao().addGenre(resourceName, genreName).stream()
-                .map(it -> new CreateNewGenreDto(it.getId(), it.getName()))
-                .collect(Collectors.toList());
     }
 
     public static ResourceService getResourceService() {

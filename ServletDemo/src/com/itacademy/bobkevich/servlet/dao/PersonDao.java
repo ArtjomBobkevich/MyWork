@@ -48,6 +48,21 @@ public class PersonDao {
                     "LEFT JOIN cloud_storage.person_role pr " +
                     "ON p.role=pr.id " +
                     "WHERE p.login=?";
+    private static final String FIND_LOGIN =
+            "SELECT " +
+                    "p.login AS login, " +
+                    "p.first_name AS first_name, " +
+                    "p.last_name AS last_name, " +
+                    "p.age AS age, " +
+                    "p.mail AS mail, " +
+                    "p.password AS password, " +
+                    "p.role AS role, " +
+                    "pr.id AS id, " +
+                    "pr.role AS role_name " +
+                    "FROM cloud_storage.person p " +
+                    "LEFT JOIN cloud_storage.person_role pr " +
+                    "ON p.role=pr.id " +
+                    "WHERE p.login=? AND p.password=?";
     private static final String DELETE = "DELETE FROM cloud_storage.person WHERE login=?";
     private static final String UPDATE = "UPDATE cloud_storage.person SET first_name=?, last_name=?, age=?,mail=?,password=?,role=? WHERE login=?";
 
@@ -109,6 +124,22 @@ public class PersonDao {
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_ONE)) {
             preparedStatement.setString(1, login);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                person = Optional.of(getPersonFromResultSet(resultSet));
+            }
+        }
+        return person;
+    }
+
+    @SneakyThrows
+    public Optional<Person> findByLogin(String login,String password) {
+        Optional<Person> person = Optional.empty();
+        try (Connection connection = ConnectionPool.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_LOGIN)) {
+            preparedStatement.setString(1, login);
+            preparedStatement.setString(2, password);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
