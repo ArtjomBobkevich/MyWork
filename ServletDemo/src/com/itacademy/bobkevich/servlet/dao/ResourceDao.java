@@ -242,8 +242,8 @@ public class ResourceDao {
     }
 
     @SneakyThrows
-    public Map<Resource,Genre> addGenre(Resource resource, Genre genre) {
-        Map<Resource,Genre> resourceGenreMap = new HashMap<>();
+    public Map<Resource, Genre> addGenre(Resource resource, Genre genre) {
+        Map<Resource, Genre> resourceGenreMap = new HashMap<>();
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(ADD_GENRE, RETURN_GENERATED_KEYS)) {
             preparedStatement.setObject(1, resource.getResourceName());
@@ -252,7 +252,7 @@ public class ResourceDao {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
 
-                Resource resourceAdd=Resource.builder()
+                Resource resourceAdd = Resource.builder()
                         .id(resultSet.getLong("resource_id"))
                         .resourceName(resultSet.getString("resource_name"))
                         .typeFile(TypeFile.builder()
@@ -274,7 +274,7 @@ public class ResourceDao {
                         .name(resultSet.getString("name_of_genre"))
                         .build();
 
-                resourceGenreMap.put(resourceAdd,genreAdd);
+                resourceGenreMap.put(resourceAdd, genreAdd);
             }
 
         }

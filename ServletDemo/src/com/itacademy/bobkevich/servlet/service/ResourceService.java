@@ -38,22 +38,22 @@ public class ResourceService {
                 savedResource.getSize());
     }
 
-//    public Map<ViewResourceFullInfoDto,ViewGenreInfoDto> addGenre(CreateNewResourceDto resource, CreateNewGenreDto genre) {
-//        Map<Resource,Genre> resourceGenreMap = ResourceDao.getResourceDao().addGenre(Resource.builder()
-//                .id(resource.getId())
-//                .resourceName(resource.getResourceName())
-//                .typeFile(resource.getTypeFile())
-//                .category(resource.getCategory())
-//                .person(resource.getPerson())
-//                .url(resource.getUrl())
-//                .size(resource.getSize())
-//                .build(),
-//                Genre.builder()
-//                        .id(genre.getId())
-//                        .name(genre.getName())
-//                        .build());
-//        return new HashMap<ViewResourceFullInfoDto,ViewGenreInfoDto>();
-//    }
+    public Map<ViewResourceFullInfoDto,ViewGenreInfoDto> addGenre(CreateNewResourceDto resource, CreateNewGenreDto genre) {
+        Map<Resource,Genre> resourceGenreMap = ResourceDao.getResourceDao().addGenre(Resource.builder()
+                .id(resource.getId())
+                .resourceName(resource.getResourceName())
+                .typeFile(resource.getTypeFile())
+                .category(resource.getCategory())
+                .person(resource.getPerson())
+                .url(resource.getUrl())
+                .size(resource.getSize())
+                .build(),
+                Genre.builder()
+                        .id(genre.getId())
+                        .name(genre.getName())
+                        .build());
+        return new HashMap<ViewResourceFullInfoDto,ViewGenreInfoDto>();
+    }
 
     public Resource update(Resource resource) {
         return ResourceDao.getResourceDao().update(resource);
