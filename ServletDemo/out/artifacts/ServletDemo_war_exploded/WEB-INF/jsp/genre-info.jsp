@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Жанр подробности</title>
 </head>
 <body>
 Название <span>${requestScope.genre.name}</span><br>

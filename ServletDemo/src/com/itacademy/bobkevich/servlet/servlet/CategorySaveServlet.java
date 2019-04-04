@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/category-save")
+@WebServlet(value = "/category-save",name = "CategorySaveServlet")
 public class CategorySaveServlet extends HttpServlet {
 
     private CategoryService categoryService = CategoryService.getCategoryService();

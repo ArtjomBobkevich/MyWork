@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/category-delete")
+@WebServlet(value="/category-delete",name ="CategoryDeleteServlet")
 public class CategoryDeleteServlet extends HttpServlet {
 
     private CategoryService categoryService = CategoryService.getCategoryService();

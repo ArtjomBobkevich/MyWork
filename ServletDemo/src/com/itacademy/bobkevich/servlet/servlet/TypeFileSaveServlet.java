@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/typefile-save")
+@WebServlet(value = "/typefile-save",name = "TypeFileSaveServlet")
 public class TypeFileSaveServlet extends HttpServlet {
 
     private TypeFileService typeFileService = TypeFileService.getTypeFileService();

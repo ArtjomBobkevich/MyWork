@@ -51,32 +51,7 @@ public class ResourceDao {
     private static final String DELETE = "DELETE FROM cloud_storage.resource WHERE resource_name=?";
     private static final String SAVE = "INSERT INTO cloud_storage.resource (resource_name, type_id , caterory_id, login_who_giving, url, file_size) VALUES (?,(SELECT id FROM cloud_storage.type_file WHERE name_of_type=?),(SELECT id FROM cloud_storage.category WHERE category_name=?),?,?,?);";
     private static final String UPDATE = "UPDATE cloud_storage.resource SET resource_name=?, type_id=?, caterory_id=?, login_who_giving=?, url=?,file_size=? WHERE id=?";
-    private static final String ADD_GENRE = "INSERT INTO cloud_storage.resource_genre (resources_id, genre_id) VALUES ((SELECT" +
-            " r.id AS resource_id, " +
-            "r.resource_name AS resource_name, " +
-            "r.type_id AS type_id, " +
-            "r.caterory_id AS category_id, " +
-            "r.login_who_giving AS login_who_giving, " +
-            "r.url AS url, " +
-            "r.file_size AS file_size, " +
-            "t.id AS type_file_id, " +
-            "t.name_of_type AS type_file_name, " +
-            "c.id AS category_id_at_category, " +
-            "c.category_name AS category_name_at_category, " +
-            "p.login AS person_login " +
-            "FROM cloud_storage.resource r " +
-            "INNER JOIN cloud_storage.type_file t " +
-            "ON r.type_id=t.id " +
-            "INNER JOIN cloud_storage.category c " +
-            "ON r.caterory_id=c.id " +
-            "INNER JOIN cloud_storage.person p " +
-            "ON r.login_who_giving=p.login " +
-            "WHERE r.resource_name=?)," +
-            "(SELECT" +
-            " g.id AS id, " +
-            "g.name_of_genre AS name " +
-            "FROM cloud_storage.genre g " +
-            "WHERE g.name_of_genre=?));";
+    private static final String ADD_GENRE = "INSERT INTO cloud_storage.resource_genre (resources_id, genre_id) VALUES ((SELECT id FROM cloud_storage.resource WHERE resource_name=?),(SELECT id FROM cloud_storage.genre WHERE name_of_genre=?));";
     private static final String GET_RESOURCES_BY_GENRE_ID = "SELECT " +
             "r.id AS resource_id, " +
             "r.resource_name AS resource_name, " +
@@ -242,43 +217,17 @@ public class ResourceDao {
     }
 
     @SneakyThrows
-    public Map<Resource, Genre> addGenre(Resource resource, Genre genre) {
-        Map<Resource, Genre> resourceGenreMap = new HashMap<>();
+    public Set<Genre> addGenre(Resource resource, Genre genre) {
+        Set<Genre> genres = new HashSet<>();
         try (Connection connection = ConnectionPool.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(ADD_GENRE, RETURN_GENERATED_KEYS)) {
-            preparedStatement.setObject(1, resource.getResourceName());
-            preparedStatement.setObject(2, genre.getName());
+             PreparedStatement preparedStatement = connection.prepareStatement(ADD_GENRE,RETURN_GENERATED_KEYS)) {
+            preparedStatement.setObject(1, Optional.ofNullable(resource.getResourceName()).orElse(null));
+            preparedStatement.setObject(2, Optional.ofNullable(genre.getName()).orElse(null));
 
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-
-                Resource resourceAdd = Resource.builder()
-                        .id(resultSet.getLong("resource_id"))
-                        .resourceName(resultSet.getString("resource_name"))
-                        .typeFile(TypeFile.builder()
-                                .id(resultSet.getLong("type_file_id"))
-                                .name(resultSet.getString("type_file_name"))
-                                .build())
-                        .category(Category.builder()
-                                .id(resultSet.getLong("category_id_at_category"))
-                                .name(resultSet.getString("category_name_at_category"))
-                                .build())
-                        .person(Person.builder()
-                                .login(resultSet.getString("person_login"))
-                                .build())
-                        .url(resultSet.getString("url"))
-                        .size(resultSet.getString("file_size"))
-                        .build();
-                Genre genreAdd = Genre.builder()
-                        .id(resultSet.getLong("id"))
-                        .name(resultSet.getString("name_of_genre"))
-                        .build();
-
-                resourceGenreMap.put(resourceAdd, genreAdd);
-            }
-
+            preparedStatement.executeUpdate();
+            genres.add(genre);
         }
-        return resourceGenreMap;
+        return genres;
     }
 
     @SneakyThrows

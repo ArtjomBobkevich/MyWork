@@ -30,9 +30,9 @@ public class LoginServlet extends HttpServlet {
         Optional<UserDto> user = personService.FindByLogin(req.getParameter("login"), req.getParameter("password"));
         if (user.isPresent()){
             req.getSession().setAttribute("user",user.get());
-            resp.sendRedirect("/resources-list");
+            resp.sendRedirect("/begin");
         } else {
-            resp.sendRedirect("/login");
+            resp.sendRedirect("/login?login=%s&error=true");
         }
     }
 }

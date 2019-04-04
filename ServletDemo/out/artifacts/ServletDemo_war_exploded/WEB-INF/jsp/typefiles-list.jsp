@@ -9,13 +9,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Типы файлов</title>
 </head>
 <body>
 <div>
     <c:forEach var="typefile" items="${requestScope.typefiles}">
-        <a >${typefile.name}</a><br>
+        <a href="${pageContext.request.contextPath}/resources-by-typefile-list?id=${typefile.id}">Поиск по ${typefile.name}</a>
     </c:forEach>
 </div>
+<a href="${pageContext.request.contextPath}/typefile-save">Сохранить тип файла</a>
+<a href="${pageContext.request.contextPath}/typefile-delete">Удалить тип файла</a>
 </body>
 </html>

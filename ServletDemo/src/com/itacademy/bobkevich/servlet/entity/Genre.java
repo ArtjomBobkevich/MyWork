@@ -18,6 +18,6 @@ public class Genre {
 
     private Long id;
     private String name;
-    @Builder.Default
-    private Set<Resource> resources = new HashSet<>();
+//    @Builder.Default
+//    private Set<Resource> resources = new HashSet<>();
 }

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/delete-resource")
+@WebServlet(value = "/delete-resource",name = "ResourceDeleteServlet")
 public class ResourceDeleteServlet extends HttpServlet {
 
     private ResourceService resourceService = ResourceService.getResourceService();

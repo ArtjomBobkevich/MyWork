@@ -1,17 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Boss
-  Date: 27.03.2019
-  Time: 19:29
+  User: Admin
+  Date: 04.04.2019
+  Time: 9:41
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-
+<h1> Ого! Ошибочка 404 </h1>
 </body>
 </html>

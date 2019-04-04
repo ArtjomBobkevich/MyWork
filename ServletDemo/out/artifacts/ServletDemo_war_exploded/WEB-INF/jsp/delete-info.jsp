@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Подтверждение удаления</title>
 </head>
 <body>
 <h1> объект был успешно удалён!!!</h1>

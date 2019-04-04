@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Комментарий удалить</title>
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/comment-delete" method="post">

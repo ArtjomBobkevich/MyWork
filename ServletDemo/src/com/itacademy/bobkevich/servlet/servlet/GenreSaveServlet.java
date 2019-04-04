@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/save-genre")
+@WebServlet(value = "/save-genre",name = "GenreSaveServlet")
 public class GenreSaveServlet extends HttpServlet {
 
     private GenreService genreService = GenreService.getGenreService();

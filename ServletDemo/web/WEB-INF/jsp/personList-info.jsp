@@ -9,12 +9,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Все пользователи</title>
 </head>
 <body>
 <div>
     <c:forEach var="personList" items="${requestScope.personList}">
-        <a >${personList.login}</a><br>
+        <a href="${pageContext.request.contextPath}/person-info?login=${personList.login}">Подробности ${personList.login}</a><br>
     </c:forEach>
 </div>
 </body>

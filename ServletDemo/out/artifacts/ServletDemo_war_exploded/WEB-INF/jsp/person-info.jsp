@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>пользователь подробности</title>
 </head>
 <body>
 Логин <span>${requestScope.person.login}</span><br>

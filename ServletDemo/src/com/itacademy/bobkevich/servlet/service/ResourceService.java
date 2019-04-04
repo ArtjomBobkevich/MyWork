@@ -38,8 +38,9 @@ public class ResourceService {
                 savedResource.getSize());
     }
 
-    public Map<ViewResourceFullInfoDto,ViewGenreInfoDto> addGenre(CreateNewResourceDto resource, CreateNewGenreDto genre) {
-        Map<Resource,Genre> resourceGenreMap = ResourceDao.getResourceDao().addGenre(Resource.builder()
+    public List<ViewGenreInfoDto> addGenre(CreateNewResourceDto resource, CreateNewGenreDto genre) {
+
+        Resource resourceAddGenre = Resource.builder()
                 .id(resource.getId())
                 .resourceName(resource.getResourceName())
                 .typeFile(resource.getTypeFile())
@@ -47,12 +48,15 @@ public class ResourceService {
                 .person(resource.getPerson())
                 .url(resource.getUrl())
                 .size(resource.getSize())
-                .build(),
-                Genre.builder()
-                        .id(genre.getId())
-                        .name(genre.getName())
-                        .build());
-        return new HashMap<ViewResourceFullInfoDto,ViewGenreInfoDto>();
+                .build();
+
+        Genre genreAdd = Genre.builder()
+                .id(genre.getId())
+                .name(genre.getName())
+                .build();
+        return ResourceDao.getResourceDao().addGenre(resourceAddGenre,genreAdd).stream()
+                .map(it->new ViewGenreInfoDto(it.getId(),it.getName()))
+                .collect(Collectors.toList());
     }
 
     public Resource update(Resource resource) {
@@ -86,6 +90,7 @@ public class ResourceService {
     public ViewResourceFullInfoDto findOne(Long resourceId) {
         return ResourceDao.getResourceDao().findById(resourceId)
                 .map(it -> ViewResourceFullInfoDto.builder()
+                        .id(it.getId())   /*внёс правку*/
                         .resourceName(it.getResourceName())
                         .typeFile(it.getTypeFile().getName())
                         .category(it.getCategory().getName())

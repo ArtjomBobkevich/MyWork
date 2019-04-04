@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Категории удаление</title>
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/category-delete" method="post">

@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Удаление ресурсов</title>
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/delete-resource" method="post">

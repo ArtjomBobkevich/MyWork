@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Ресурс подробности</title>
 </head>
 <body>
 Название <span>${requestScope.resource.resourceName}</span><br>
@@ -18,5 +18,11 @@
 Выложил <span>${requestScope.resource.person}</span><br>
 Ссылка <span>${requestScope.resource.url}</span><br>
 Объём <span>${requestScope.resource.size}</span><br>
+<a href="${pageContext.request.contextPath}/add-genre-to-resource">Добавить жанр к данному ресурсу</a>
+<a href="${pageContext.request.contextPath}/save-comment">Добавить комментарий к ресурсу</a>
+<div>
+<a href="${pageContext.request.contextPath}/all-comment-by-resource?id=${requestScope.resource.id}">Все комментарии ресурса</a>
+</div>
+<a href="${pageContext.request.contextPath}/comment-delete">Удалить комментарий к ресурсу</a>
 </body>
 </html>

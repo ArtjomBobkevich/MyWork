@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/person-info")
+@WebServlet(value = "/person-info",name = "PersonInfoServlet")
 public class PersonInfoServlet extends HttpServlet {
 
     private PersonService personService =PersonService.getPersonService();

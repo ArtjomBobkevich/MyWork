@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/comment-delete")
+@WebServlet(value = "/comment-delete",name = "CommentDeleteServlet")
 public class CommentDeleteServlet extends HttpServlet {
 
     private CommentService commentService=CommentService.getCommentService();

@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Авторизация</title>
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/login" method="post">
@@ -18,6 +18,9 @@
             <input id="login" type="text" name="login"/>
         </label><br>
     </div>
+    <c:if test="${param.error}">
+        <span> Вы ввели не кооректно логин</span><br>
+    </c:if>
     <div class="form-group">
         <label for="password">Пароль
             <input id="password" type="password" name="password"/>
@@ -25,5 +28,6 @@
     </div>
     <input type="submit" value="Войти">
 </form>
+<a href="${pageContext.request.contextPath}/save-person">Зарегистрироваться</a>
 </body>
 </html>

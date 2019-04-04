@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/typefile-delete")
+@WebServlet(value = "/typefile-delete",name = "TypeFileDelete")
 public class TypeFileDeleteServlet extends HttpServlet {
 
     private TypeFileService typeFileService = TypeFileService.getTypeFileService();

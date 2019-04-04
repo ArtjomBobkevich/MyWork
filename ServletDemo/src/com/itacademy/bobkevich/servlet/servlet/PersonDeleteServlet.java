@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/delete-person")
+@WebServlet(value = "/delete-person",name = "PersonDeleteServlet")
 public class PersonDeleteServlet extends HttpServlet {
 
     private PersonService personService=PersonService.getPersonService();

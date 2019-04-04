@@ -9,13 +9,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Категории</title>
 </head>
 <body>
 <div>
     <c:forEach var="category" items="${requestScope.categories}">
-        <a>${category.name}</a><br>
+        <a href="${pageContext.request.contextPath}/resources-by-category-list?id=${category.id}">Поиск по категории ${category.name}</a>
     </c:forEach>
 </div>
+<a href="${pageContext.request.contextPath}/category-save">Сохранить категорию</a>
+<a href="${pageContext.request.contextPath}/category-delete">Удалить категорию</a>
 </body>
 </html>

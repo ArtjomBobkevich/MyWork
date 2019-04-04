@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<h1> Ого! Ошибочка </h1>
+<h1> Ого! Ошибочка 500 </h1>
 </body>
 </html>

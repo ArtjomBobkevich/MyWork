@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Жанр сохранить</title>
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/save-genre" method="post">

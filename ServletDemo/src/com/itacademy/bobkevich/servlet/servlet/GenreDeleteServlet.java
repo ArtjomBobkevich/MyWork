@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/delete-genre")
+@WebServlet(value = "/delete-genre",name = "GenreDeleteServlet")
 public class GenreDeleteServlet extends HttpServlet {
 
     private GenreService genreService = GenreService.getGenreService();
