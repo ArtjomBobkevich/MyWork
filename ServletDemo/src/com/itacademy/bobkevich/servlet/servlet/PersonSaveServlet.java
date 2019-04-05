@@ -47,6 +47,10 @@ public class PersonSaveServlet extends HttpServlet {
                         .build())
                 .build();
 
-        personService.save(newPerson);
+//        if (req.toString().equals("")||req.toString().equals(" ")){
+//            resp.sendRedirect("/save-person?login_name=&error=true");
+//        }else {
+            personService.save(newPerson);
+//        }
     }
 }

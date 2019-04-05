@@ -50,7 +50,7 @@ public class FirstFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        if (isRegistrationPage(servletRequest) ||isLoginPage(servletRequest)|| isUserAuthenticated(servletRequest)){
+        if (isLocalePage(servletRequest)||isRegistrationPage(servletRequest) ||isLoginPage(servletRequest)|| isUserAuthenticated(servletRequest)){
             filterChain.doFilter(servletRequest,servletResponse);
         } else {
             ((HttpServletResponse) servletResponse).sendRedirect("/login");
@@ -70,5 +70,10 @@ public class FirstFilter implements Filter {
     private boolean isRegistrationPage (ServletRequest servletRequest){
         String uri = ((HttpServletRequest)servletRequest).getRequestURI();
         return uri.contains("/save-person");
+    }
+
+    private boolean isLocalePage (ServletRequest servletRequest){
+        String uri = ((HttpServletRequest)servletRequest).getRequestURI();
+        return uri.contains("/locale");
     }
 }

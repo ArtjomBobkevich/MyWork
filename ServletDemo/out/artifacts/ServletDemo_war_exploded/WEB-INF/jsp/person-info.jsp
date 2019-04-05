@@ -18,5 +18,6 @@
 Возраст <span>${requestScope.person.age}</span><br>
 Почта <span>${requestScope.person.mail}</span><br>
 Права <span>${requestScope.person.personRole}</span><br>
+<a href="${pageContext.request.contextPath}/delete-person">Удалить пользователя</a><br>
 </body>
 </html>
