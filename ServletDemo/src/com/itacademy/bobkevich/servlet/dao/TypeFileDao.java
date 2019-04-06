@@ -8,6 +8,8 @@ import com.itacademy.bobkevich.servlet.entity.Person;
 import com.itacademy.bobkevich.servlet.entity.Resource;
 import com.itacademy.bobkevich.servlet.entity.TypeFile;
 //import com.itacademy.bobkevich.servlet.util.Connectionmanager;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 
 import java.sql.Connection;
@@ -21,6 +23,7 @@ import java.util.Optional;
 
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TypeFileDao {
 
     private static final TypeFileDao TYPE_FILE_DAO = new TypeFileDao();

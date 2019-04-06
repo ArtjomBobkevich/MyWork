@@ -2,6 +2,8 @@ package com.itacademy.bobkevich.servlet.dao;
 
 import com.itacademy.bobkevich.servlet.connection.ConnectionPool;
 import com.itacademy.bobkevich.servlet.entity.*;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 
 import java.sql.Connection;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class GenreDao {
 
     private static final GenreDao GENRE_DAO = new GenreDao();

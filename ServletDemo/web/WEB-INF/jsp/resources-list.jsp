@@ -30,5 +30,6 @@
     <a href="${pageContext.request.contextPath}/resource-info?id=${resource.id}"><fmt:message key ="resource_info.message" /></a>
 </c:forEach>
 </div>
+<a href="${pageContext.request.contextPath}/logout">Logout</a>
 </body>
 </html>

@@ -7,17 +7,28 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-    <title>пользователь подробности</title>
+    <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
+    <fmt:setBundle basename="messages"/>
+    <title><fmt:message key ="person_info.message" /></title>
 </head>
 <body>
-Логин <span>${requestScope.person.login}</span><br>
-Имя <span>${requestScope.person.first_name}</span><br>
-Фамилия <span>${requestScope.person.last_name}</span><br>
-Возраст <span>${requestScope.person.age}</span><br>
-Почта <span>${requestScope.person.mail}</span><br>
-Права <span>${requestScope.person.personRole}</span><br>
-<a href="${pageContext.request.contextPath}/delete-person">Удалить пользователя</a><br>
+<fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
+<fmt:setBundle basename="messages"/>
+<div>
+    <a href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
+    <a href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
+
+</div>
+<fmt:message key ="person_info_login.message" /> <span>${requestScope.person.login}</span><br>
+<fmt:message key ="person_info_name.message" /> <span>${requestScope.person.first_name}</span><br>
+<fmt:message key ="person_info_last_name.message" /> <span>${requestScope.person.last_name}</span><br>
+<fmt:message key ="person_info_age.message" /> <span>${requestScope.person.age}</span><br>
+<fmt:message key ="person_info_mail.message" /> <span>${requestScope.person.mail}</span><br>
+<fmt:message key ="person_info_access.message" /> <span>${requestScope.person.personRole}</span><br>
+<a href="${pageContext.request.contextPath}/delete-person"><fmt:message key ="person_delete.message" /></a><br>
+<a href="${pageContext.request.contextPath}/logout">Logout</a>
 </body>
 </html>

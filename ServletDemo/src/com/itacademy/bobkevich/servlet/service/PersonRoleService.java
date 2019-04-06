@@ -2,9 +2,13 @@ package com.itacademy.bobkevich.servlet.service;
 
 import com.itacademy.bobkevich.servlet.dao.PersonRoleDao;
 import com.itacademy.bobkevich.servlet.entity.PersonRole;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 
 import java.util.Optional;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PersonRoleService {
 
     private static final PersonRoleService PERSON_ROLE_SERVICE = new PersonRoleService();

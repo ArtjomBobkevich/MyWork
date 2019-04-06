@@ -24,12 +24,13 @@
 </div>
 <div>
     <a href="${pageContext.request.contextPath}/resources-list"><fmt:message key ="resources_list.message" /></a><br>
-    <a href="${pageContext.request.contextPath}/categories-list">Все категории</a><br>
-    <a href="${pageContext.request.contextPath}/genres-list">Все жанры</a><br>
-    <a href="${pageContext.request.contextPath}/typefiles-list">Все типы файлов</a><br>
-    <a href="${pageContext.request.contextPath}/save-resource">Сохранить ресурс</a><br>
-    <a href="${pageContext.request.contextPath}/delete-resource">Удалить ресурс</a><br>
-    <a href="${pageContext.request.contextPath}/personList-info">Все пользователи</a><br>
+    <a href="${pageContext.request.contextPath}/categories-list"><fmt:message key ="categories_list.message" /></a><br>
+    <a href="${pageContext.request.contextPath}/genres-list"><fmt:message key ="genres.message" /></a><br>
+    <a href="${pageContext.request.contextPath}/typefiles-list"><fmt:message key ="typefiles_list.message" /></a><br>
+    <a href="${pageContext.request.contextPath}/save-resource"><fmt:message key ="save_resource.message" /></a><br>
+    <a href="${pageContext.request.contextPath}/delete-resource"><fmt:message key ="delete_resource.message" /></a><br>
+    <a href="${pageContext.request.contextPath}/personList-info"><fmt:message key ="person_list.message" /></a><br>
 </div>
+<a href="${pageContext.request.contextPath}/logout">Logout</a>
 </body>
 </html>

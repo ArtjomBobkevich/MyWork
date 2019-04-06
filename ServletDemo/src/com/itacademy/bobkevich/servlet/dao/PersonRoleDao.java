@@ -3,6 +3,8 @@ package com.itacademy.bobkevich.servlet.dao;
 import com.itacademy.bobkevich.servlet.connection.ConnectionPool;
 import com.itacademy.bobkevich.servlet.entity.PersonRole;
 //import com.itacademy.bobkevich.servlet.util.Connectionmanager;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 
 import java.sql.Connection;
@@ -12,6 +14,7 @@ import java.util.Optional;
 
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PersonRoleDao {
 
     private static final PersonRoleDao PERSON_ROLE_DAO = new PersonRoleDao();

@@ -56,5 +56,6 @@
     </div>
     <input type="submit" value="<fmt:message key ="save_name.message" />">
 </form>
+<a href="${pageContext.request.contextPath}/logout">Logout</a>
 </body>
 </html>
