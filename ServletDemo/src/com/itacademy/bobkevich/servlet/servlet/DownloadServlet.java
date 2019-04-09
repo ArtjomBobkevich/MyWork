@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-@WebServlet("/download")
+@WebServlet(value = "/download",name = "DownloadServlet")
 public class DownloadServlet extends HttpServlet {
 
     private ResourceService resourceService = com.itacademy.bobkevich.servlet.service.ResourceService.getResourceService();

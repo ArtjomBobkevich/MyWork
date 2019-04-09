@@ -36,7 +36,7 @@ public class CategoryDao {
                     "c.category_name AS category_name " +
                     "FROM cloud_storage.category c " +
                     "WHERE c.id=?";
-    private static final String DELETE = "DELETE FROM cloud_storage.category WHERE category_name=?";
+    private static final String DELETE = "DELETE FROM cloud_storage.category WHERE id=?";
     private static final String SAVE = "INSERT INTO cloud_storage.category  (category_name) VALUES (?);";
     private static final String UPDATE = "UPDATE cloud_storage.category SET category_name=? WHERE id=?";
 
@@ -111,7 +111,7 @@ public class CategoryDao {
         boolean result = false;
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
-            preparedStatement.setString(1, category.getName());
+            preparedStatement.setLong(1, category.getId());
 
             if (preparedStatement.executeUpdate() == 1) {
                 result = true;

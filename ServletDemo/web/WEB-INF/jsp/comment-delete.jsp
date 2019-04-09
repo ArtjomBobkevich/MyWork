@@ -26,7 +26,7 @@
     <div>
         <select name="commentId" id="commentId">
             <c:forEach var="commentId" items="${requestScope.commentaries}">
-                <option value="${commentId.text}">${commentId.text}</option>
+                <option value="${commentId.id}">${commentId.text}</option>
             </c:forEach>
         </select>
     </div>

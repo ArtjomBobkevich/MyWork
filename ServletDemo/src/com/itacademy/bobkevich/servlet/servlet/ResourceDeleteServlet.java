@@ -20,6 +20,7 @@ public class ResourceDeleteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("resources",resourceService.findAll());
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("delete-resource"))
@@ -31,6 +32,7 @@ public class ResourceDeleteServlet extends HttpServlet {
 
         req.setCharacterEncoding(StandardCharsets.UTF_8.name());
         Resource resource = Resource.builder()
+                .id(Long.parseLong(req.getParameter("resourceId")))
                 .resourceName(req.getParameter("name"))
                 .build();
         resourceService.delete(resource);

@@ -21,6 +21,7 @@ public class GenreDeleteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("genres",genreService.findAll());
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("delete-genre"))
@@ -32,6 +33,7 @@ public class GenreDeleteServlet extends HttpServlet {
 
         req.setCharacterEncoding(StandardCharsets.UTF_8.name());
         Genre genre = Genre.builder()
+                .id(Long.parseLong(req.getParameter("genreId")))
                 .name(req.getParameter("name"))
                 .build();
         genreService.delete(genre);

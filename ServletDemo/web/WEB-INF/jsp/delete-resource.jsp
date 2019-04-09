@@ -24,9 +24,11 @@
 </div>
 <form action="${pageContext.request.contextPath}/delete-resource" method="post">
     <div>
-        <label for="name"><fmt:message key ="delete_resource_name.message" />
-            <input id="name" type="text" name="name"/>
-        </label><br>
+        <select name="resourceId" id="resourceId">
+            <c:forEach var="resourceId" items="${requestScope.resources}">
+                <option value="${resourceId.id}">${resourceId.resourceName}</option>
+            </c:forEach>
+        </select>
     </div>
     <input type="submit" value="<fmt:message key ="delete_name.message" />">
 </form>

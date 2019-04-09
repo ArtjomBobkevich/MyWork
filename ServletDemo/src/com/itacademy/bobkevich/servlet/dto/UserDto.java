@@ -15,4 +15,9 @@ public class UserDto {
     private String login;
     private String password;
     private String personRole;
+
+    @Override  /*тут намутил*/
+    public String toString() {
+        return  login;
+    }
 }

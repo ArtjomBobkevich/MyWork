@@ -38,7 +38,7 @@ public class TypeFileDao {
                     "t.name_of_type AS name " +
                     "FROM cloud_storage.type_file t " +
                     "WHERE t.id=?";
-    private static final String DELETE = "DELETE FROM cloud_storage.type_file WHERE name_of_type=?";
+    private static final String DELETE = "DELETE FROM cloud_storage.type_file WHERE id=?";
     private static final String SAVE = "INSERT INTO cloud_storage.type_file (name_of_type) VALUES (?);";
     private static final String UPDATE = "UPDATE cloud_storage.type_file SET name_of_type=? WHERE id=?";
 
@@ -111,7 +111,7 @@ public class TypeFileDao {
         boolean result = false;
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
-            preparedStatement.setString(1, typeFile.getName());
+            preparedStatement.setLong(1, typeFile.getId());
 
             if (preparedStatement.executeUpdate() == 1) {
                 result = true;

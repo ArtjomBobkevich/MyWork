@@ -21,6 +21,7 @@ public class TypeFileDeleteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("typeFiles",typeFileService.findAll());
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("typefile-delete"))
@@ -32,6 +33,7 @@ public class TypeFileDeleteServlet extends HttpServlet {
 
         req.setCharacterEncoding(StandardCharsets.UTF_8.name());
         TypeFile typeFile = TypeFile.builder()
+                .id(Long.parseLong(req.getParameter("typeFileId")))
                 .name(req.getParameter("name"))
                 .build();
         typeFileService.delete(typeFile);

@@ -24,9 +24,11 @@
 </div>
 <form action="${pageContext.request.contextPath}/delete-genre" method="post">
     <div>
-        <label for="name"><fmt:message key ="save_genre_nameOfGenre.message" />
-            <input id="name" type="text" name="name" value="${param.name}"/>
-        </label><br>
+    <select name="genreId" id="genreId">
+        <c:forEach var="genreId" items="${requestScope.genres}">
+            <option value="${genreId.id}">${genreId.name}</option>
+        </c:forEach>
+    </select>
     </div>
     <input type="submit" value="<fmt:message key ="delete_name.message" />">
 </form>

@@ -10,7 +10,9 @@ import java.io.IOException;
 
 import static java.util.Objects.nonNull;
 
-@WebFilter(servletNames = {"CategoryDeleteServlet", "CategorySaveServlet", "CommentDeleteServlet", "GenreSaveServlet", "GenreDeleteServlet", "PersonDeleteServlet", "PersonInfoServlet", "ResourceDeleteServlet", "TypeFileDelete", "TypeFileSaveServlet"})
+@WebFilter(servletNames = {"CategoryDeleteServlet", "CategorySaveServlet", "CommentDeleteServlet", "GenreSaveServlet",
+        "GenreDeleteServlet", "PersonDeleteServlet", "PersonInfoServlet", "ResourceDeleteServlet", "TypeFileDelete",
+        "TypeFileSaveServlet","DownloadServlet"})
 public class SecondFilter implements Filter {
 
     @Override

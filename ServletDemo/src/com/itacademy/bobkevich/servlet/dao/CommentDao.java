@@ -78,8 +78,8 @@ public class CommentDao {
                     "LEFT JOIN cloud_storage.person p " +
                     "ON r.login_who_giving=p.login " +
                     "WHERE c.id=?";
-    private static final String DELETE = "DELETE FROM cloud_storage.comment WHERE text=?";
-    private static final String SAVE = "INSERT INTO cloud_storage.comment  (resource_id, text) VALUES ((SELECT id FROM cloud_storage.resource WHERE resource_name=?),?);";
+    private static final String DELETE = "DELETE FROM cloud_storage.comment WHERE id=?";
+    private static final String SAVE = "INSERT INTO cloud_storage.comment  (resource_id, text) VALUES (?/*(SELECT id FROM cloud_storage.resource WHERE resource_name=?)*/,?);";
     private static final String UPDATE = "UPDATE cloud_storage.comment SET resource_id=?, text=? WHERE id=?";
     private static final String GET_COMMENTS_BY_RESOURCE_ID = "SELECT " +
             "com.id AS comment_id," +
@@ -188,7 +188,7 @@ public class CommentDao {
     public Comment commentSave(Comment comment) {
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE, Statement.RETURN_GENERATED_KEYS)) {
-            preparedStatement.setObject(1, Optional.ofNullable(comment.getResource_id()).map(Resource::getResourceName).orElse(null));
+            preparedStatement.setObject(1, Optional.ofNullable(comment.getResource_id()).map(Resource::getId).orElse(null));
             preparedStatement.setObject(2, comment.getText());
 
             preparedStatement.executeUpdate();
@@ -233,7 +233,7 @@ public class CommentDao {
         boolean result = false;
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
-            preparedStatement.setString(1, comment.getText());
+            preparedStatement.setLong(1, comment.getId());
 
             if (preparedStatement.executeUpdate() == 1) {
                 result = true;

@@ -48,10 +48,10 @@ public class ResourceDao {
                     "ON r.login_who_giving=p.login ";
     private static final String FIND_ONE =
             FIND_ALL + "WHERE r.id=?";
-    private static final String DELETE = "DELETE FROM cloud_storage.resource WHERE resource_name=?";
-    private static final String SAVE = "INSERT INTO cloud_storage.resource (resource_name, type_id , caterory_id, login_who_giving, url, file_size) VALUES (?,(SELECT id FROM cloud_storage.type_file WHERE name_of_type=?),(SELECT id FROM cloud_storage.category WHERE category_name=?),?,?,?);";
+    private static final String DELETE = "DELETE FROM cloud_storage.resource WHERE id=?";
+    private static final String SAVE = "INSERT INTO cloud_storage.resource (resource_name, type_id , caterory_id, login_who_giving, url, file_size) VALUES (?,?/*(SELECT id FROM cloud_storage.type_file WHERE name_of_type=?)*/,?/*(SELECT id FROM cloud_storage.category WHERE category_name=?)*/,?,?,?);";
     private static final String UPDATE = "UPDATE cloud_storage.resource SET resource_name=?, type_id=?, caterory_id=?, login_who_giving=?, url=?,file_size=? WHERE id=?";
-    private static final String ADD_GENRE = "INSERT INTO cloud_storage.resource_genre (resources_id, genre_id) VALUES ((SELECT id FROM cloud_storage.resource WHERE resource_name=?),(SELECT id FROM cloud_storage.genre WHERE name_of_genre=?));";
+    private static final String ADD_GENRE = "INSERT INTO cloud_storage.resource_genre (resources_id, genre_id) VALUES (?/*(SELECT id FROM cloud_storage.resource WHERE resource_name=?)*/,?/*(SELECT id FROM cloud_storage.genre WHERE name_of_genre=?)*/);";
     private static final String GET_RESOURCES_BY_GENRE_ID = "SELECT " +
             "r.id AS resource_id, " +
             "r.resource_name AS resource_name, " +
@@ -221,8 +221,8 @@ public class ResourceDao {
         Set<Genre> genres = new HashSet<>();
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(ADD_GENRE,RETURN_GENERATED_KEYS)) {
-            preparedStatement.setObject(1, Optional.ofNullable(resource.getResourceName()).orElse(null));
-            preparedStatement.setObject(2, Optional.ofNullable(genre.getName()).orElse(null));
+            preparedStatement.setObject(1, Optional.ofNullable(resource.getId()).orElse(null));
+            preparedStatement.setObject(2, Optional.ofNullable(genre.getId()).orElse(null));
 
             preparedStatement.executeUpdate();
             genres.add(genre);
@@ -235,8 +235,8 @@ public class ResourceDao {
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE, RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, resource.getResourceName());
-            preparedStatement.setObject(2, Optional.ofNullable(resource.getTypeFile()).map(TypeFile::getName).orElse(null));
-            preparedStatement.setObject(3, Optional.ofNullable(resource.getCategory()).map(Category::getName).orElse(null));
+            preparedStatement.setObject(2, Optional.ofNullable(resource.getTypeFile()).map(TypeFile::getId).orElse(null));
+            preparedStatement.setObject(3, Optional.ofNullable(resource.getCategory()).map(Category::getId).orElse(null));
             preparedStatement.setObject(4, Optional.ofNullable(resource.getPerson()).map(Person::getLogin).orElse(null));
             preparedStatement.setObject(5, resource.getUrl());
             preparedStatement.setObject(6, resource.getSize());
@@ -321,7 +321,7 @@ public class ResourceDao {
         boolean result = false;
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
-            preparedStatement.setString(1, resource.getResourceName());
+            preparedStatement.setLong(1, resource.getId());
 
             if (preparedStatement.executeUpdate() == 1) {
                 result = true;

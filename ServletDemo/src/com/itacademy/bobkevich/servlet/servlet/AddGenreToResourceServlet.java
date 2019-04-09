@@ -46,6 +46,7 @@ public class AddGenreToResourceServlet extends HttpServlet {  /*пока не к
                 .build();
 
         resourceService.addGenre(resource,createNewGenreDto);
+        resp.sendRedirect("/add-genre-to-resource");
 
     }
 }

@@ -23,11 +23,13 @@
 
 </div>
     <form action="${pageContext.request.contextPath}/typefile-delete" method="post">
-    <div>
-        <label for="name">Тип файла
-            <input id="name" type="text" name="name" value="${param.name}"/>
-        </label><br>
-    </div>
+        <div>
+            <select name="typeFileId" id="typeFileId">
+                <c:forEach var="typeFileId" items="${requestScope.typeFiles}">
+                    <option value="${typeFileId.id}">${typeFileId.name}</option>
+                </c:forEach>
+            </select>
+        </div>
     <input type="submit" value="<fmt:message key ="delete_name.message" />">
 </form>
 <a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>

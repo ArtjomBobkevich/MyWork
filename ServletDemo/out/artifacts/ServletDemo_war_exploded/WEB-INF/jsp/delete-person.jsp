@@ -24,9 +24,11 @@
 </div>
 <form action="${pageContext.request.contextPath}/delete-person" method="post">
     <div>
-        <label for="login"><fmt:message key ="person_info_login.message" />
-            <input id="login" type="text" name="login"/>
-        </label><br>
+        <select name="login" id="login">
+            <c:forEach var="login" items="${requestScope.logins}">
+                <option value="${login.login}">${login.login}</option>
+            </c:forEach>
+        </select>
     </div>
     <input type="submit" value="<fmt:message key ="delete_name.message" />">
 </form>

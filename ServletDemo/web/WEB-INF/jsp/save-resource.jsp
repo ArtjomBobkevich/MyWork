@@ -29,23 +29,32 @@
         </label><br>
     </div>
     <div>
-        <label for="name_of_type_file"><fmt:message key ="save_resource_type.message" />
-            <input id="name_of_type_file" type="text" name="name_of_type_file"/>
-        </label><br>
+        <select name="typeFileId" id="typeFileId">
+            <c:forEach var="typeFileId" items="${requestScope.typefiles}">
+                <option value="${typeFileId.id}">${typeFileId.name}</option>
+            </c:forEach>
+        </select>
     </div>
     <div>
-        <label for="name_of_category"><fmt:message key ="save_resource_category.message" />
-            <input id="name_of_category" type="text" name="name_of_category"/>
-        </label><br>
+        <select name="categoryId" id="categoryId">
+            <c:forEach var="categoryId" items="${requestScope.categories}">
+                <option value="${categoryId.id}">${categoryId.name}</option>
+            </c:forEach>
+        </select>
     </div>
     <div>
-        <label for="login"><fmt:message key ="save_resource_login.message" />
-            <input id="login" type="text" name="login"/>
-        </label><br>
+        <%--<label for="login"><fmt:message key ="resource_info_author.message" />--%>
+            <%--<input id="login" type="text" name="login"/>--%>
+        <%--</label><br>--%>
+        <%--<select name="login" id="login">--%>
+            <%--<c:forEach var="login" items="${requestScope.logins}">--%>
+                <%--<option value="${login.login}">${login.login}</option>--%>
+            <%--</c:forEach>--%>
+        <%--</select>--%>
     </div>
     <div>
         <label for="url"><fmt:message key ="save_resource_url.message" />
-            <input id="url" type="text" name="url"/>
+            <input id="url" type="url" name="url"/>
         </label><br>
     </div>
     <div>

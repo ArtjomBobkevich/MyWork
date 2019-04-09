@@ -31,7 +31,7 @@ public class GenreDao {
                     "FROM cloud_storage.genre g " +
                     "WHERE g.id=?";
     private static final String SAVE = "INSERT INTO cloud_storage.genre (name_of_genre) VALUES (?)";
-    private static final String DELETE = "DELETE FROM cloud_storage.genre WHERE name_of_genre=?";
+    private static final String DELETE = "DELETE FROM cloud_storage.genre WHERE id=?";
     private static final String UPDATE = "UPDATE cloud_storage.genre SET name_of_genre=? WHERE id=?";
 
     @SneakyThrows
@@ -102,7 +102,7 @@ public class GenreDao {
         boolean result = false;
         try (Connection connection = ConnectionPool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
-            preparedStatement.setString(1, genre.getName());
+            preparedStatement.setLong(1, genre.getId());
 
             if (preparedStatement.executeUpdate() == 1) {
                 result = true;
