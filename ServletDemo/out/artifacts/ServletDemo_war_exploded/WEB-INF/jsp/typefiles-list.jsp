@@ -24,11 +24,12 @@
 </div>
 <div>
     <c:forEach var="typefile" items="${requestScope.typefiles}">
-        <a href="${pageContext.request.contextPath}/resources-by-typefile-list?id=${typefile.id}"><fmt:message key ="find_by.message" /> ${typefile.name}</a>
+        <a href="${pageContext.request.contextPath}/resources-by-typefile-list?id=${typefile.id}"><fmt:message key ="find_by.message" /> ${typefile.name}</a><br>
     </c:forEach>
 </div>
-<a href="${pageContext.request.contextPath}/typefile-save"><fmt:message key ="typefile_save.message" /></a>
-<a href="${pageContext.request.contextPath}/typefile-delete"><fmt:message key ="typefile_delete.message" /></a>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
+<a href="${pageContext.request.contextPath}/typefile-save"><fmt:message key ="typefile_save.message" /></a><br>
+<a href="${pageContext.request.contextPath}/typefile-delete"><fmt:message key ="typefile_delete.message" /></a><br>
+<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

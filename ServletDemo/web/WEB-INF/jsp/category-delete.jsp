@@ -24,12 +24,15 @@
 </div>
 <form action="${pageContext.request.contextPath}/category-delete" method="post">
     <div>
-        <label for="name"><fmt:message key ="category_delete_nameOfCategory.message" />
-            <input id="name" type="text" name="name" value="${param.name}"/>
-        </label><br>
+        <select name="categoryId" id="categoryId">
+            <c:forEach var="categoryId" items="${requestScope.categories}">
+                <option value="${categoryId.id}">${categoryId.name}</option>
+            </c:forEach>
+        </select>
     </div>
     <input type="submit" value="<fmt:message key ="delete_name.message" />">
 </form>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
+<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

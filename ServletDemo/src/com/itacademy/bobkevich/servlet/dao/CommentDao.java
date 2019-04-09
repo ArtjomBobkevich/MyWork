@@ -27,7 +27,7 @@ public class CommentDao {
     private static final CommentDao COMMENT_DAO = new CommentDao();
     private static final String FIND_ALL =
             "SELECT " +
-                    " c.id AS comment_id, " +
+                    "c.id AS comment_id, " +
                     "c.resource_id AS resource_id, " +
                     "c.text AS text, " +
                     "r.id AS id, " +
@@ -113,14 +113,14 @@ public class CommentDao {
         return Comment.builder()
                 .id(resultSet.getLong("comment_id"))
                 .resource_id(Resource.builder()
-                        .id(resultSet.getLong("resource_id"))
+                        .id(resultSet.getLong("id"))
                         .resourceName(resultSet.getString("resource_name"))
                         .typeFile(TypeFile.builder()
-                                .id(resultSet.getLong("type_id"))
+                                .id(resultSet.getLong("type_file_id"))
                                 .name(resultSet.getString("type_file_name"))
                                 .build())
                         .category(Category.builder()
-                                .id(resultSet.getLong("id"))
+                                .id(resultSet.getLong("category_id"))
                                 .name(resultSet.getString("category_name"))
                                 .build())
                         .person(Person.builder()
@@ -129,7 +129,7 @@ public class CommentDao {
                         .url(resultSet.getString("url"))
                         .size(resultSet.getString("file_size"))
                         .build())
-                .text(resultSet.getString("comment_text"))
+                .text(resultSet.getString("text"))
                 .build();
     }
 

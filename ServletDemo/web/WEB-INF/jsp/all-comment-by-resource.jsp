@@ -26,6 +26,7 @@
     <c:forEach var="comment" items="${requestScope.comment}">
     <a >${comment.text}</a><br>
     </c:forEach>
-        <a href="${pageContext.request.contextPath}/logout">Logout</a>
+        <a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a>
+        <a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

@@ -27,6 +27,7 @@
         <a href="${pageContext.request.contextPath}/person-info?login=${personList.login}"><fmt:message key ="person_info.message" /> ${personList.login}</a><br>
     </c:forEach>
 </div>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
+<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

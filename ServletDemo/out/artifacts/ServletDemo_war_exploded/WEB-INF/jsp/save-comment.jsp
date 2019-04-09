@@ -24,9 +24,11 @@
 </div>
 <form action="${pageContext.request.contextPath}/save-comment" method="post">
     <div>
-        <label for="name"><fmt:message key ="add_genre_to_resource_resourceName.message" />
-            <input id="name" type="text" name="name"/>
-        </label><br>
+        <select name="resourceId" id="resourceId">
+            <c:forEach var="resourceId" items="${requestScope.resources}">
+                <option value="${resourceId.id}">${resourceId.resourceName}</option>
+            </c:forEach>
+        </select>
     </div>
     <div>
         <label for="text"><fmt:message key ="comment.message" />
@@ -35,6 +37,7 @@
     </div>
     <input type="submit" value="<fmt:message key ="save_name.message" />">
 </form>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
+<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

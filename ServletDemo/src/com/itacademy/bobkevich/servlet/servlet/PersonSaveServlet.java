@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 @WebServlet("/save-person")
 public class PersonSaveServlet extends HttpServlet {
@@ -34,6 +35,7 @@ public class PersonSaveServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        req.setCharacterEncoding(StandardCharsets.UTF_8.name());
         CreateNewPersonDto newPerson = CreateNewPersonDto.builder()
                 .login(req.getParameter("login_name"))
                 .first_name(req.getParameter("firstName"))
@@ -46,11 +48,8 @@ public class PersonSaveServlet extends HttpServlet {
                         .nameOfRole("User")
                         .build())
                 .build();
-
-//        if (req.toString().equals("")||req.toString().equals(" ")){
-//            resp.sendRedirect("/save-person?login_name=&error=true");
-//        }else {
             personService.save(newPerson);
-//        }
+
+        resp.sendRedirect("/login");
     }
 }

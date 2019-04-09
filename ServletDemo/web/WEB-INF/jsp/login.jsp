@@ -40,6 +40,5 @@
     <input type="submit" value="<fmt:message key ="enter.message" />">
 </form>
 <a href="${pageContext.request.contextPath}/save-person"><fmt:message key ="registration.message" /></a>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
 </body>
 </html>

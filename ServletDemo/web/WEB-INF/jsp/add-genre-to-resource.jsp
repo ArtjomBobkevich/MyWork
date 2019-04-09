@@ -24,17 +24,22 @@
 </div>
 <form action="${pageContext.request.contextPath}/add-genre-to-resource" method="post">
     <div>
-        <label for="resourceName"><fmt:message key ="add_genre_to_resource_resourceName.message" />
-            <input id="resourceName" type="text" name="resourceName"/>
-        </label><br>
+        <select name="resourceId" id="resourceId">
+            <c:forEach var="resourceId" items="${requestScope.resourcesName}">
+                <option value="${resourceId.id}">${resourceId.resourceName}</option>
+            </c:forEach>
+        </select>
     </div>
     <div>
-        <label for="genreName"><fmt:message key ="add_genre_to_resource_genreName.message" />
-            <input id="genreName" type="text" name="genreName"/>
-        </label><br>
+        <select name="genreId" id="genreId">
+            <c:forEach var="genreId" items="${requestScope.genresName}">
+                <option value="${genreId.id}">${genreId.name}</option>
+            </c:forEach>
+        </select>
     </div>
     <input type="submit" value="<fmt:message key ="save_name.message" />">
 </form>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
+<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a>
+<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

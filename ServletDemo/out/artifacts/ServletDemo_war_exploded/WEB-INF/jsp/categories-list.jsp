@@ -24,11 +24,12 @@
 </div>
 <div>
     <c:forEach var="category" items="${requestScope.categories}">
-        <a href="${pageContext.request.contextPath}/resources-by-category-list?id=${category.id}"><fmt:message key ="resources_by_category_list.message" /> ${category.name}</a>
+        <a href="${pageContext.request.contextPath}/resources-by-category-list?id=${category.id}"><fmt:message key ="resources_by_category_list.message" /> ${category.name}</a><br>
     </c:forEach>
 </div>
-<a href="${pageContext.request.contextPath}/category-save"><fmt:message key ="category_save.message" /></a>
-<a href="${pageContext.request.contextPath}/category-delete"><fmt:message key ="category_delete.message" /></a>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
+<a href="${pageContext.request.contextPath}/category-save"><fmt:message key ="category_save.message" /></a><br>
+<a href="${pageContext.request.contextPath}/category-delete"><fmt:message key ="category_delete.message" /></a><br>
+<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a><br>
 </body>
 </html>

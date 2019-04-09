@@ -31,6 +31,7 @@
     <a href="${pageContext.request.contextPath}/delete-resource"><fmt:message key ="delete_resource.message" /></a><br>
     <a href="${pageContext.request.contextPath}/personList-info"><fmt:message key ="person_list.message" /></a><br>
 </div>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
+<a href="${pageContext.request.contextPath}/download">download</a>
+<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

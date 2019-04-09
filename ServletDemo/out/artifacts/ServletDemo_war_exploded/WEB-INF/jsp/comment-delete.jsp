@@ -24,12 +24,15 @@
 </div>
 <form action="${pageContext.request.contextPath}/comment-delete" method="post">
     <div>
-        <label for="text">Коментарий
-            <input id="text" type="text" name="text"/>
-        </label><br>
+        <select name="commentId" id="commentId">
+            <c:forEach var="commentId" items="${requestScope.commentaries}">
+                <option value="${commentId.text}">${commentId.text}</option>
+            </c:forEach>
+        </select>
     </div>
     <input type="submit" value="<fmt:message key ="delete_name.message" />">
 </form>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
+<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

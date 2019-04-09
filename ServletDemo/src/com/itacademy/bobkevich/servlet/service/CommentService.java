@@ -3,10 +3,7 @@ package com.itacademy.bobkevich.servlet.service;
 import com.itacademy.bobkevich.servlet.connection.ConnectionPool;
 import com.itacademy.bobkevich.servlet.dao.CommentDao;
 import com.itacademy.bobkevich.servlet.dao.GenreDao;
-import com.itacademy.bobkevich.servlet.dto.CreateNewCommentDto;
-import com.itacademy.bobkevich.servlet.dto.CreateNewGenreDto;
-import com.itacademy.bobkevich.servlet.dto.ViewCommentFullINfoDto;
-import com.itacademy.bobkevich.servlet.dto.ViewGenreInfoDto;
+import com.itacademy.bobkevich.servlet.dto.*;
 import com.itacademy.bobkevich.servlet.entity.Comment;
 import com.itacademy.bobkevich.servlet.entity.Genre;
 import lombok.AccessLevel;
@@ -25,6 +22,12 @@ import java.util.stream.Collectors;
 public class CommentService {
 
     private static final CommentService COMMENT_SERVICE = new CommentService();
+
+    public List<CreateNewCommentDto> findAll() {
+        return CommentDao.getCommentDao().findAll().stream()
+                .map(it -> new CreateNewCommentDto(it.getId(),it.getResource_id(), it.getText()))
+                .collect(Collectors.toList());
+    }
 
     public List<CreateNewCommentDto> allByResource(Long resourceId) {
         return CommentDao.getCommentDao().findAllByResource(resourceId).stream()

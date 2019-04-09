@@ -20,16 +20,16 @@
 <div>
     <a href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
     <a href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
-
 </div>
 <div>
 <c:forEach var="resource" items="${requestScope.resources}">
     <a >${resource.resourceName}</a><br>
     <a >${resource.typeFile}</a><br>
     <a >${resource.category}</a><br>
-    <a href="${pageContext.request.contextPath}/resource-info?id=${resource.id}"><fmt:message key ="resource_info.message" /></a>
+    <a href="${pageContext.request.contextPath}/resource-info?id=${resource.id}"><fmt:message key ="resource_info.message" /></a><br>
 </c:forEach>
 </div>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
+<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

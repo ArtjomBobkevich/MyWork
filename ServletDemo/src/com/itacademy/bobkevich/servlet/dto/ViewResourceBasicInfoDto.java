@@ -17,4 +17,13 @@ public class ViewResourceBasicInfoDto {
     private String resourceName;
     private String typeFile;
     private String category;
+
+    @Override
+    public String toString() {
+        return
+                "Title= " + resourceName + System.lineSeparator() +
+                "typeFile= " + typeFile + System.lineSeparator() +
+                "category= " + category + System.lineSeparator() +
+                        System.lineSeparator();
+    }
 }

@@ -24,11 +24,12 @@
 </div>
  <div>
      <c:forEach var="genre" items="${requestScope.genres}">
-         <a href="${pageContext.request.contextPath}/resources-by-genre-list?id=${genre.id}"><fmt:message key ="resources_by_genre.message" /> ${genre.name}</a>
+         <a href="${pageContext.request.contextPath}/resources-by-genre-list?id=${genre.id}"><fmt:message key ="resources_by_genre.message" /> ${genre.name}</a><br>
      </c:forEach>
  </div>
- <a href="${pageContext.request.contextPath}/save-genre"><fmt:message key ="save_genre.message" /></a>
- <a href="${pageContext.request.contextPath}/delete-genre"><fmt:message key ="delete_genre.message" /></a>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
+ <a href="${pageContext.request.contextPath}/save-genre"><fmt:message key ="save_genre.message" /></a><br>
+ <a href="${pageContext.request.contextPath}/delete-genre"><fmt:message key ="delete_genre.message" /></a><br>
+<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

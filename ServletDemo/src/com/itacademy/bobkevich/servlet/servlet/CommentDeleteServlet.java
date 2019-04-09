@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 @WebServlet(value = "/comment-delete",name = "CommentDeleteServlet")
 public class CommentDeleteServlet extends HttpServlet {
@@ -19,6 +20,7 @@ public class CommentDeleteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("commentaries",commentService.findAll());
 
         getServletContext()
                 .getRequestDispatcher(JspPath.get("comment-delete"))
@@ -28,8 +30,10 @@ public class CommentDeleteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Comment comment =Comment.builder() /*на этом пока остановился*/
+        req.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        Comment comment =Comment.builder()
                 .text(req.getParameter("text"))
+                .id(Long.parseLong(req.getParameter("commentId")))
                 .build();
         commentService.commentDelite(comment);
         resp.sendRedirect("/delete-info");

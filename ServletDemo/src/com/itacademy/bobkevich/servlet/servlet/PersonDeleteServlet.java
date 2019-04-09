@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 @WebServlet(value = "/delete-person",name = "PersonDeleteServlet")
 public class PersonDeleteServlet extends HttpServlet {
@@ -29,6 +30,7 @@ public class PersonDeleteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        req.setCharacterEncoding(StandardCharsets.UTF_8.name());
         Person person = Person.builder()
                 .login(req.getParameter("login"))
                 .build();

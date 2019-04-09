@@ -41,7 +41,7 @@
     </div>
     <div>
         <label for="age"><fmt:message key ="age.message" />
-            <input id="age" type="text" name="age"/>
+            <input id="age" type="number" name="age"/>
         </label><br>
     </div>
     <div>
@@ -56,6 +56,7 @@
     </div>
     <input type="submit" value="<fmt:message key ="save_name.message" />">
 </form>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
+<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 @WebServlet(value = "/delete-resource",name = "ResourceDeleteServlet")
 public class ResourceDeleteServlet extends HttpServlet {
@@ -28,6 +29,7 @@ public class ResourceDeleteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        req.setCharacterEncoding(StandardCharsets.UTF_8.name());
         Resource resource = Resource.builder()
                 .resourceName(req.getParameter("name"))
                 .build();

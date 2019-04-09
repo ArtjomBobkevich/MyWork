@@ -29,6 +29,7 @@
 <fmt:message key ="person_info_mail.message" /> <span>${requestScope.person.mail}</span><br>
 <fmt:message key ="person_info_access.message" /> <span>${requestScope.person.personRole}</span><br>
 <a href="${pageContext.request.contextPath}/delete-person"><fmt:message key ="person_delete.message" /></a><br>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
+<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

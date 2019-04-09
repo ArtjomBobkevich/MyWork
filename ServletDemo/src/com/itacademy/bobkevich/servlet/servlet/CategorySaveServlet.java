@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 @WebServlet(value = "/category-save",name = "CategorySaveServlet")
 public class CategorySaveServlet extends HttpServlet {
@@ -30,6 +31,7 @@ public class CategorySaveServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        req.setCharacterEncoding(StandardCharsets.UTF_8.name());
         CreateNewCategoryDto createNewCategoryDto = CreateNewCategoryDto.builder()
                 .name(req.getParameter("name"))
                 .build();
