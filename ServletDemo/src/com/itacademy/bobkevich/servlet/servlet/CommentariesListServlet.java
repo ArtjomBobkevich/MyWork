@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/commentaries-list")
+@WebServlet(value = "/commentaries-list",name = "commentaries-list")
 public class CommentariesListServlet extends HttpServlet {
 
     private CommentService commentService = CommentService.getCommentService();

@@ -25,7 +25,7 @@
 <form action="${pageContext.request.contextPath}/save-resource" method="post">
     <div>
         <label for="name"><fmt:message key ="save_resource_name.message" />
-            <input id="name" type="text" name="name"/>
+            <input id="name" type="text" name="name" required placeholder="title"/>
         </label><br>
     </div>
     <div>
@@ -43,23 +43,15 @@
         </select>
     </div>
     <div>
-        <%--<label for="login"><fmt:message key ="resource_info_author.message" />--%>
-            <%--<input id="login" type="text" name="login"/>--%>
-        <%--</label><br>--%>
-        <%--<select name="login" id="login">--%>
-            <%--<c:forEach var="login" items="${requestScope.logins}">--%>
-                <%--<option value="${login.login}">${login.login}</option>--%>
-            <%--</c:forEach>--%>
-        <%--</select>--%>
     </div>
     <div>
         <label for="url"><fmt:message key ="save_resource_url.message" />
-            <input id="url" type="url" name="url"/>
+            <input id="url" type="text" name="url" required placeholder="url"/>
         </label><br>
     </div>
     <div>
         <label for="size"><fmt:message key ="save_resource_size.message" />
-            <input id="size" type="text" name="size"/>
+            <input id="size" type="number" name="size" required placeholder="size"/>
         </label><br>
     </div>
     <input type="submit" value="<fmt:message key ="save_name.message" />">

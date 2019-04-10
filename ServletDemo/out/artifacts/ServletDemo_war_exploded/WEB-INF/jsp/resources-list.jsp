@@ -30,6 +30,7 @@
 </c:forEach>
 </div>
 <a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+<a href="${pageContext.request.contextPath}/commentaries-list"><fmt:message key ="commentaries.message" /></a>
 <a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

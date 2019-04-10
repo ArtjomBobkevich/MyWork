@@ -26,32 +26,32 @@
 <form action="${pageContext.request.contextPath}/save-person" method="post">
     <div>
         <label for="login_name"><fmt:message key ="login_name.message" />
-            <input id="login_name" type="text" name="login_name"/>
+            <input id="login_name" type="text" name="login_name" required placeholder="Login"/>
         </label><br>
     </div>
     <div>
         <label for="firstName"><fmt:message key ="firstName.message" />
-            <input id="firstName" type="text" name="firstName"/>
+            <input id="firstName" type="text" name="firstName" required placeholder="firstName"/>
         </label><br>
     </div>
     <div>
         <label for="lastName"><fmt:message key ="lastName.message" />
-            <input id="lastName" type="text" name="lastName"/>
+            <input id="lastName" type="text" name="lastName" required placeholder="lastName"/>
         </label><br>
     </div>
     <div>
         <label for="age"><fmt:message key ="age.message" />
-            <input id="age" type="number" name="age"/>
+            <input id="age" type="number" name="age" required placeholder="age"/>
         </label><br>
     </div>
     <div>
         <label for="mail"><fmt:message key ="mail.message" />
-            <input id="mail" type="text" name="mail"/>
+            <input id="mail" type="text" name="mail" required placeholder="mail"/>
         </label><br>
     </div>
     <div>
         <label for="password"><fmt:message key ="password_name.message" />
-            <input id="password" type="password" name="password"/>
+            <input id="password" type="password" name="password" required placeholder="password"/>
         </label><br>
     </div>
     <input type="submit" value="<fmt:message key ="save_name.message" />">

@@ -12,7 +12,7 @@ import static java.util.Objects.nonNull;
 
 @WebFilter(servletNames = {"CategoryDeleteServlet", "CategorySaveServlet", "CommentDeleteServlet", "GenreSaveServlet",
         "GenreDeleteServlet", "PersonDeleteServlet", "PersonInfoServlet", "ResourceDeleteServlet", "TypeFileDelete",
-        "TypeFileSaveServlet","DownloadServlet"})
+        "TypeFileSaveServlet","commentaries-list"})
 public class SecondFilter implements Filter {
 
     @Override
