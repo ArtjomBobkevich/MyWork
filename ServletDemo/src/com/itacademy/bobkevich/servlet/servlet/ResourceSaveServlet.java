@@ -29,7 +29,6 @@ public class ResourceSaveServlet extends HttpServlet {
     private TypeFileService typeFileService = TypeFileService.getTypeFileService();
     private CategoryService categoryService = CategoryService.getCategoryService();
     private PersonService personService = PersonService.getPersonService();
-    private static final String PATH = "localhost:8080/cloud/";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -60,7 +59,7 @@ public class ResourceSaveServlet extends HttpServlet {
                         .login(req.getSession().getAttribute("user").toString())
 //                        .login(req.getParameter("login"))
                         .build())
-                .url(PATH+req.getParameter("url"))
+                .url(req.getParameter("url"))
                 .size(req.getParameter("size"))
                 .build();
 

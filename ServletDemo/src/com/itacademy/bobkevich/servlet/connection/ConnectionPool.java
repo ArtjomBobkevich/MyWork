@@ -33,4 +33,3 @@ public final class ConnectionPool {
         return DATA_SOURCE.getConnection();
     }
 }
-
