@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <context-param>
-        <param-name>tmpRootName</param-name>
+        <param-name>cloud</param-name>
         <param-value>C:\cloud\</param-value>
     </context-param>
     <error-page>

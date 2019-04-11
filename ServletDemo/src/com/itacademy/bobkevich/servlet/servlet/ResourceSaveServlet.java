@@ -1,9 +1,6 @@
 package com.itacademy.bobkevich.servlet.servlet;
 
-import com.itacademy.bobkevich.servlet.dto.CreateNewGenreDto;
 import com.itacademy.bobkevich.servlet.dto.CreateNewResourceDto;
-import com.itacademy.bobkevich.servlet.dto.ViewGenreInfoDto;
-import com.itacademy.bobkevich.servlet.dto.ViewResourceBasicInfoDto;
 import com.itacademy.bobkevich.servlet.dto.ViewResourceFullInfoDto;
 import com.itacademy.bobkevich.servlet.entity.Category;
 import com.itacademy.bobkevich.servlet.entity.Person;
@@ -29,6 +26,8 @@ public class ResourceSaveServlet extends HttpServlet {
     private TypeFileService typeFileService = TypeFileService.getTypeFileService();
     private CategoryService categoryService = CategoryService.getCategoryService();
     private PersonService personService = PersonService.getPersonService();
+
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -57,7 +56,6 @@ public class ResourceSaveServlet extends HttpServlet {
                         .build())
                 .person(Person.builder()
                         .login(req.getSession().getAttribute("user").toString())
-//                        .login(req.getParameter("login"))
                         .build())
                 .url(req.getParameter("url"))
                 .size(req.getParameter("size"))
