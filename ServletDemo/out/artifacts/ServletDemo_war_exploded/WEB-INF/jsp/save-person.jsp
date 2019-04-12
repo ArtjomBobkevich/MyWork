@@ -11,6 +11,11 @@
 
 <html>
 <head>
+    <style>
+        body {
+            background: url(/wallpaper.jpg);
+        }
+    </style>
     <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
     <fmt:setBundle basename="messages"/>
     <%@include file="style.jsp"%>
@@ -19,7 +24,7 @@
 <body>
 <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
 <fmt:setBundle basename="messages"/>
-<div>
+<div class="input-group mb-3">
     <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
     <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
 
@@ -55,9 +60,16 @@
             <input class="form-control" id="password" type="password" name="password" required placeholder="password"/>
         </label><br>
     </div>
-    <input class="btn btn-success" type="submit" value="<fmt:message key ="save_name.message" />"><br>
-    <a class="btn btn-primary" href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+    <div class="input-group mb-3">
+    <input class="btn btn-success" type="submit" value="<fmt:message key ="save_name.message" />">
+    </div>
+    <div class="input-group mb-3">
+    <a class="btn btn-primary" href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a>
+        </div>
+        <div class="input-group mb-3">
     <a class="btn btn-danger" href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
+        </div>
+
 </form>
 </body>
 </html>

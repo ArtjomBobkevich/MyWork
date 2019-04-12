@@ -10,6 +10,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
+    <style>
+        body {
+            background: url(/wallpaper.jpg);
+        }
+    </style>
     <%@include file="style.jsp"%>
     <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
     <fmt:setBundle basename="messages"/>
@@ -25,15 +30,15 @@
 </div>
 <form action="${pageContext.request.contextPath}/category-delete" method="post">
     <div>
-        <select name="categoryId" id="categoryId">
+        <select class="custom-select" name="categoryId" id="categoryId">
             <c:forEach var="categoryId" items="${requestScope.categories}">
                 <option value="${categoryId.id}">${categoryId.name}</option>
             </c:forEach>
         </select>
     </div>
-    <input type="submit" value="<fmt:message key ="delete_name.message" />">
+    <input class="btn btn-danger" type="submit" value="<fmt:message key ="delete_name.message" />">
 </form>
-<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
-<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
+<a class="btn btn-primary" href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+<a class="btn btn-danger" href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

@@ -10,6 +10,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
+    <style>
+        body {
+            background: url(/wallpaper.jpg);
+        }
+    </style>
     <%@include file="style.jsp"%>
     <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
     <fmt:setBundle basename="messages"/>
@@ -23,16 +28,19 @@
     <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
 
 </div>
-<div>
+<<div class="input-group mb-3">
     <c:forEach var="resource" items="${requestScope.resource}">
         <a >${resource.resourceName}</a><br>
         <a >${resource.typeFile}</a><br>
         <a >${resource.category}</a><br>
-        <a  class="btn btn-outline-success btn-sm" href="${pageContext.request.contextPath}/resource-info?id=${resource.id}"><fmt:message key ="resource_info.message" /></a><br>
+        <a class="btn btn-outline-success btn-sm" href="${pageContext.request.contextPath}/resource-info?id=${resource.id}"><fmt:message key ="resource_info.message" /></a><br>
     </c:forEach>
 </div>
-<br>
+<div class="input-group mb-3">
 <a class="btn btn-primary" href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
+</div>
+    <div class="input-group mb-3">
 <a class="btn btn-danger" href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
+    </div>
 </body>
 </html>

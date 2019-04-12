@@ -10,6 +10,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
+    <style>
+        body {
+            background: url(/wallpaper.jpg);
+        }
+    </style>
+    <%@include file="style.jsp"%>
     <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
     <fmt:setBundle basename="messages"/>
     <title><fmt:message key ="genres.message" /></title>
@@ -17,19 +23,19 @@
 <body>
 <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
 <fmt:setBundle basename="messages"/>
-<div>
-    <a href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
-    <a href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
+<div class="input-group mb-3">
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
 
 </div>
- <div>
+<div class="input-group mb-3">
      <c:forEach var="genre" items="${requestScope.genres}">
-         <a href="${pageContext.request.contextPath}/resources-by-genre-list?id=${genre.id}"><fmt:message key ="resources_by_genre.message" /> ${genre.name}</a><br>
+         <a class="btn btn-outline-success btn-sm" href="${pageContext.request.contextPath}/resources-by-genre-list?id=${genre.id}"><fmt:message key ="resources_by_genre.message" /> ${genre.name}</a>
      </c:forEach>
  </div>
- <a href="${pageContext.request.contextPath}/save-genre"><fmt:message key ="save_genre.message" /></a><br>
- <a href="${pageContext.request.contextPath}/delete-genre"><fmt:message key ="delete_genre.message" /></a><br>
-<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
-<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
+ <a class="btn btn-success" href="${pageContext.request.contextPath}/save-genre"><fmt:message key ="save_genre.message" /></a>
+ <a class="btn btn-danger" href="${pageContext.request.contextPath}/delete-genre"><fmt:message key ="delete_genre.message" /></a>
+<a class="btn btn-primary" href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a>
+<a class="btn btn-danger" href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

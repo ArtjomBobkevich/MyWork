@@ -10,12 +10,18 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
+    <style>
+        body {
+            background: url(/wallpaper.jpg);
+        }
+    </style>
     <%@include file="style.jsp"%>
     <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
     <fmt:setBundle basename="messages"/>
     <title><fmt:message key ="resource_info.message" /></title>
 </head>
 <body>
+<%@include file="style.jsp"%>
 <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
 <fmt:setBundle basename="messages"/>
 <div>
@@ -23,6 +29,7 @@
     <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
 
 </div>
+
 <fmt:message key ="resource_info_name.message" />: <span>${requestScope.resource.resourceName}</span><br>
 <fmt:message key ="resource_info_type.message" />: <span>${requestScope.resource.typeFile}</span><br>
 <fmt:message key ="resource_info_category.message" />: <span>${requestScope.resource.category}</span><br>

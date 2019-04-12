@@ -10,6 +10,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
+    <style>
+        body {
+            background: url(/wallpaper.jpg);
+        }
+    </style>
     <%@include file="style.jsp"%>
     <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
     <fmt:setBundle basename="messages"/>
@@ -33,7 +38,7 @@
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-    <div class="input-group-text">
+            <div class="input-group-text">
         <label for="text"><fmt:message key ="comment.message" />
             <input  id="text" type="text" name="text" class="form-control"/>
         </label><br>
