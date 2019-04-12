@@ -11,6 +11,7 @@
 
 <html>
 <head>
+    <%@include file="style.jsp"%>
     <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
     <fmt:setBundle basename="messages"/>
     <title><fmt:message key ="authorization.message" /></title>
@@ -19,26 +20,29 @@
 <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
 <fmt:setBundle basename="messages"/>
 <div>
-    <a href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
-    <a href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
 
 </div>
 <form action="${pageContext.request.contextPath}/login" method="post">
-    <div>
-        <label for="login"><fmt:message key ="username.message" />
-            <input id="login" type="text" name="login"/>
+    <div class="form-group">
+        <label for="login"><fmt:message key ="username.message" /><br>
+            <input class="form-control" id="login" type="text" name="login" aria-describedby="emailHelp" placeholder="Enter login"/>
+            <small id="emailHelp" class="form-text text-muted">Please, enter your login.</small>
         </label><br>
     </div>
-    <c:if test="${param.error}">
-        <span> Вы ввели не корректно логин</span><br>
-    </c:if>
+    <%--<c:if test="${param.error}">--%>
+        <%--<span> Вы ввели не корректно логин</span><br>--%>
+    <%--</c:if>--%>
     <div class="form-group">
         <label for="password"><fmt:message key ="password.message" />
-            <input id="password" type="password" name="password"/>
+            <input class="form-control" id="password" type="password" name="password" aria-describedby="passwordHelp" placeholder="Enter password"/>
+            <small id="passwordHelp" class="form-text text-muted">Please, enter your easy password.</small>
         </label><br>
     </div>
-    <input type="submit" value="<fmt:message key ="enter.message" />">
+    <input class="btn btn-primary" type="submit" value="<fmt:message key ="enter.message" />">
+    <a class="btn btn-primary" href="${pageContext.request.contextPath}/save-person"><fmt:message key ="registration.message" /></a>
 </form>
-<a href="${pageContext.request.contextPath}/save-person"><fmt:message key ="registration.message" /></a>
+
 </body>
 </html>

@@ -10,6 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
+    <%@include file="style.jsp"%>
     <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
     <fmt:setBundle basename="messages"/>
     <title><fmt:message key ="resources_by_genre.message" /></title>

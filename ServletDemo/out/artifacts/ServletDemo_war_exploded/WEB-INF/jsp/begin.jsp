@@ -10,6 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
+    <%@include file="style.jsp"%>
     <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
     <fmt:setBundle basename="messages"/>
     <title><fmt:message key ="main_page.message" /></title>
@@ -18,20 +19,23 @@
 <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
 <fmt:setBundle basename="messages"/>
 <div>
-    <a href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
-    <a href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
 
 </div>
 <div>
-    <a href="${pageContext.request.contextPath}/resources-list"><fmt:message key ="resources_list.message" /></a><br>
-    <a href="${pageContext.request.contextPath}/categories-list"><fmt:message key ="categories_list.message" /></a><br>
-    <a href="${pageContext.request.contextPath}/genres-list"><fmt:message key ="genres.message" /></a><br>
-    <a href="${pageContext.request.contextPath}/typefiles-list"><fmt:message key ="typefiles_list.message" /></a><br>
-    <a href="${pageContext.request.contextPath}/save-resource"><fmt:message key ="save_resource.message" /></a><br>
-    <a href="${pageContext.request.contextPath}/delete-resource"><fmt:message key ="delete_resource.message" /></a><br>
-    <a href="${pageContext.request.contextPath}/personList-info"><fmt:message key ="person_list.message" /></a><br>
+    <br>
+    <a class="btn btn-outline-success btn-sm" href="${pageContext.request.contextPath}/resources-list"><fmt:message key ="resources_list.message" /></a>
+    <a class="btn btn-outline-success btn-sm" href="${pageContext.request.contextPath}/categories-list"><fmt:message key ="categories_list.message" /></a>
+    <a class="btn btn-outline-success btn-sm" href="${pageContext.request.contextPath}/genres-list"><fmt:message key ="genres.message" /></a>
+    <a class="btn btn-outline-success btn-sm" href="${pageContext.request.contextPath}/typefiles-list"><fmt:message key ="typefiles_list.message" /></a>
+    <a class="btn btn-outline-success btn-sm" href="${pageContext.request.contextPath}/save-resource"><fmt:message key ="save_resource.message" /></a>
+    <a class="btn btn-outline-success btn-sm" href="${pageContext.request.contextPath}/delete-resource"><fmt:message key ="delete_resource.message" /></a>
+    <a class="btn btn-outline-success btn-sm" href="${pageContext.request.contextPath}/personList-info"><fmt:message key ="person_list.message" /></a>
+
 </div>
-<a href="${pageContext.request.contextPath}/download"><fmt:message key ="download.message" /></a>
-<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
+<br>
+<a class="btn btn-primary" href="${pageContext.request.contextPath}/download"><fmt:message key ="download.message" /></a>
+<a class="btn btn-danger" href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

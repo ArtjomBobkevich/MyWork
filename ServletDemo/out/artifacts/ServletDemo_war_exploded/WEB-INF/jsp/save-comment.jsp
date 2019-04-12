@@ -10,6 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
+    <%@include file="style.jsp"%>
     <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
     <fmt:setBundle basename="messages"/>
     <title><fmt:message key ="save_comment.message" /></title>
@@ -18,26 +19,30 @@
 <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
 <fmt:setBundle basename="messages"/>
 <div>
-    <a href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
-    <a href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
 
 </div>
 <form action="${pageContext.request.contextPath}/save-comment" method="post">
     <div>
-        <select name="resourceId" id="resourceId">
+        <select class="custom-select" name="resourceId" id="resourceId">
             <c:forEach var="resourceId" items="${requestScope.resources}">
                 <option value="${resourceId.id}">${resourceId.resourceName}</option>
             </c:forEach>
         </select>
     </div>
-    <div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+    <div class="input-group-text">
         <label for="text"><fmt:message key ="comment.message" />
-            <input id="text" type="text" name="text"/>
+            <input  id="text" type="text" name="text" class="form-control"/>
         </label><br>
+    </div>
+        </div>
     </div>
     <input type="submit" value="<fmt:message key ="save_name.message" />">
 </form>
-<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
-<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
+<a class="btn btn-primary" href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a>
+<a class="btn btn-danger" href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>

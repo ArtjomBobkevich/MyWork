@@ -10,6 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
+    <%@include file="style.jsp"%>
     <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
     <fmt:setBundle basename="messages"/>
     <title><fmt:message key ="category_delete.message" /></title>
@@ -18,8 +19,8 @@
 <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
 <fmt:setBundle basename="messages"/>
 <div>
-    <a href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
-    <a href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
 
 </div>
 <form action="${pageContext.request.contextPath}/category-delete" method="post">

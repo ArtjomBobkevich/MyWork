@@ -10,16 +10,24 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-    <title>Title</title>
+    <%@include file="style.jsp"%>
+    <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
+    <fmt:setBundle basename="messages"/>
+    <title><fmt:message key ="All_commentaries.message" /></title>
 </head>
 <body>
 <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
 <fmt:setBundle basename="messages"/>
 <div>
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
+
+</div>
+<div>
     <c:forEach var="comment" items="${requestScope.commentaries}">
         <a >${comment.text}</a><br>
     </c:forEach>
 </div>
-<a href="${pageContext.request.contextPath}/comment-delete"><fmt:message key ="delete_comment.message" /></a><br>
+<a class="btn btn-danger" href="${pageContext.request.contextPath}/comment-delete"><fmt:message key ="delete_comment.message" /></a><br>
 </body>
 </html>

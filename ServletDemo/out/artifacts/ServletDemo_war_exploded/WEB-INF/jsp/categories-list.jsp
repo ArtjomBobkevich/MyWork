@@ -10,6 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
+    <%@include file="style.jsp"%>
     <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
     <fmt:setBundle basename="messages"/>
     <title><fmt:message key ="categories_list.message" /></title>
@@ -18,18 +19,20 @@
 <fmt:setLocale value="${not empty sessionScope.lang ? sessionScope.lang : 'en_UK'}"/>
 <fmt:setBundle basename="messages"/>
 <div>
-    <a href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
-    <a href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
-
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=en_UK">ENG</a>
+    <a class="btn btn-warning" href="${pageContext.request.contextPath}/locale?language=ru_RU">RUS</a>
 </div>
 <div>
+    <br>
     <c:forEach var="category" items="${requestScope.categories}">
-        <a href="${pageContext.request.contextPath}/resources-by-category-list?id=${category.id}"><fmt:message key ="resources_by_category_list.message" /> ${category.name}</a><br>
+        <a class="btn btn-outline-success btn-sm" href="${pageContext.request.contextPath}/resources-by-category-list?id=${category.id}"><fmt:message key ="resources_by_category_list.message" /> ${category.name}</a>
     </c:forEach>
+
 </div>
-<a href="${pageContext.request.contextPath}/category-save"><fmt:message key ="category_save.message" /></a><br>
-<a href="${pageContext.request.contextPath}/category-delete"><fmt:message key ="category_delete.message" /></a><br>
-<a href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a><br>
-<a href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a><br>
+<br>
+<a class="btn btn-success" href="${pageContext.request.contextPath}/category-save"><fmt:message key ="category_save.message" /></a>
+<a class="btn btn-danger" href="${pageContext.request.contextPath}/category-delete"><fmt:message key ="category_delete.message" /></a>
+<a class="btn btn-primary" href="${pageContext.request.contextPath}/begin"><fmt:message key ="return.message" /></a>
+<a class="btn btn-danger" href="${pageContext.request.contextPath}/logout"><fmt:message key ="logout.message" /></a>
 </body>
 </html>
